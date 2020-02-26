@@ -1,20 +1,22 @@
-\documentclass[12pt,a4paper,twoside,openright,titlepage]{book}
+\documentclass[12pt,a4paper,oneside,openright,titlepage]{book}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 \usepackage{graphicx}
 \usepackage{lipsum}
 \usepackage{url}
-
-\mainmatter
-
+\pagestyle{empty}
 \begin{document}
+	\frontmatter
 	\input{inizio/frontespizio}
 	\input{inizio/dedica}
-	\tableofcontents
-	\addcontentsline{toc}{chapter}{\\ Bibliografia}
+	\tableofcontents	
 	\listoffigures
 	\listoftables
+	\mainmatter
+	\input{capitoli/introduzione}
+	\backmatter
+	\addcontentsline{toc}{chapter}{\\Bibliografia}
 	\input{inizio/bibliografia}
 \end{document}
 

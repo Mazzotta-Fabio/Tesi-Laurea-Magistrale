@@ -1,3 +1,7 @@
 \babel@toc {italian}{}
 \babel@toc {italian}{}
-\contentsline {chapter}{\\ Bibliografia}{3}% 
+\contentsline {chapter}{\numberline {1}Introduzione}{1}% 
+\contentsline {section}{\numberline {1.1}Paragrafo 1}{1}% 
+\contentsline {section}{\numberline {1.2}altra sezione}{1}% 
+\contentsline {subsection}{\numberline {1.2.1}paragrafo}{1}% 
+\contentsline {chapter}{\\Bibliografia}{2}% 

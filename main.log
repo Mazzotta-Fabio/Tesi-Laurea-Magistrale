@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.16)  25 FEB 2020 21:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.16)  26 FEB 2020 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -267,20 +267,20 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Info: Redefining \it@ocap on input line 11.
-LaTeX Info: Redefining \it@ccap on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Info: Redefining \it@ocap on input line 9.
+LaTeX Info: Redefining \it@ccap on input line 9.
 
 (c:/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -357,51 +357,63 @@ Package pdftex.def Info: logounisa.png  used on input line 9.
 
 
 {c:/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logounisa.png
->]) (./inizio/dedica.tex) [2] (./main.toc)
+>]) (./inizio/dedica.tex) [1] (./main.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 4.
+)
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
 
-[3
-
-] [4
+[2
 
 ] (./main.lof)
 \tf@lof=\write4
 \openout4 = `main.lof'.
 
- [5] [6
+ [3
 
 ] (./main.lot)
 \tf@lot=\write5
 \openout5 = `main.lot'.
 
- (./inizio/bibliografia.tex [7]
-[8
+ [4
 
-]) [9] (./main.aux) ) 
+] (./capitoli/introduzione.tex
+Capitolo 1.
+) [1
+
+
+] (./inizio/bibliografia.tex) [2
+
+
+] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 12966 strings out of 492167
- 240312 string characters out of 6129158
- 452443 words of memory out of 5000000
- 17254 multiletter control sequences out of 15000+600000
- 540310 words of font info for 35 fonts, out of 8000000 for 9000
+ 12987 strings out of 492167
+ 240561 string characters out of 6129158
+ 452393 words of memory out of 5000000
+ 17264 multiletter control sequences out of 15000+600000
+ 542704 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  46i,4n,67p,790b,317s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-su
-per-t1.enc}<c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb
-><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texli
-ve/2019/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2019/te
-xmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2019/texmf-dist/f
-onts/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2019/texmf-dist/fonts/type1
-/public/cm-super/sfrm1728.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm
--super/sfrm2074.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfr
-m2488.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb>
-<c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on main.pdf (9 pages, 235608 bytes).
+{c:/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
+1.enc}<c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/
+texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/20
+19/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2019/texmf-d
+ist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2019/texmf-dist/fonts/
+type1/public/cm-super/sfrm1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/publ
+ic/cm-super/sfrm1440.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-supe
+r/sfrm1728.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm2074
+.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb><c:/t
+exlive/2019/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on main.pdf (7 pages, 245372 bytes).
 PDF statistics:
- 78 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 72 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
