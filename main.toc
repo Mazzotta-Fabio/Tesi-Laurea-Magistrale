@@ -13,8 +13,8 @@
 \contentsline {subsection}{\numberline {2.2.6}Ricorsione a sinistra}{7}% 
 \contentsline {section}{\numberline {2.3}Parsing top down}{8}% 
 \contentsline {subsection}{\numberline {2.3.1}Parsing a discesa ricorsiva}{8}% 
-\contentsline {subsection}{\numberline {2.3.2}Funzioni FIRST e FOLLOW}{8}% 
-\contentsline {subsection}{\numberline {2.3.3}Gramatiche LL(1)}{8}% 
-\contentsline {subsection}{\numberline {2.3.4}Parsing predittivo non ricorsivo}{8}% 
-\contentsline {section}{\numberline {2.4}Conclusioni}{8}% 
-\contentsline {chapter}{\\Bibliografia}{9}% 
+\contentsline {subsection}{\numberline {2.3.2}Funzioni FIRST e FOLLOW}{9}% 
+\contentsline {subsection}{\numberline {2.3.3}Gramatiche LL(1)}{10}% 
+\contentsline {subsection}{\numberline {2.3.4}Parsing predittivo non ricorsivo}{10}% 
+\contentsline {section}{\numberline {2.4}Conclusioni}{10}% 
+\contentsline {chapter}{\\Bibliografia}{11}% 

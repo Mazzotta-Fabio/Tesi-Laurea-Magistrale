@@ -6,3 +6,4 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces \textit {Albero di parsing relativo alla stringa} \textbf {id} + \textbf {id} }}{6}% 
 \contentsline {figure}{\numberline {2.3}{\ignorespaces \textit {Sequenza di alberi di parsing relativi alla derivazione }\ref {derivazione1}}}{6}% 
 \contentsline {figure}{\numberline {2.4}{\ignorespaces \textit {Alberi di parsing relativi alla stringa } \textbf {id}+\textbf {id}*\textbf {id}}}{7}% 
+\contentsline {figure}{\numberline {2.5}{\ignorespaces \textit {Procedura di un non-terminale per un parser top down}}}{8}% 
