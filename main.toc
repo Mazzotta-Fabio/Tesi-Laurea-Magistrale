@@ -2,7 +2,7 @@
 \babel@toc {italian}{}
 \contentsline {chapter}{\numberline {1}Introduzione}{1}% 
 \contentsline {section}{\numberline {1.1}Obiettivi}{1}% 
-\contentsline {chapter}{\numberline {2}Parsing LL(1)}{2}% 
+\contentsline {chapter}{\numberline {2}Parsing top down}{2}% 
 \contentsline {section}{\numberline {2.1}Introduzione}{2}% 
 \contentsline {section}{\numberline {2.2}Grammatiche context-free}{3}% 
 \contentsline {subsection}{\numberline {2.2.1}Definizione di grammatica}{3}% 
@@ -14,7 +14,9 @@
 \contentsline {section}{\numberline {2.3}Parsing top down}{8}% 
 \contentsline {subsection}{\numberline {2.3.1}Parsing a discesa ricorsiva}{8}% 
 \contentsline {subsection}{\numberline {2.3.2}Funzioni FIRST e FOLLOW}{9}% 
-\contentsline {subsection}{\numberline {2.3.3}Gramatiche LL(1)}{10}% 
-\contentsline {subsection}{\numberline {2.3.4}Parsing predittivo non ricorsivo}{10}% 
-\contentsline {section}{\numberline {2.4}Conclusioni}{10}% 
-\contentsline {chapter}{\\Bibliografia}{11}% 
+\contentsline {subsection}{\numberline {2.3.3}Grammatiche LL(1)}{11}% 
+\contentsline {subsection}{\numberline {2.3.4}Parsing predittivo non ricorsivo}{12}% 
+\contentsline {section}{\numberline {2.4}Conclusioni}{13}% 
+\contentsline {chapter}{\numberline {3}GLL Parsing}{15}% 
+\contentsline {section}{\numberline {3.1}Presentazione iniziale}{15}% 
+\contentsline {chapter}{\\Bibliografia}{16}% 

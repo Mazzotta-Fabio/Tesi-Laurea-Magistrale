@@ -1,4 +1,4 @@
-\chapter{Parsing LL(1)}
+\chapter{Parsing top down}
 \section{Introduzione}
 Il parsing, o analisi sintattica, è una fase di compilazione  che viene utilizzata per definire la sintassi di un linguaggio di programmazione. In altre parole definisce la forma di un programma corretto. Utilizza i token \cite{libro: compilatori}, ossia sequenze di caratteri dotate di significato restituite da un analizzatore lessicale (Lexer); per produrre una rappresentazione intermedia ad albero che rappresenta la struttura grammaticale dei token. Una tipica rappresentazione è l'\textit{albero sintattico}, o \textit{syntax tree} in cui un nodo interno rappresenta un'operazione mentre i figli rappresentano gli argomenti dell'operazione; infine, questo albero prodotto, viene passato alle restanti fasi del processo di compilazione. Chiaramente, ci si aspetta che il parser sia in grado segnalare gli errori delle forme sintattiche sbagliate. In figura \ref{figParser} viene mostrato il funzionamento del parser.
 \par
@@ -198,20 +198,94 @@ Per calcolare FOLLOW(\textit{A}) per tutti i non-terminali \textit{A} si usano l
 \end{enumerate}
 Facciamo un esempio di come si calcolano FIRST e FOLLOW su una grammatica. Consideriamo la seguente grammatica:
 \begin{align}\label{grammatica2}
-	I  \to A \notag \\
-	A  \to S \notag \\ 
-	S  \to CC \notag \\
-	C  \to cC \mid d 
+	I  & \to A \notag \\
+	A  & \to S \notag \\ 
+	S  & \to CC \notag \\
+	C  & \to cC \mid d 
 \end{align}
 I FIRST e FOLLOW di questa grammatica sono:
 \begin{enumerate}
-	\item FIRST(\textit{I})=FIRST(\textit{A})=FIRST(\textit{S})=FIRST(\textit{C})=$\{$c,d$\}$.
-	\item FOLLOW(\textit{I})=FOLLOW(\textit{A})=FOLLOW(\textit{S})=$\{$$\$$$\}$.
-	\item FOLLOW(\textit{C})=$\{$c,d,$\$$$\}$.
+	\item FIRST(\textit{I})=FIRST(\textit{A})=FIRST(\textit{S})=FIRST(\textit{C})=$\{$c,d$\}$. Per capire il motivo di ciò, si noti che le due produzioni per \textit{C} hanno i corpi che iniziano con i due simboli terminali c e d. Poichè \textit{S}, ha solo una produzione che inizia per \textit{C} e non deriva $\epsilon$, il FIRST(\textit{S}) coincide con FIRST(\textit{C}). Lo stesso ragionamento lo si può applicare per FIRST(\textit{S}) e FIRST(\textit{A})
+	\item FOLLOW(\textit{I})=FOLLOW(\textit{A})=FOLLOW(\textit{S})=$\{$$\$$$\}$. Dato che \textit{I} è il simbolo iniziale, il FOLLOW(\textit{I}) deve contenere il carattere speciale $\$$. Poichè \textit{S} e \textit{A} appaiono da sole nel corpo di altre produzioni nè consegue che sono seguite dal simbolo di fine stringa $\$$. Pertanto il  FOLLOW(\textit{A}) e  FOLLOW(\textit{S}) coincide con il  FOLLOW(\textit{I}).
+	\item FOLLOW(\textit{C})=$\{$c,d,$\$$$\}$. All'interno di una produzione il simbolo \textit{C} è seguito da un altro simbolo \textit{C}. Pertanto il FOLLOW(\textit{C}) include i simboli del FIRST(\textit{C}). Inoltre essendo che il simbolo \textit{C} risulta essere l'ultimo simbolo all'interno di una produzione allora il simbolo $\$$ rientra nel FOLLOW(\textit{C}).
 \end{enumerate}
-\subsection{Gramatiche LL(1)}
-ceiocmeo
+\subsection{Grammatiche LL(1)}
+Un parser predittivo viene sempre costruito a partire da una grammatica della classe LL(1). La prima L \cite{libro: compilatori} indica che la stringa in input che si sta analizando viene letta da sinistra verso destra. La seconda L specifica che viene fatta una derivazione a sinistra; infine l'1 fra le parentesi indica che le decisioni del parser vengono fatte analizzando un solo simbolo di lookhead. Data una grammatica G con due produzioni \textit{A} $\to$ $\alpha$ $\mid$ $\beta$ è definita LL(1) se sono verificate le seguenti condizioni: $\ll$
+\begin{enumerate}
+	\item non esiste alcun terminale \textit{a} tale che sia $\alpha$ sia $\beta$ derivano stringhe che iniziano con \textit{a};
+	\item al più una tra $\alpha$ e $\beta$ deriva la stringa nulla $\epsilon$;
+	\item se $\beta$ $\overset{*}{\Rightarrow}$ $\epsilon$ non deriva alcuna stringa che inizia con un non terminale appartenente all'inisieme FOLLOW(\textit{A}); allo stesso modo, se $\alpha$ $\overset{*}{\Rightarrow}$ $\epsilon$, allora  $\beta$ non deriva alcuna stringa che inizia con un terminale in FOLLOW(\textit{A}). $\gg$
+\end{enumerate}
+Le prime due condizioni verificano che FIRST($\alpha$) e FIRST($\beta$) sono insiemi disgiunti. La terza condizione verifica che se $\epsilon$ appartiene a FIRST($\beta$) allora FIRST($\alpha$) e FOLLOW(\textit{A}) sono insiemi disgiunti; la stessa cosa vale se $\epsilon$ appartiene a FIRST($\alpha$). Quindi in base a ciò un parser predittivo per una grammatica LL(1) può essere sempre costruito se ad ogni passo di computazione posso sostituire un non-terminale con una sola produzione che viene scelta in base al simbolo di input corrente. Ovviamente nessuna grammatica ambigua e ricorsiva a sinistra può essere una grammatica LL(1). L'algoritmo seguente raccoglie le informazioni di FIRST e FOLLOW in una \textbf{tabella di parsing predittivo}, cioè una matrice bidimensionale \textit{M}[\textit{A},\textit{a}] dove \textit{A} è un non-terminale e \textit{a} è un terminale oppure il simbolo $\$$. L'algoritmo sceglie la produzione \textit{A} $\to$ $\alpha$ solo se il simbolo in input \textit{a} appartiene a FIRST($\alpha$). Quando invece abbiamo a che fare con derivazioni \textit{a} $\overset{*}{\Rightarrow}$ $\epsilon$, scegliamo sempre la produzione \textit{A} $\to$ $\alpha$ se il simbolo corrente appartiene al FOLLOW(\textit{A}) o si è raggiunto il simbolo $\$$ nella stringa in input e se tale simbolo appartiene a FOLLOW(\textit{A}).\par
+\textbf{\underline{Algoritmo 1}} Cotruzione di una tabella di parsing predittivo.\par 
+\vspace{0.2cm}\textbf{INPUT} Una grammatica \textit{G}.\par
+\textbf{OUTPUT} Una tabella di parsing M.\par 
+\textbf{METODO} Per ogni produzione \textit{A} $\to$ $\alpha$ della grammatica \textit{G} si svolgano i seguenti passi.
+\begin{enumerate}
+	\item Per ogni terminale \textit{a} in FIRST($\alpha$) si aggiunga \textit{A} $\to$ $\alpha$ a \textit{M}[\textit{A},\textit{a}].
+	\item Se $\epsilon$ appartiene a FIRST($\alpha$), allora per ogni terminale \textit{b} FOLLOW(\textit{A}) si aggiunga \textit{A} $\to$ $\alpha$ a \textit{M}[\textit{A},\textit{b}]. Se $\epsilon$ appartiene a FIRST($\alpha$) e $\$$ a FOLLOW(\textit{A}), si aggiunga \textit{A} $\to$ $\alpha$ anche a \textit{M}[\textit{A},$\$$].
+\end{enumerate}
+Se dopo questi passi non vi è alcuna produzione in \textit{M}[\textit{A},\textit{a}], si ha una condizione di errore, che viene indicata vuota nella casella corrispondente.\\ 
+Facciamo un esempio e prendiamo in riferimento grammatica \ref{grammatica2}. Applichiamo l'algoritmo precedente ed otteniamo la seguente tabella di parsing.
+\begin{table}[hbpb]
+	\centering
+	\label{tabellaparsing}
+	\begin{tabular}{|c|c|c|c|c|} \hline 
+		\toprule
+		\multirow{2}*{\textbf{Non Terminale}} & \multicolumn{4}{c}{\textbf{Simbolo d'ingresso}} \\ 
+		\cmidrule(lr){2-4}
+		& c & d & $\$$ \\ 
+		\midrule
+		\textit{I}			& \textit{I} $\to$ \textit{A}  & \textit{I} $\to$ \textit{A} &    \\ 
+		\textit{A} 			& \textit{A} $\to$ \textit{S}  & \textit{A} $\to$ \textit{S} &    \\ 
+		\textit{S}			& \textit{S} $\to$ \textit{CC} & \textit{S} $\to$ \textit{CC} &   \\ 
+		\textit{C} 			& \textit{C} $\to$ \textit{cC}& \textit{C} $\to$ \textit{d} &     \\ 
+		\bottomrule
+	\end{tabular}
+	\caption{\textit{Tabella di parsing della grammatica }\ref{grammatica2}}
+\end{table} \par
+Gli spazi bianchi indicano una condizione d'errore, mentre gli altri indicano quale produzione usare per sostituire un non-terminale in base ad un determinato simbolo in input. Si consideri, per esempio la produzione \textit{I} $\to$ \textit{A}. Dato che FIRST(\textit{A}) = FIRST(\textit{S}) questa produzione viene aggiunta sia {\textit{M}[\textit{A},\textit{c}] e a {\textit{M}[\textit{A},\textit{d}].
 \subsection{Parsing predittivo non ricorsivo}
-klmlm
+Un parser predittivo non ricorsivo \cite{libro: compilatori} viene costruito usando uno stack, piuttosto che effettuare le chiamate ricorsive. Se \textit{w} è la porzione dell'ingresso riconosciuta a un certo momento, allora lo stack contiene una sequenza di simboli grammaticali $\alpha$ tali che \textit{S} $\overset{*}{\Rightarrow}$ \textit{w}$\alpha$. Questo parser usa un buffer d'ingresso,che contiene anche il simbolo $\$$ per segnare la fine della stringa, uno stack che contiene i simboli grammaticali e la tabella di parsing costrtuita mediante l'algoritmo 1. Il fondo dello stack viene segnalato con il simbolo $\$$. Il parser funziona nel seguente modo:
+\begin{enumerate}
+	\item riceve in input una stringa \textit{w} e una tabella di parsing \textit{M} relativa a una grammatica \textit{G};
+	\item \label{PASSO} ad ogni passo di computazione controlla il simbolo \textit{X} in cima allo stack e un simbolo \textit{a} della stringa \textit{w} in input.
+	\item Se \textit{X} è un non-terminale, il parser lo sostituisce con il corpo della produzione che si trova nella posizione \textit{M}[\textit{X},\textit{a}];
+	\item Altrimenti, se \textit{X} è un terminale, allora il parser verifica la corrispondenza di \textit{X} con il simbolo \textit{a} e se esiste legge il simbolo successivo della stringa \textit{w}.
+	\item Ripetere il passo \ref{PASSO}.
+	\item Il parser termina con sucesso se lo stack non contiene nessun simbolo \textit{X} e ciò determina che la stringa letta fa parte della grammatica \textit{G}.
+\end{enumerate}
+Di seguito vengono riportate le mosse del parser predittivo applicate alla grammatica \ref{grammatica2}.
+\begin{table}[hbpb]
+	\centering
+	\label{tabellaStack}
+	\begin{tabular}{cclc}
+		\toprule
+		\textbf{Input} & \textbf{Stack} & \textbf{Azione} & \textbf{Riconosciuta}\\
+		\midrule
+		\textbf{cdd$\$$} & \textit{I$\$$}  \\
+		\textbf{cdd$\$$} & \textit{A$\$$}  & output \textit{I} $\to$ \textit{A} \\
+		\textbf{cdd$\$$} & \textit{S$\$$}  & output \textit{A} $\to$ \textit{S} \\
+		\textbf{cdd$\$$} & \textit{CC$\$$}  & output \textit{S} $\to$ \textit{CC} \\
+		\textbf{cdd$\$$} & \textit{cCC$\$$}  & output \textit{C} $\to$ \textit{cC} \\
+		\textbf{dd$\$$} & \textit{CC$\$$}  & consuma \textbf{c} & \textbf{c}\\
+		\textbf{dd$\$$} & \textit{dC$\$$}  & output \textit{C} $\to$ \textit{d} & \textbf{c}\\
+		\textbf{d$\$$} & \textit{C$\$$}  & consuma \textbf{d} & \textbf{cd}\\
+		\textbf{d$\$$} & \textit{d$\$$}  & output \textit{C} $\to$ \textit{d} & \textbf{cd}\\
+		\textbf{$\$$} & \textit{$\$$}  & consuma \textbf{d} & \textbf{cdd}\\
+		\bottomrule
+	\end{tabular}
+	\caption{\textit{Mosse di un parser predittivo durante l'analisi della stringa \textbf{cdd}} }
+\end{table}\\
+In questa tabella la cima dello stack è riportata a sinistra nella colonna "Stack". Tali mosse corrispondono alla derivazione sinistra; infatti abbiamo che:
+\begin{align}
+	I \Rightarrow A \Rightarrow S \Rightarrow CC \Rightarrow cCC \Rightarrow \Rightarrow cdC \Rightarrow cdC \Rightarrow cdd
+\end{align}
+Si noti che le forme sentenziali in tale derivazione corrispondono alla porzione di stringa in input già analizzata (indicata nella colonna riconosciuta).
 \section{Conclusioni}
-nknnin
+In questo capitolo è stato discusso di come funziona il parsing top down ed in particolare si è discusso del parsing LL(1). Questo parser, però, presenta dei limiti:
+\begin{itemize}
+	\item Non sono adatti per grammatiche ambigue e ricorsive a sinistre;
+	\item Non ammettono tabelle di parsing in cui vi sono più produzioni per un simbolo d'ingresso.
+\end{itemize}
+Delle possibili soluzioni a questi limiti prevedono: eliminazione dell'ambiguità e della ricorsione a sinistra dalla grammatica, l'uso della fattorizzazione a sinistra per rendere la grammatica più adatta al parsing predittivo o l'uso di parsing generalizzati top down che usano il non-determinismo per superare i conflitti che trova un parser predittivo nelle tabelle di parsing. Nel capitolo successivo discuteremo di quest'ultima soluzione.
