@@ -230,10 +230,10 @@ Facciamo un esempio e prendiamo in riferimento grammatica \ref{grammatica2}. App
 \begin{table}[hbpb]
 	\centering
 	\label{tabellaparsing}
-	\begin{tabular}{|c|c|c|c|c|} \hline 
+	\begin{tabular}{ccccc} %\hline 
 		\toprule
-		\multirow{2}*{\textbf{Non Terminale}} & \multicolumn{4}{c}{\textbf{Simbolo d'ingresso}} \\ 
-		\cmidrule(lr){2-4}
+		%\multirow{2}*{\textbf{Non Terminale}} & %\multicolumn{4}{c}{\textbf{Simbolo d'ingresso}} \\ 
+		%\cmidrule(lr){2-4}
 		& c & d & $\$$ \\ 
 		\midrule
 		\textit{I}			& \textit{I} $\to$ \textit{A}  & \textit{I} $\to$ \textit{A} &    \\ 
@@ -275,15 +275,15 @@ Di seguito vengono riportate le mosse del parser predittivo applicate alla gramm
 		\textbf{$\$$} & \textit{$\$$}  & consuma \textbf{d} & \textbf{cdd}\\
 		\bottomrule
 	\end{tabular}
-	\caption{\textit{Mosse di un parser predittivo durante l'analisi della stringa \textbf{cdd}} }
+	\caption{\textit{Mosse di un parser predittivo sulla stringa \textbf{cdd}} }
 \end{table}\\
 In questa tabella la cima dello stack è riportata a sinistra nella colonna "Stack". Tali mosse corrispondono alla derivazione sinistra; infatti abbiamo che:
 \begin{align}
-	I \Rightarrow A \Rightarrow S \Rightarrow CC \Rightarrow cCC \Rightarrow \Rightarrow cdC \Rightarrow cdC \Rightarrow cdd
+	I \Rightarrow A \Rightarrow S \Rightarrow CC \Rightarrow cCC \Rightarrow cdC \Rightarrow cdC \Rightarrow cdd
 \end{align}
 Si noti che le forme sentenziali in tale derivazione corrispondono alla porzione di stringa in input già analizzata (indicata nella colonna riconosciuta).
 \section{Conclusioni}
-In questo capitolo è stato discusso di come funziona il parsing top down ed in particolare si è discusso del parsing LL(1). Questo parser, però, presenta dei limiti:
+In questo capitolo è stato discusso di come funziona il parsing top down ed in particolare si è discusso degli algoritmi di parsing LL(1). Questo parser, però, presenta dei limiti:
 \begin{itemize}
 	\item Non sono adatti per grammatiche ambigue e ricorsive a sinistre;
 	\item Non ammettono tabelle di parsing in cui vi sono più produzioni per un simbolo d'ingresso.
