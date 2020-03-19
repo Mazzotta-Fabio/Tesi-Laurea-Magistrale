@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.16)  18 MAR 2020 20:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.16)  19 MAR 2020 21:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -857,36 +857,76 @@ Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@cntb=\count332
 \multirow@dima=\skip57
 \bigstrutjot=\dimen292
+)
+(c:/texlive/2019/texmf-dist/tex/latex/dramatist/dramatist.sty
+Package: dramatist 2014/12/18 v1.2e Package for typesetting drama -- Author: Ma
+ssimiliano Dominici
+
+(c:/texlive/2019/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+\c@storelineno=\count333
+\c@storeprintlineindex=\count334
+\c@character=\count335
+\c@temp=\count336
+\c@gtemp=\count337
+\c@act=\count338
+\c@scene=\count339
+\tbox=\box82
+\CharWidth=\skip58
+\ParenWidth=\skip59
+\CastWidth=\skip60
+\beforeactskip=\skip61
+\afteractskip=\skip62
+\beforesceneskip=\skip63
+\aftersceneskip=\skip64
+\beforecastskip=\skip65
+\aftercasttitleskip=\skip66
+\speaksskip=\skip67
+\dirwidth=\skip68
+\speakswidth=\dimen293
+\speaksindent=\dimen294
+\speechskip=\dimen295
+\Dparsep=\dimen296
+\Dlabelsep=\dimen297
+
+
+Package dramatist Warning: 
+
+********************************************************
+* No Configuration file found, using default settings. *
+********************************************************
+.
+
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Info: Redefining \it@ocap on input line 16.
-LaTeX Info: Redefining \it@ccap on input line 16.
-
-(c:/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Info: Redefining \it@ocap on input line 17.
+LaTeX Info: Redefining \it@ccap on input line 17.
+ (c:/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count333
-\scratchdimen=\dimen293
-\scratchbox=\box82
-\nofMPsegments=\count334
-\nofMParguments=\count335
+\scratchcounter=\count340
+\scratchdimen=\dimen298
+\scratchbox=\box83
+\nofMPsegments=\count341
+\nofMParguments=\count342
 \everyMPshowfont=\toks50
-\MPscratchCnt=\count336
-\MPscratchDim=\dimen294
-\MPnumerator=\count337
-\makeMPintoPDFobject=\count338
+\MPscratchCnt=\count343
+\MPscratchDim=\dimen299
+\MPnumerator=\count344
+\makeMPintoPDFobject=\count345
 \everyMPtoPDFconversion=\toks51
 ) (c:/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -939,7 +979,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count339
+\c@lstlisting=\count346
 
 ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
@@ -1033,7 +1073,12 @@ A\T1/cmr/m/n/12 )=FIRST(\T1/cmr/m/it/12 S\T1/cmr/m/n/12 )=FIRST(\T1/cmr/m/it/12
 Capitolo 3.
 [15
 
-] [16]) [17] (./inizio/bibliografia.tex) [18
+] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+
+ []
+
+[17]) [18] (./inizio/bibliografia.tex) [19
 
 
 ] (./main.aux)
@@ -1047,34 +1092,35 @@ LaTeX Warning: There were undefined references.
 ### simple group (level 1) entered at line 247 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 38825 strings out of 492167
- 835845 string characters out of 6129158
- 1136437 words of memory out of 5000000
- 42729 multiletter control sequences out of 15000+600000
+ 39020 strings out of 492167
+ 838249 string characters out of 6129158
+ 1139649 words of memory out of 5000000
+ 42917 multiletter control sequences out of 15000+600000
  547985 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 136i,11n,162p,1814b,1580s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 136i,11n,162p,2647b,1580s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
 1.enc}<c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:
 /texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2
 019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2019/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2019/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-sup
-er/sfbi1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx120
-0.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/
-texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/20
-19/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2019/texmf-d
-ist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2019/texmf-dist/fonts/
-type1/public/cm-super/sfrm1440.pfb><c:/texlive/2019/texmf-dist/fonts/type1/publ
-ic/cm-super/sfrm1728.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-supe
-r/sfrm2074.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm2488
-.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb><c:/t
-exlive/2019/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on main.pdf (24 pages, 402468 bytes).
+lic/amsfonts/cm/cmsy6.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbi120
+0.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/
+texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/20
+19/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2019/texmf-d
+ist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2019/texmf-dist/fonts/
+type1/public/cm-super/sfrm1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/publ
+ic/cm-super/sfrm1440.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-supe
+r/sfrm1728.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm2074
+.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb><c:/t
+exlive/2019/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb><c:/texlive/201
+9/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on main.pdf (25 pages, 418467 bytes).
 PDF statistics:
- 162 PDF objects out of 1000 (max. 8388607)
- 113 compressed objects within 2 object streams
+ 170 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

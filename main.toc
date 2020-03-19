@@ -20,14 +20,13 @@
 \contentsline {chapter}{\numberline {3}GLL Parsing}{15}% 
 \contentsline {section}{\numberline {3.1}Introduzione}{15}% 
 \contentsline {section}{\numberline {3.2}Stack e descrittori elementari}{15}% 
-\contentsline {section}{\numberline {3.3}Strutture dati fondamentali}{17}% 
+\contentsline {section}{\numberline {3.3}Costruzione del GSS}{17}% 
 \contentsline {subsection}{\numberline {3.3.1}Graph structured stacks}{17}% 
-\contentsline {subsection}{\numberline {3.3.2}Insiemi U e P}{17}% 
-\contentsline {subsection}{\numberline {3.3.3}Shared packed parse forests}{17}% 
-\contentsline {section}{\numberline {3.4}Costruzione del GSS}{17}% 
-\contentsline {section}{\numberline {3.5}Definizione GLL Parsing}{17}% 
-\contentsline {subsection}{\numberline {3.5.1}Funzioni Fondamentali}{17}% 
-\contentsline {subsection}{\numberline {3.5.2}Gestione degli item}{17}% 
-\contentsline {subsection}{\numberline {3.5.3}Gestione dei simboli non-terminali}{17}% 
-\contentsline {section}{\numberline {3.6}Costruzione del GLL Parser}{17}% 
-\contentsline {chapter}{\\Bibliografia}{18}% 
+\contentsline {subsection}{\numberline {3.3.2}Insiemi U e P}{18}% 
+\contentsline {section}{\numberline {3.4}Definizione GLL Parsing}{18}% 
+\contentsline {subsection}{\numberline {3.4.1}Funzioni Fondamentali}{18}% 
+\contentsline {subsection}{\numberline {3.4.2}Gestione degli item}{18}% 
+\contentsline {subsection}{\numberline {3.4.3}Gestione dei simboli non-terminali}{18}% 
+\contentsline {subsection}{\numberline {3.4.4}Shared packed parse forests}{18}% 
+\contentsline {section}{\numberline {3.5}Costruzione del GLL Parser}{18}% 
+\contentsline {chapter}{\\Bibliografia}{19}% 
