@@ -1,7 +1,7 @@
 \chapter{GLL Parsing}
 \section{Introduzione}
-Nel capitolo precedente abbiamo discusso i concetti e il funzionamento del parsing su grammatiche LL(1). In questo capitolo discuteremo di un estenzione di questo parsing, chiamato \textbf{Parsing LL Generalizzato (GLL)} e vedremo come questo parser supera i limiti che hanno i parser LL(1). Mostreremo i concetti base di questo parsing e del suo funzionamento
-\section{Stack e descrittori elementari}
+Nel capitolo precedente abbiamo discusso i concetti e il funzionamento del parsing su grammatiche LL(1). In questo capitolo discuteremo di un estenzione di questo parsing, chiamato \textbf{Parsing LL Generalizzato (GLL)}. Questo parsing è un parser a discesa ricorsiva ed è adatto a gestire tutte  le grammatiche ambigue e ricorsive a sinistra. In questo capitolo vedremo come questo parser supera i limiti che hanno i parser LL(1) e mostreremo i concetti base di questo parsing e del suo funzionamento.
+\section{Stack e descrittori elementari}\label{par1}
 In questo paragrafo discuteremo del funzionamento base del GLL Parsing. Data la seguente grammatica:
 \begin{align}\label{gram3}
 	S & \to ASd \mid BS \mid \epsilon \notag \\
@@ -10,15 +10,15 @@ In questo paragrafo discuteremo del funzionamento base del GLL Parsing. Data la 
 \end{align}
 Un parser a discesa ricorsiva \cite{pubblicazione: scott} è composto dalle seguenti funzioni: $p_S$(), $p_A$(), $p_B$(), la funzione principale \textit{main}() e la funzione per segnalare gli errori \textit{error}(). Ogni funzione contiene codice per ogni alternativa, $\alpha$, e verificano il simbolo corrente della stringa in input appartiene a FIRST($\alpha$) o al FOLLOW($\alpha$). La stringa in input viene rappresentata come un array globale \textit{I} di lunghezza \textit{m}+1, dove \textit{I}[\textit{m}]=$\$$, segnala la fine della stringa. L'implementazione del parser viene rappresentata di seguito.\\
 main()$\{$ \textit{i} = 0 \par
-\hspace{1cm}\textbf{if}(\textit{I}[\textit{i}] $\in$ $\{$\textit{a,b,c,d,$\$$}$\}$)$\{$ $p_S$(); \textbf{else} \textit{error}();\par
+\hspace{1cm}\textbf{if}(\textit{I}[\textit{i}] $\in$ $\{$\textit{a, b, c, d,$\$$}$\}$)$\{$ $p_S$(); \textbf{else} \textit{error}();\par
 \hspace{1cm}\textbf{if}(\textit{I}[\textit{i}] = $\$$)$\{$ report success $\}$ \textbf{else} \textit{error}()\\	
 $\}$\\
-$p_S$()$\{$ \\
-\textbf{if}(\textit{I}[\textit{i}] $\in$ $\{$\textit{a,c}$\}$)$\{$ $p_A$(); $p_S$(); \textbf{if}(\textit{I}[\textit{i}]=\textit{d})$\{$ \textit{i}=\textit{i}+1$\}$ \textbf{else} \textit{error}();$\}$\par
-\hspace{0.5cm}\textbf{if}(\textit{I}[\textit{i}] $\in$ $\{$a,b$\}$)$\{$ $p_B$(); $p_S$(); $\}$ $\}$\\
+$p_S$()$\{$ \par
+\hspace{0.5cm}\textbf{if}(\textit{I}[\textit{i}] $\in$ $\{$\textit{a, c}$\}$)$\{$ $p_A$(); $p_S$(); \textbf{if}(\textit{I}[\textit{i}] = \textit{d})$\{$ \textit{i} = \textit{i} + 1; $\}$ \textbf{else} \textit{error}(); $\}$\par
+\hspace{0.5cm}\textbf{if}(\textit{I}[\textit{i}] $\in$ $\{$a, b$\}$)$\{$ $p_B$(); $p_S$(); $\}$ $\}$\\
 $p_A$()$\{$ \par
-\hspace{0.5cm}\textbf{if}(\textit{I}[\textit{i}]=\textit{a})$\{$ \textit{i}=\textit{i}+1;$\}$\par \hspace{0.5cm}\textbf{else} \textbf{if}(\textit{I}[\textit{i}] = \textit{c})$\{$ \textit{i}=\textit{i}+1 $\}$ \textbf{else} \textit{error}(); $\}$\\
-$p_B$()$\{$ \par \hspace{0.5cm}\textbf{if}(\textit{I}[\textit{i}]=\textit{a})$\{$ \textit{i}=\textit{i}+1;$\}$\par \hspace{0.5cm}\textbf{else} \textbf{if}(\textit{I}[\textit{i}] = \textit{b})$\{$ \textit{i}=\textit{i}+1 $\}$ \textbf{else} \textit{error}(); $\}$\par
+\hspace{0.5cm}\textbf{if}(\textit{I}[\textit{i}] = \textit{a})$\{$ \textit{i} = \textit{i} + 1;$\}$\par \hspace{0.5cm}\textbf{else} \textbf{if}(\textit{I}[\textit{i}] = \textit{c})$\{$ \textit{i} = \textit{i} + 1 $\}$ \textbf{else} \textit{error}(); $\}$\\
+$p_B$()$\{$ \par \hspace{0.5cm}\textbf{if}(\textit{I}[\textit{i}] = \textit{a})$\{$ \textit{i} = \textit{i} + 1; $\}$\par \hspace{0.5cm}\textbf{else} \textbf{if}(\textit{I}[\textit{i}] = \textit{b})$\{$ \textit{i} = \textit{i} + 1 $\}$ \textbf{else} \textit{error}(); $\}$\par
 \vspace{0.3cm}
 Questa è la tabella di parsing della grammatica \ref{gram3}.
 \begin{table}[hbpb]
@@ -37,39 +37,56 @@ Questa è la tabella di parsing della grammatica \ref{gram3}.
 	\end{tabular}
 	\caption{\textit{Tabella di parsing della grammatica }\ref{gram3}}
 \end{table} \par
-Da quello che si può notare dalla tabella \ref{gram3} questa grammatica non è LL(1) in quanto è presente un conflitto e di conseguenza l'algoritmo implementato non funziona correttamente. Affinchè l'algoritmo funzioni correttamente è necessario aggiungere il non-determinismo. Per fare ciò dobbiamo convertire le chiamate a funzioni con operazioni di \textbf{push} su  uno stack e utilizzare i \textbf{goto}. Poi partizioniamo in varie parti i corpi delle funzioni il cui non-terminale non è LL(1) ed attribuiamo un etichetta ad ogni partizione. In questo caso abbiamo più partizioni per \textit{S}. Per registrare le possibili scelte che il parser può fare per sostituire un non-terminale utilizziamo dei \textbf{descrittori} all'interno dell'algoritmo a discesa ricorsiva e sostituiamo il punto in cui termina l'algoritmo con l'esecuzione di un descrittore successivo. Le funzioni d'errore vengono sostituite con l'esecuzione di descrittori successivi. Il nuovo punto di termine sarà quando non esistono più descrittori da eseguire. Formalmente un \textbf{descrittore elementare} è una tripla (\textbf{L,s,j}) dove \textbf{L} è un etichetta, \textbf{s} è uno stack e \textbf{j} è la posizione nell'array \textit{I}. Quessti descrittori li manteniamo in un insieme \textbf{R}. Ogni volta che si verifica la fine di una funzione di parsing e ad ogni punto in cui è presente un terminale non LL(1) (quindi siamo in presenza di non-determinismo) all'interno dell'algoritmo, creiamo un nuovo descrittore che è formato dall'etichetta in cima allo stack corrente. Quando l'algoritmo di parsing trova un simbolo del'input \textit{I}[\textit{i}] diciamo che l'etichetta \textit{L} in cima allo stack è estratto dallo stack \textit{s}=[\textit{s$^{'}$},\textit{L}] e (\textit{L,s$^{'}$,i}) viene aggiunta a \textbf{R}. Questa azione viene denotata con la funzione \textit{pop(s,i,\textbf{R})}. Dopo aver fatto ciò rimuoviamo il descrittore (\textit{L$^{'}$,t,j}) da \textbf{R} e l'algoritmo riparte dall'etichetta \textit{L$^{'}$}, con stack \textit{t} e con il simbolo in input \textit{I}[\textit{j}]. L'algoritmo termina quando l'insieme \textbf{R} è vuoto. Useremo la notazione \textit{L}$^{k}$ per unire l'etichetta \textit{L} e l'indice \textit{k} che indica il simbolo corrente nell'input \textit{I}; mentre lo stack vuoto viene denotato con []. Lo stack \textit{s} viene aggiornato con la funzione \textit{push(s,L$^{k}$)}; questa funzione non fa altro che aggiungere  l'elemento \textit{L}$^{k}$ in cima allo stack. Di seguito viene presentato l'algoritmo.\par
+Da quello che si può notare dalla tabella \ref{gram3} questa grammatica non è LL(1) in quanto è presente un conflitto e di conseguenza l'algoritmo implementato non funziona correttamente. Affinchè l'algoritmo funzioni correttamente è necessario aggiungere il non-determinismo. Per fare ciò dobbiamo convertire le chiamate a funzioni con operazioni di \textbf{push} su  uno stack e utilizzare i \textbf{goto}. Poi partizioniamo in varie parti i corpi delle funzioni il cui non-terminale non è LL(1) ed attribuiamo un etichetta ad ogni partizione. In questo caso abbiamo più partizioni per \textit{S}. Per registrare le possibili scelte che il parser può fare per sostituire un non-terminale utilizziamo dei \textbf{descrittori} all'interno dell'algoritmo a discesa ricorsiva e sostituiamo il punto in cui termina l'algoritmo con l'esecuzione di un descrittore successivo. Le funzioni d'errore vengono sostituite con l'esecuzione di descrittori successivi. Il nuovo punto di termine sarà quando non esistono più descrittori da eseguire. Formalmente un \textbf{descrittore elementare} è una tripla (\textbf{L,s,j}) dove \textbf{L} è un etichetta, \textbf{s} è uno stack e \textbf{j} è la posizione nell'array \textit{I}. Quessti descrittori li manteniamo in un insieme \textbf{R}. Ogni volta che si verifica la fine di una funzione di parsing e ad ogni punto in cui è presente un terminale non LL(1) (quindi siamo in presenza di non-determinismo) all'interno dell'algoritmo, creiamo un nuovo descrittore che è formato dall'etichetta in cima allo stack corrente. Quando l'algoritmo di parsing trova un simbolo del'input \textit{I}[\textit{i}] diciamo che l'etichetta \textit{L} in cima allo stack è estratto dallo stack \textit{s}=[\textit{s$^{'}$},\textit{L}] e (\textit{L,s$^{'}$,i}) viene aggiunta a \textbf{R}. Questa azione viene denotata con la funzione \textit{pop(s,i,\textbf{R})}. Dopo aver fatto ciò rimuoviamo il descrittore (\textit{L$^{'}$, t, j}) da \textbf{R} e l'algoritmo riparte dall'etichetta \textit{L$^{'}$}, con stack \textit{t} e con il simbolo in input \textit{I}[\textit{j}]. L'algoritmo termina quando l'insieme \textbf{R} è vuoto. Useremo la notazione \textit{L}$^{k}$ per unire l'etichetta \textit{L} e l'indice \textit{k} che indica il simbolo corrente nell'input \textit{I}; mentre lo stack vuoto viene denotato con [ ]. Lo stack \textit{s} viene aggiornato con la funzione \textit{push(s, L$^{k}$)}; questa funzione non fa altro che aggiungere  l'elemento \textit{L}$^{k}$ in cima allo stack. Di seguito viene presentato l'algoritmo.\par
 \vspace{0.5cm}
-\hspace{0.4cm}i=0; \textbf{R}=$\emptyset$; s=[L$_0^{0}$];\\
-$L_S$: \textbf{if}(\textit{I}[\textit{i}] $\in$ $\{$\textit{a,c}$\}$) add($L_{S1}$,s,i) to \textbf{R} \par
-\hspace{0.4cm}\textbf{if}(\textit{I}[\textit{i}] $\in$ $\{$\textit{a,b}$\}$) add($L_{S2}$,s,i) to \textbf{R}\par
-\hspace{0.4cm}\textbf{if}(\textit{I}[\textit{i}] $\in$ $\{$\textit{d,$\$$}$\}$) add($L_{S3}$,s,i) to \textbf{R} \\
-$L_0$: \textbf{if}(\textbf{R}$\ne$$\emptyset$)$\{$ remove(L, $s_1$, j) from \textbf{R} \par
-\hspace{0.4cm}\textbf{if}(L = $L_0$ and $s_1$=[ ] and j=|I|) report success \par
-\hspace{0.4cm}\textbf{else}$\{$ s=$s_1$; i=j; \textbf{goto} L $\}$ \\
-%\vspace{0.5cm}
-$L_{S1}$:\textit{push}(s,L$_1^{i}$); \textbf{goto} $L_A$\\
-$L_1$:  \textit{push}(s,L$_2^{i}$); \textbf{goto} $L_S$\\
-$L_2$:  \textbf{if}(\textit{I}[\textit{i}] = a)$\{$ i=i+1; \textit{pop}(s, i, \textbf{R});$\}$ \textbf{goto} $L_0$ \\
-$L_{S2}$:\textit{push}(s,L$_3^{i}$); \textbf{goto} $L_B$\\
-$L_3$:  \textit{push}(s,L$_4^{i}$); \textbf{goto} $L_S$\\
+\hspace{0.2cm}i = 0; \textbf{R} = $\emptyset$; s = [L$_0^{0}$];\\
+$L_S$: \textbf{if}(\textit{I}[\textit{i}] $\in$ $\{$\textit{a, c}$\}$) add($L_{S1}$, s, i) to \textbf{R} \par
+\hspace{0.4cm}\textbf{if}(\textit{I}[\textit{i}] $\in$ $\{$\textit{a, b}$\}$) add($L_{S2}$, s, i) to \textbf{R}\par
+\hspace{0.4cm}\textbf{if}(\textit{I}[\textit{i}] $\in$ $\{$\textit{d, $\$$}$\}$) add($L_{S3}$, s, i) to \textbf{R} \\
+$L_0$: \textbf{if}(\textbf{R} $\ne$ $\emptyset$)$\{$ remove(L, $s_1$, j) from \textbf{R} \par
+\hspace{0.4cm}\textbf{if}(L = $L_0$ and $s_1$ = [ ] and j = |I|) report success \par
+\hspace{0.4cm}\textbf{else}$\{$ s = $s_1$; i = j; \textbf{goto} L $\}$ \\
+$L_{S1}$: \textit{push}(s, L$_1^{i}$); \textbf{goto} $L_A$\\
+$L_1$:  \textit{push}(s, L$_2^{i}$); \textbf{goto} $L_S$\\
+$L_2$:  \textbf{if}(\textit{I}[\textit{i}] = a)$\{$ i = i + 1; \textit{pop}(s, i, \textbf{R});$\}$ \textbf{goto} $L_0$ \\
+$L_{S2}$: \textit{push}(s, L$_3^{i}$); \textbf{goto} $L_B$\\
+$L_3$:  \textit{push}(s, L$_4^{i}$); \textbf{goto} $L_S$\\
 $L_4$: \textit{pop}(s, i, \textbf{R}); \textbf{goto} $L_0$ \\
-$L_{S3}$:\textit{pop}(s, i, \textbf{R}); \textbf{goto} $L_0$ \\
-$L_A$:  \textbf{if}(\textit{I}[\textit{i}] = a)$\{$ i=i+1; \textit{pop}(s, i, \textbf{R});$\}$ \textbf{goto} $L_0$ $\}$ \par
-\hspace{0.2cm} \textbf{else}$\{$ \textbf{if}(\textit{I}[\textit{i}] = c)$\{$ i=i+1; \textit{pop}(s, i, \textbf{R});$\}$ \par 
-\hspace{0.3cm}\textbf{goto} $L_0$ $\}$ \\
-$L_B$:  \textbf{if}(\textit{I}[\textit{i}] = a)$\{$ i=i+1; \textit{pop}(s, i, \textbf{R});$\}$ \textbf{goto} $L_0$ $\}$ \par
-\hspace{0.2cm} \textbf{else}$\{$ \textbf{if}(\textit{I}[\textit{i}] = b)$\{$ i=i+1; \textit{pop}(s, i, \textbf{R});$\}$ \par
-\hspace{0.3cm}\textbf{goto} $L_0$ $\}$ \\
-\section{Costruzione del GSS}
-joijo
-\subsection{Graph structured stacks}
-yuyuy
+$L_{S3}$: \textit{pop}(s, i, \textbf{R}); \textbf{goto} $L_0$ \\
+$L_A$:  \textbf{if}(\textit{I}[\textit{i}] = a)$\{$ i = i + 1; \textit{pop}(s, i, \textbf{R});$\}$ \textbf{goto} $L_0$ $\}$ \par
+\hspace{0.2cm} \textbf{else}$\{$ \textbf{if}(\textit{I}[\textit{i}] = c)$\{$ i = i + 1; \textit{pop}(s, i, \textbf{R});$\}$ \par 
+\hspace{1.5cm}\textbf{goto} $L_0$ $\}$ \\
+$L_B$:  \textbf{if}(\textit{I}[\textit{i}] = a)$\{$ i = i + 1; \textit{pop}(s, i, \textbf{R});$\}$ \textbf{goto} $L_0$ $\}$ \par
+\hspace{0.2cm} \textbf{else}$\{$ \textbf{if}(\textit{I}[\textit{i}] = b)$\{$ i = i + 1; \textit{pop}(s, i, \textbf{R});$\}$ \par
+\hspace{1.5cm}\textbf{goto} $L_0$ $\}$ \par 
+\vspace{0.3cm}
+Ora facciamo un esempio ed eseguiamo l'algoritmo con la stringa d'input \textit{aad}$\$$. Incomiciamo la nostra computazione aggiungendo prima la tripla (L$_{S1}$,[L$_0^{0}$],0), e poi la tripla (L$_{S2}$,[L$_0^{0}$],0) ad \textbf{R} ed andiamo all'etichetta L$_0$. Rimuoviamo (L$_{S1}$,[L$_0^{0}$],0) da \textbf{R} ed andiamo alla linea con etichetta L$_{S1}$. L'operazione di \textit{push} aggiunge allo stack \textit{s} [L$_0^{0}$,L$_1^{0}$] ed andiamo in L$_A$. In L$_A$ abbiamo che il parser ha trovato una coincidenza con il simbolo \textit{a}, incrementa l'indice \textit{i}, usato per leggere i simboli dell'input, e fa un operazione di \textit{pop} ed aggiunge  (L$_{1}$,[L$_0^{0}$],1) ad \textbf{R} e ritorna in L$_0$. Allo stesso modo processiamo  (L$_{S2}$,[L$_0^{0}$],0) da \textbf{R} e alla fine avremo (L$_{3}$,[L$_0^{0}$],1) che viene aggiunto ad \textbf{R}. Quindi \textbf{R} risulterà avere le seguenti triple:\par
+\hspace{1.5cm} \textbf{R} = $\{$ (L$_{1}$,[L$_0^{0}$],1), (L$_{3}$,[L$_0^{0}$],1) $\}$\par
+\vspace{0.3cm}Successivamente estraiamo (L$_{1}$,[L$_0^{0}$],1) e lo processiamo. Alla linea L$_1$ facciamo un \textit{push} sullo stack s [L$_0^{0}$,L$_2^{1}$] ed andiamo alla linea con etichetta L$_S$ e aggiungiamo (L$_{S1}$,[L$_0^{0}$,L$_2^{1}$],1) e (L$_{S2}$,[L$_0^{0}$,L$_2^{1}$],1) ad \textbf{R}. Allo stesso modo processiamo (L$_{3}$,[L$_0^{0}$],1) e in \textbf{R} abbiamo:\par
+\vspace{0.3cm}\textbf{R} = $\{$ (L$_{S1}$,[L$_0^{0}$,L$_2^{1}$],1), (L$_{S2}$,[L$_0^{0}$,L$_2^{1}$],1), (L$_{S1}$,[L$_0^{0}$,L$_4^{1}$],1), (L$_{S2}$,[L$_0^{0}$,L$_4^{1}$],1) $\}$\par
+\vspace{0.3cm} Processando ognuno di questi elementi otteniamo:\par 
+\vspace{0.3cm} \textbf{R} = $\{$  (L$_{1}$,[L$_0^{0}$,L$_2^{1}$],2), (L$_{3}$,[L$_0^{0}$,L$_2^{1}$],2),  (L$_{1}$,[L$_0^{0}$,L$_4^{1}$],2) (L$_{3}$,[L$_0^{0}$,L$_4^{1}$],2) $\}$\par 
+\vspace{0.3cm}Quando l'input risulta essere \textit{I[i] = d} e processiamo queste triple otteniamo che in \textbf{R} abbiamo:\par 
+\vspace{0.3cm}\textbf{R} = $\{$ (L$_{S3}$,[L$_0^{0}$,L$_2^{1}$,L$_2^{2}$],2), (L$_{S3}$,[L$_0^{0}$,L$_2^{1}$,L$_4^{2}$],2),  (L$_{S3}$,[L$_0^{0}$,L$_4^{1}$,L$_4^{2}$],2) (L$_{S3}$,[L$_0^{0}$,L$_4^{1}$,L$_4^{2}$],2)$\}$\par 
+\vspace{0.3cm} Processando di nuovo questi elementi otteniamo:\par 
+\vspace{0.3cm}\hspace{0.5cm}\textbf{R} = $\{$ (L$_{2}$,[L$_0^{0}$,L$_2^{1}$],2), (L$_{4}$,[L$_0^{0}$,L$_2^{1}$],2),  (L$_{2}$,[L$_0^{0}$,L$_4^{1}$],2) (L$_{4}$,[L$_0^{0}$,L$_4^{1}$],2)$\}$\par 
+\vspace{0.3cm} Da queste triple otteniamo:\par 
+\vspace{0.3cm}\hspace{0.5cm}\textbf{R} = $\{$ (L$_{2}$,[L$_0^{0}$],3), (L$_{2}$,[L$_0^{0}$],2),  (L$_{4}$,[L$_0^{0}$],3) (L$_{4}$,[L$_0^{0}$],2)$\}$\par 
+\vspace{0.3cm} Quando abbiamo \textit{I}[3] = $\$$ processiamo le triple mostrate precedentemente ed otteniamo la tripla (L$_{0}$,[ ],3) e la tripla (L$_{0}$,[ ],2) che vengono aggiunte ad \textbf{R} e di conseguenza l'algoritmo termina con un successo.
+\section{Graph structured stacks}
+Nel paragrafo precedente abbiamo visto che ogni volta si trovava un non-terminale non LL(1) applicavamo il non-determinismo duplicando lo stack usato dal parser. Per rappresentare tutti questi stack in unica struttura dati utilizzeremo il \textbf{Graph structured stacks}(\textbf{GSS}). Viene definito \cite{tesi: lr} come un grafo diretto aciclico (DAG) i cui nodi hanno etichette L$^{k}$ che corrispondono agli elementi usati dallo stack, dove L indica un etichetta di una linea di codice e \textit{k} la posizione su un simbolo della stringa in input. Questi nodi sono raggruppati in vari insiemi disgunti chiamati \textit{livelli}. Il GSS viene costruito un livello alla volta. Infatti ogni qualvolta il parser trova una coincidenza tra un simbolo in input e la grammatica crea un livello. Il GSS viene disegnato da sinistra verso destra ed il nodo più a sinitra rappresenta la cima di ogni stack. Per costruire il GSS all'interno dell'algoritmo di parsing, dobbiamo usare una nuova tripla, chiamato \textbf{descrittore}. Un descrittore è formata da (\textit{L}, \textit{u}, \textit{i}), dove \textit{L} è un etichetta, \textit{u} è un nodo del GSS e \textit{i} che indica il simbolo della stringa in input \textit{I}[ ]. Queste triple vengono aggiunte ad \textbf{R}.
 \subsection{Insiemi U e P}
-yuyuyu
+Per costruire il GSS è necessario utilizzare un altro insieme \textbf{U} che contiene gli stessi descrittori che inseriamo nell'insieme \textbf{R}. Infatti abbiamo che U$_i$ = $\{$ (\textit{L}, \textit{u}) $\mid$ (\textit{L}, \textit{u}, \textit{i}) è stato aggiunto ad \textbf{R}$\}$. Un problema \cite{pubblicazione: scott} che può sorgere sia ha quando un nodo figlio \textit{w} è aggiunto ad \textit{u} dopo aver eseguito le operazioni di pop sul GSS perchè l'azione di pop necessita di essere applicata a questo nodo figlio. Per risolvere ciò usiamo l'insieme \textbf{P} che contiene coppie (\textit{u}, \textit{k}) e verranno utilizzate per eseguire le operazioni di pop. Infatti quando un nuovo nodo figlio \textit{w} è aggiunto ad \textit{u}, ogni elemento (\textit{u}, \textit{k}) presente in \textbf{P}, se (L$_u$, \textit{w}) non è presente in \textbf{U$_k$}, allora (L$_u$, \textit{u}, \textit{k}) è aggiunto ad \textbf{R}, dove L$_u$ è l'etichetta nel nodo \textit{u}. L'implementazione di questa tecnica verrà mostrata nel paragrafo \ref{par}
 \section{Definizione GLL Parsing}
-nklnlknkn
-\subsection{Funzioni Fondamentali}
-kiuiu
+In questo paragrafo vengono definite le basi per realizzare l'algoritmo di GLL Parsing. Mostreremo come costruire il GSS e il suo l'output. Il principio base è quello mostrato al paragrafo \ref{par1}
+\subsection{Funzioni Fondamentali}\label{par}
+L'algoritmo utilizza 4 funzioni che sono essenziali per il suo funzionamento. Queste funzioni vengono elencate qui di seguito.
+\begin{itemize}
+	\item \textbf{\textit{add()}}
+	\item \textbf{\textit{pop()}}
+	\item \textbf{\textit{create()}}
+	\item \textbf{\textit{test()}}
+\end{itemize}
 \subsection{Gestione degli item}
 opopokp
 \subsection{Gestione dei simboli non-terminali}

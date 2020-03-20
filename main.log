@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.16)  19 MAR 2020 21:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.16)  20 MAR 2020 21:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1073,12 +1073,14 @@ A\T1/cmr/m/n/12 )=FIRST(\T1/cmr/m/it/12 S\T1/cmr/m/n/12 )=FIRST(\T1/cmr/m/it/12
 Capitolo 3.
 [15
 
-] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
+] [16] [17]
+Overfull \hbox (35.79898pt too wide) in paragraph at lines 70--70
+[]\T1/cmr/bx/n/12 R \T1/cmr/m/n/12 = $\OMS/cmsy/m/n/12 f$ \T1/cmr/m/n/12 (L$[]$
+,[L$[]$,L$[]$,L$[]$],2), (L$[]$,[L$[]$,L$[]$,L$[]$],2), (L$[]$,[L$[]$,L$[]$,L$[
+]$],2) (L$[]$,[L$[]$,L$[]$,L$[]$],2)$\OMS/cmsy/m/n/12 g$ 
  []
 
-[17]) [18] (./inizio/bibliografia.tex) [19
+[18] [19]) [20] (./inizio/bibliografia.tex) [21
 
 
 ] (./main.aux)
@@ -1092,13 +1094,13 @@ LaTeX Warning: There were undefined references.
 ### simple group (level 1) entered at line 247 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 39020 strings out of 492167
- 838249 string characters out of 6129158
- 1139649 words of memory out of 5000000
- 42917 multiletter control sequences out of 15000+600000
+ 39022 strings out of 492167
+ 838260 string characters out of 6129158
+ 1139673 words of memory out of 5000000
+ 42919 multiletter control sequences out of 15000+600000
  547985 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 136i,11n,162p,2647b,1580s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 136i,11n,162p,2651b,1580s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
 1.enc}<c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:
 /texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2
@@ -1117,10 +1119,10 @@ r/sfrm1728.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm2074
 .pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb><c:/t
 exlive/2019/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb><c:/texlive/201
 9/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on main.pdf (25 pages, 418467 bytes).
+Output written on main.pdf (27 pages, 437695 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
+ 176 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
