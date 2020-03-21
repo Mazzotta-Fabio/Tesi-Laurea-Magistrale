@@ -24,8 +24,11 @@
 \contentsline {subsection}{\numberline {3.3.1}Insiemi U e P}{19}% 
 \contentsline {section}{\numberline {3.4}Definizione GLL Parsing}{19}% 
 \contentsline {subsection}{\numberline {3.4.1}Funzioni Fondamentali}{19}% 
-\contentsline {subsection}{\numberline {3.4.2}Gestione degli item}{19}% 
-\contentsline {subsection}{\numberline {3.4.3}Gestione dei simboli non-terminali}{20}% 
-\contentsline {subsection}{\numberline {3.4.4}Shared packed parse forests}{20}% 
-\contentsline {section}{\numberline {3.5}Costruzione del GLL Parser}{20}% 
-\contentsline {chapter}{\\Bibliografia}{21}% 
+\contentsline {subsection}{\numberline {3.4.2}Gestione degli item}{20}% 
+\contentsline {subsection}{\numberline {3.4.3}Gestione delle produzioni}{21}% 
+\contentsline {subsection}{\numberline {3.4.4}Shared packed parse forests}{22}% 
+\contentsline {section}{\numberline {3.5}Costruzione del GLL Parser}{23}% 
+\contentsline {chapter}{\numberline {4}Grammatiche Posizionali}{25}% 
+\contentsline {section}{\numberline {4.1}Introduzione}{25}% 
+\contentsline {section}{\numberline {4.2}Definizione formale}{25}% 
+\contentsline {chapter}{\\Bibliografia}{26}% 

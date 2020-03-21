@@ -1,6 +1,6 @@
 \chapter{Parsing top down}
 \section{Introduzione}
-Il parsing, o analisi sintattica, è una fase di compilazione  che viene utilizzata per definire la sintassi di un linguaggio di programmazione. In altre parole definisce la forma di un programma corretto. Utilizza i token \cite{libro: compilatori}, ossia sequenze di caratteri dotate di significato restituite da un analizzatore lessicale (Lexer); per produrre una rappresentazione intermedia ad albero che rappresenta la struttura grammaticale dei token. Una tipica rappresentazione è l'\textit{albero sintattico}, o \textit{syntax tree} in cui un nodo interno rappresenta un'operazione mentre i figli rappresentano gli argomenti dell'operazione; infine, questo albero prodotto, viene passato alle restanti fasi del processo di compilazione. Chiaramente, ci si aspetta che il parser sia in grado segnalare gli errori delle forme sintattiche sbagliate. In figura \ref{figParser} viene mostrato il funzionamento del parser.
+Il parsing, o analisi sintattica, è una fase di compilazione  che viene utilizzata per definire la sintassi di un linguaggio di programmazione. In altre parole definisce la forma di un programma corretto. Utilizza i token \cite{libro: compilatori}, ossia sequenze di caratteri dotate di significato restituite da un analizzatore lessicale (Lexer); per produrre una rappresentazione intermedia ad albero che rappresenta la struttura grammaticale dei token. Una tipica rappresentazione è l'\textit{albero sintattico}, o \textit{syntax tree} in cui un nodo interno rappresenta un'operazione mentre i figli rappresentano gli argomenti dell'operazione; infine, questo albero prodotto, viene passato alle restanti fasi del processo di compilazione. Chiaramente, ci si aspetta che il parser sia in grado segnalare gli errori delle forme sintattiche sbagliate. In figura 2.1 viene mostrato il funzionamento del parser.
 \par
 \vspace{0.5mm}
 \begin{figure}[hbpb]\label{figParser}
@@ -163,7 +163,7 @@ Il parsing top down è una tecnica che prevede di costruire l'albero di parsing 
 \subsection{Parsing a discesa ricorsiva}
 Un parsing a discesa ricorsiva è un programma che contiene una procedura per ogni non-terminale della grammatica. L'esecuzione \cite{libro: compilatori} inizia con la procedura relativa al simbolo iniziale e termina con successo se il suo corpo scandisce tutta la stringa d'ingresso. Una procedura per un terminale viene mostrato nella figura 2.5.
 \begin{figure}[hbpb]
-	\flushleft
+	%\flushleft
 	1) \textbf{void} \textit{A}()$\{$\par
 	2)\hspace{0.5cm}Scegli, per \textit{A}, una produzione \textit{A} $\to$ $X_1$, $X_2$ \dots $X_k$;\par
 	3)\hspace{0.5cm}\textbf{for}(\textit{i} da 1 fino a \textit{k})$\{$\par

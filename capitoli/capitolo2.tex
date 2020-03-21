@@ -66,7 +66,7 @@ Ora facciamo un esempio ed eseguiamo l'algoritmo con la stringa d'input \textit{
 \vspace{0.3cm}\textbf{R} = $\{$ (L$_{S1}$,[L$_0^{0}$,L$_2^{1}$],1), (L$_{S2}$,[L$_0^{0}$,L$_2^{1}$],1), (L$_{S1}$,[L$_0^{0}$,L$_4^{1}$],1), (L$_{S2}$,[L$_0^{0}$,L$_4^{1}$],1) $\}$\par
 \vspace{0.3cm} Processando ognuno di questi elementi otteniamo:\par 
 \vspace{0.3cm} \textbf{R} = $\{$  (L$_{1}$,[L$_0^{0}$,L$_2^{1}$],2), (L$_{3}$,[L$_0^{0}$,L$_2^{1}$],2),  (L$_{1}$,[L$_0^{0}$,L$_4^{1}$],2) (L$_{3}$,[L$_0^{0}$,L$_4^{1}$],2) $\}$\par 
-\vspace{0.3cm}Quando l'input risulta essere \textit{I[i] = d} e processiamo queste triple otteniamo che in \textbf{R} abbiamo:\par 
+\vspace{0.3cm}Quando l'input risulta essere \textit{I}[\textit{i}] = \textit{d} e processiamo queste triple otteniamo che in \textbf{R} abbiamo:\par 
 \vspace{0.3cm}\textbf{R} = $\{$ (L$_{S3}$,[L$_0^{0}$,L$_2^{1}$,L$_2^{2}$],2), (L$_{S3}$,[L$_0^{0}$,L$_2^{1}$,L$_4^{2}$],2),  (L$_{S3}$,[L$_0^{0}$,L$_4^{1}$,L$_4^{2}$],2) (L$_{S3}$,[L$_0^{0}$,L$_4^{1}$,L$_4^{2}$],2)$\}$\par 
 \vspace{0.3cm} Processando di nuovo questi elementi otteniamo:\par 
 \vspace{0.3cm}\hspace{0.5cm}\textbf{R} = $\{$ (L$_{2}$,[L$_0^{0}$,L$_2^{1}$],2), (L$_{4}$,[L$_0^{0}$,L$_2^{1}$],2),  (L$_{2}$,[L$_0^{0}$,L$_4^{1}$],2) (L$_{4}$,[L$_0^{0}$,L$_4^{1}$],2)$\}$\par 
@@ -80,18 +80,125 @@ Per costruire il GSS è necessario utilizzare un altro insieme \textbf{U} che co
 \section{Definizione GLL Parsing}
 In questo paragrafo vengono definite le basi per realizzare l'algoritmo di GLL Parsing. Mostreremo come costruire il GSS e il suo l'output. Il principio base è quello mostrato al paragrafo \ref{par1}
 \subsection{Funzioni Fondamentali}\label{par}
-L'algoritmo utilizza 4 funzioni che sono essenziali per il suo funzionamento. Queste funzioni vengono elencate qui di seguito.
+L'algoritmo \cite{pubblicazione: scott} utilizza quattro funzioni che sono essenziali per il suo funzionamento. Queste funzioni vengono elencate qui di seguito.
 \begin{itemize}
-	\item \textbf{\textit{add()}}
-	\item \textbf{\textit{pop()}}
-	\item \textbf{\textit{create()}}
-	\item \textbf{\textit{test()}}
+	\item \textbf{\textit{add()}}: La funzione \textit{add}(\textit{L}, \textit{u}, \textit{j}) controlla se c'è un descrittore (\textit{L}, \textit{u}) in U$_j$ e se non c'è lo aggiunge a U$_j$ e ad \textbf{R}. La funzione è definita nel seguente modo:\par 
+	\textit{add}(\textit{L}, \textit{u}, \textit{j})$\{$ \textbf{if}((\textit{L}, \textit{u}) $\notin$ U$_j$)$\{$ add (\textit{L}, \textit{u}) to U$_j$; add (\textit{L}, \textit{u}, \textit{j}) to \textbf{R} $\}$ $\}$
+	\item \textbf{\textit{pop()}}: La funzione \textit{pop}(\textit{u}, \textit{j}) chiama la funzione \textit{add}(\textit{L$_u$}, \textit{v}, \textit{j}) per tutti i figli \textit{v} di \textit{u} e aggiunge (\textit{u}, \textit{j}) a \textbf{P}. Viene definita nel seguente modo: \par
+	\textit{pop}(\textit{u}, \textit{j})$\{$ \textbf{if}(\textit{u} $\ne$ \textit{u$_0$})$\{$ add (\textit{u}, \textit{j}); \par \hspace{4.1cm}\textbf{for} each child \textit{v} of \textit{u} $\{$ add (\textit{L$_u$}, \textit{v}, \textit{j}); $\}$ $\}$ $\}$
+	\item \textbf{\textit{create()}}: La funzione \textit{create}(\textit{L}, \textit{u}, \textit{j}) crea un nodo \textit{v} nel GSS etichettato \textit{L}$^{j}$ con figlio \textit{u} se non esiste ancora e restituisce \textit{v}. Se (\textit{v}, \textit{k}) appartiene a \textbf{P} chiama la funzione \textit{add}(\textit{L}, \textit{u}, \textit{k}). La definizione di questa funzione è al seguente:\par 
+	\textit{create}(\textit{L}, \textit{u}, \textit{j})$\{$ \textbf{if} there is not a GSS node labelled \textit{L$^{j}$} create one\par
+	\hspace{3cm} let \textit{v} be the GSS node labelled \textit{L$^{j}$} \par
+	\hspace{3cm} \textbf{if} there is not an edge from \textit{v} to \textit{v}$\{$ \par
+	\hspace{3.6cm} create an edge from \textit{v} to \textit{u}  \par
+	\hspace{3.6cm} \textbf{for all} ((\textit{v, k}) $\in$ \textbf{\textbf{P}}) $\{$ \textit{add}(\textit{L}, \textit{u}, \textit{k}) $\}$ $\}$ \par  
+	\hspace{3cm} \textbf{return} \textit{v} $\}$
+	\item \textbf{\textit{test()}}: La funzione \textit{test}(\textit{x}, \textit{A}, $\alpha$) controlla se il simbolo d'input corrente \textit{x} appartiene al FOLLOW(\textit{A}), dove \textit{A} è un non-terminale o appartiene al FIRST($\alpha$), dove $\alpha$ è un item che stiamo processando. \`E definita nel seguente modo:\par
+	\textit{test}(\textit{x},\textit{A},$\alpha$)$\{$ \textbf{if}(\textit{x} $\in$ FIRST($\alpha$)) or ($\epsilon$ $\in$ FIRST($\alpha$) and \textit{x} $\in$ FOLLOW(\textit{A}))$\{$ \par 
+	\hspace{2.6cm}\textbf{ return true } $\}$\par 
+	 \hspace{2.1cm}\textbf{else} $\{$ \textbf{return false} $\}$ $\}$
 \end{itemize}
 \subsection{Gestione degli item}
-opopokp
-\subsection{Gestione dei simboli non-terminali}
-lòlòkbj
+Informalmente un \textbf{item} \cite{libro: compilatori} di una grammatica \textit{G} è una produzione di \textit{G} con un punto in qualche posizione del corpo. Ad esempio la produzione \textit{C} $\to$ \textit{DKL} ammette quattro item:
+\begin{align}
+	\textit{C} & \to \textit{.DKL} \notag \\
+	\textit{C} & \to \textit{D.KL} \notag \\
+	\textit{C} & \to \textit{DK.L} \notag \\
+	\textit{C} & \to \textit{DKL.} \notag 
+\end{align}
+La produzione \textit{C} $\to$ $\epsilon$ genera l'item \textit{C}$\to$. .\\
+Un item indica una porzione di una produzione che si sta analizzando ad un certo punto del processo di parsing. Sia $\alpha$ la parte di produzione dopo il punto di un item. Nel GLL Parsing gli item verrano gestiti nel seguente modo: 
+\begin{enumerate}
+	\item Un item del tipo \textit{a}$\alpha$, dove \textit{a} è un terminale, definiamo:\par
+	\textit{code}(\textit{a}$\alpha$, j) = \textbf{if}(\textit{I}[\textit{j}] = \textit{a})$\{$ \textit{j} = \textit{j} + 1 $\}$ \textbf{else} $\{$ \textbf{goto} L$_0$ $\}$
+	\item Un item del tipo \textit{A}$\alpha$, dove \textit{A} è un non-terminale, definiamo:\par
+	\textit{code}(\textit{A}$\alpha$, j,\textit{X}) = \textbf{if}(\textit{test}(\textit{I}[\textit{j}],\textit{X},\textit{A}$\alpha$))$\{$ \par 
+	\hspace{4cm}\textit{c}$_u$ = \textit{create}(\textit{R}$_A\alpha$,\textit{c}$_u$,\textit{j}); \textbf{goto} \textit{L}$_A$ $\}$ \par 
+	\hspace{3cm}\textbf{else} $\{$ \textbf{goto} L$_0$ $\}$
+	\item Per la produzione \textit{A}$\to$$\epsilon$ con item \textit{C}$\to$. definiamo: \par
+	\hspace{1cm}\textit{code}(\textit{A}$\to$$\epsilon$, j) = \textit{pop}(\textit{c}$_u$,\textit{j}); \textbf{goto} L$_0$;
+\end{enumerate}
+\vspace{0.5cm}Quindi, in base a ciò, per ogni produzione \textit{A} $\to$ $\beta$, dove $\beta$=\textit{x}$_1$$\dots$\textit{x}$_n$, abbiamo:
+\begin{enumerate}
+	\item Se \textit{x}$_1$ è un terminale:\par 
+	\hspace{2.5cm}\textit{code}(\textit{A}$\to$$\beta$, j) = \hspace{2cm}\textit{j} = \textit{j} + 1\par
+	\hspace{7.3cm} \textit{code}(\textit{x}$_2$$\dots$\textit{x}$_n$, \textit{j},\textit{A})\par
+	\hspace{7.3cm} \textit{code}(\textit{x}$_3$$\dots$\textit{x}$_n$, \textit{j},\textit{A})\par
+	\hspace{7.3cm} \dots \par
+	\hspace{7.3cm} \textit{code}(\textit{x}$_n$, \textit{j},\textit{A})\par 
+	\hspace{7.3cm} \textit{pop}(\textit{c}$_u$,\textit{j}); \textbf{goto} L$_0$;
+	\item Se \textit{x}$_1$ è un non-terminale:\par 
+	\hspace{2.2cm}\textit{code}(\textit{A}$\to$$\beta$, j) = \hspace{2cm} \textit{c}$_u$=\textit{create}(\textit{R}$_{Al}$,\textit{c}$_u$,\textit{j}); \textbf{goto} \textit{L}$_A$\par
+	\hspace{7.1cm} $A_l$: \textit{code}(\textit{x}$_2$$\dots$\textit{x}$_n$, \textit{j},\textit{A})\par
+	\hspace{7.8cm} \textit{code}(\textit{x}$_3$$\dots$\textit{x}$_n$, \textit{j},\textit{A})\par
+	\hspace{7.8cm} \dots \par
+	\hspace{7.8cm} \textit{code}(\textit{x}$_n$, \textit{j},\textit{A})\par 
+	\hspace{7.8cm} \textit{pop}(\textit{c}$_u$,\textit{j}); \textbf{goto} L$_0$;
+\end{enumerate}
+\subsection{Gestione delle produzioni}
+Siano \textit{A} $\to$ $\alpha_1$ $\mid$ $\dots$ $\mid$ $\alpha_{n}$ regole grammaticali. Quando dobbiamo gestire le sostituzioni dei non-terminali con gli opportuni corpi di produzione durante il parsing vengono definiti due modi:
+\begin{enumerate}
+	\item Se \textit{A} è un non-terminale LL(1) che non presenta conflitti abbiamo:\par
+	\hspace{2.5cm}\textit{code}(\textit{A}, j) = \hspace{2cm}\textbf{if}(\textit{test}(\textit{I}[\textit{j}],\textit{X},$\alpha_1$)$\{$ \textbf{goto} \textit{L}$_{A1}$ $\}$ \par 
+	\hspace{6.8cm} \dots \par
+	\hspace{6.8cm} \textbf{else if}(\textit{test}(\textit{I}[\textit{j}],\textit{X},$\alpha_n$)$\{$\textbf{goto} \textit{L}$_{An}$$\}$ \par 
+	\hspace{6.2cm} \textit{L}$_{A1}$: \textit{code}(\textit{A}$\to$$\alpha_1$, j) \par 
+	\hspace{6.2cm} \dots \par 
+	\hspace{6.2cm} \textit{L}$_{An}$: \textit{code}(\textit{A}$\to$$\alpha_{n}$ , j) \par 
+	\item Se \textit{A} è un non-terminale non LL(1) che presenta conflitti abbiamo:\par
+	\hspace{2.5cm}\textit{code}(\textit{A}, j) = \hspace{2cm}\textbf{if}(\textit{test}(\textit{I}[\textit{j}],\textit{X},$\alpha_1$)$\{$ \textit{add}(\textit{L}$_{A1}$,\textit{c}$_u$,\textit{j})$\}$ \par 
+	\hspace{6.8cm} \dots \par
+	\hspace{6.8cm} \textbf{else if}(\textit{test}(\textit{I}[\textit{j}],\textit{X},$\alpha_n$)$\{$ \textit{add}(\textit{L}$_{An}$,\textit{c}$_u$,\textit{j})$\}$ \par 
+	\hspace{6.8cm}\textbf{goto} \textit{L}$_0$ \par 
+	\hspace{6.2cm} \textit{L}$_{A1}$: \textit{code}(\textit{A}$\to$$\alpha_1$, j) \par 
+	\hspace{6.2cm} \dots \par 
+	\hspace{6.2cm} \textit{L}$_{An}$: \textit{code}(\textit{A}$\to$$\alpha_{n}$ , j) \par 
+\end{enumerate}
 \subsection{Shared packed parse forests}
-yuyuy
+Gli alberi sintattici prodotti da una grammatica ambigua \cite{tesi: lr} possono essere combinati in unica struttura chiamata \textbf{Shared packed parse forests} (Sppf). I nodi padri sono uniti in nuovo nodo ed un nodo involucro diventa il nodo padre di ogni sottoalbero. Per la grammatica \ref{grammaticaEspressioni}, che può essere rappresentata con due alberi di parsing, il corrispondente sppf è mostrato nella figura 3.1. 
+\begin{figure}[hbpb]
+	\centering
+	\begin{forest}
+	[E
+	[E[\textbf{id}]] [+] [E[E[\textbf{id}]] [*][E[\textbf{id}]]]
+	[E[E[\textbf{id}]][+][E[\textbf{id}]]] [*] [E[\textbf{id}]]
+	]
+	\end{forest}
+	\caption{\textit{Sppf relativo alla stringa} \textbf{id}+\textbf{id}*\textbf{id} }\label{sppf}
+\end{figure}
+Il parsing GLL restituirà in output un sppf in quanto opera su grammatiche ambigue e ricorsive a sinistra. Per poter costruire questo albero sono state definite due funzioni:
+\begin{itemize}
+	\item \textbf{\textit{getNodeT()}}: la funzione \textit{getNodeT}($\alpha$,\textit{c}$_n$) viene usata per creare un nodo, etichettato $\alpha$, all'interno del sppf e collegarlo come nodo figlio al nodo \textit{c}$_n$. Viene chiamata quando il parser trova un terminale e quando sostituiamo un non-terminale con il corpo della produzione. Viene definita nel seguente modo:\par
+	\hspace{1.5cm}\textit{getNodeT}($\alpha$,\textit{c}$_u$)$\{$ create a new node \textit{c}$_v$ in SPPF; \par 
+	 \hspace{4.6cm}create an adge from \textit{c}$_u$ to \textit{c}$_v$ $\}$
+	 \item \textbf{\textit{getNodeP()}}: la funzione \textit{getNodeP}(\textit{c}$_u$) viene usata per ottenere un nodo \textit{c}$_v$ padre del nodo \textit{c}$_u$ all'interno del sppf. Viene chiamata quando è necessario recuperare un non-terminale ogni volta che viene trovato un simbolo della stringa in input. In questo modo recuperiamo i restanti non-terminali del corpo di una produzione. Viene definita nel seguente modo:\par
+	 \hspace{1.5cm}\textit{getNodeP}(\textit{c}$_u$)$\{$ \textbf{for} each edge E(\textit{c}$_p$,\textit{c}$_c$)in Sppf $\{$  \par 
+	 \hspace{4.4cm}\textbf{if}(\textit{c}$_u$=\textit{c}$_c$)$\{$ \textbf{return} \textit{c}$_c$ $\}$ $\}$ $\}$
+\end{itemize}
 \section{Costruzione del GLL Parser}
-eeeededed
+Ora, avendo definito le varie funzioni e le varie operazioni da eseguire, siamo in grado di costruire in GLL Parser. Qui di seguito riportiamo lo pseudocodice del parser e nei capitoli successivi ne vedremo l'implementazione in Java di questo parser.\par 
+\vspace{0.2cm}
+Sia $\Gamma$ una grammatica \cite{pubblicazione: scott} e i suoi non-terminali sono \textit{A}, $\dots$, \textit{X}. L'algoritmo di GLL parsing per la grammatica $\Gamma$ risulta essere il seguente:\par
+\vspace{0.5cm}
+\textit{m} è una costante che indica la lunghezza della stringa in input\\
+\textit{I} è un array che contiene la stringa in input di dimensione \textit{m}+1\\
+\textit{i} è una variabile intera usata per accedere alle locazioni dell'array \textit{I}\\
+GSS è un DAG che contiene i nodi etichettati nella forma \textit{L$^{j}$}\\
+\textit{c}$_u$ è un nodo del GSS\\
+\textbf{P} è un insieme che ha coppie formate da un nodo del GSS e di intero\\
+\textbf{R} è un insieme di descrittori \par
+\vspace{0.5cm}
+
+read the input into \textit{I} and set \textit{I}[\textit{m}]=$\$$, \textit{i}=0;\\
+create GSS nodes \textit{u}$_1$=\textit{L}\textit{L}$_0^{0}$, \textit{u}$_0$=$\$$ and edge (\textit{u}$_0$,\textit{u}$_1$)\\
+\textit{c}$_u$=\textit{u}$_1$, \textit{i}=0\\
+\textbf{for} 0 $\le$ \textit{j} $\le$ \textit{m} $\{$ \textbf{U$_j$} = $\emptyset$ $\}$\\
+\textbf{R}=$\emptyset$, \textbf{P}=$\emptyset$\\
+\textbf{goto} \textit{L}$_S$;\\
+\textit{L}$_0$: \textbf{if}(\textbf{R} $\ne$ $\emptyset$)$\{$\par
+\hspace{2cm} remove a descriptor (\textit{L},\textit{u},\textit{j}) from \textbf{R}\par
+\hspace{2cm} \textit{c}$_u$=\textit{u}, \textit{i}=\textit{j} , \textbf{goto} \textit{L} $\}$\par
+\hspace{0.1cm} \textbf{else if}((\textit{L}$_0$,\textit{u}$_0$,\textit{j}) $\in$ \textit{U}$_m$)$\{$ report success $\}$ \textbf{else}$\{$ report failure $\}$\\
+\textit{L}$_A$: \textit{code}(\textit{A},\textit{i})\\
+\dots \\
+\textit{L}$_X$: \textit{code}(\textit{X},\textit{i})

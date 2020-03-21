@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.16)  20 MAR 2020 21:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.16)  21 MAR 2020 21:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1022,13 +1022,6 @@ Capitolo 1.
 
 ]
 Capitolo 2.
-
-Package caption Warning: \label without proper reference on input line 6.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `figParser' on page 2 undefined on input line 3.
-
 <parser.png, id=43, 477.58424pt x 37.94176pt>
 File: parser.png Graphic file (type png)
 <use parser.png>
@@ -1080,27 +1073,66 @@ Overfull \hbox (35.79898pt too wide) in paragraph at lines 70--70
 ]$],2) (L$[]$,[L$[]$,L$[]$,L$[]$],2)$\OMS/cmsy/m/n/12 g$ 
  []
 
-[18] [19]) [20] (./inizio/bibliografia.tex) [21
+[18] [19]
+Overfull \hbox (10.11052pt too wide) in paragraph at lines 97--97
+[]\T1/cmr/m/it/12 test\T1/cmr/m/n/12 (\T1/cmr/m/it/12 x\T1/cmr/m/n/12 ,\T1/cmr/
+m/it/12 A\T1/cmr/m/n/12 ,$\OML/cmm/m/it/12 $\T1/cmr/m/n/12 )$\OMS/cmsy/m/n/12 
+f$ \T1/cmr/bx/n/12 if\T1/cmr/m/n/12 (\T1/cmr/m/it/12 x $\OMS/cmsy/m/n/12 2$ \T1
+/cmr/m/n/12 FIRST($\OML/cmm/m/it/12 $\T1/cmr/m/n/12 )) or ($\OML/cmm/m/it/12 ^
+^O$ $\OMS/cmsy/m/n/12 2$ \T1/cmr/m/n/12 FIRST($\OML/cmm/m/it/12 $\T1/cmr/m/n/1
+2 ) and \T1/cmr/m/it/12 x $\OMS/cmsy/m/n/12 2$ \T1/cmr/m/n/12 FOL-LOW(\T1/cmr/m
+/it/12 A\T1/cmr/m/n/12 ))$\OMS/cmsy/m/n/12 f$ 
+ []
+
+[20]
+Overfull \hbox (7.9244pt too wide) in paragraph at lines 144--144
+[]  \T1/cmr/bx/n/12 el-se if\T1/cmr/m/n/12 (\T1/cmr/m/it/12 test\T1/cmr/m/n/12 
+(\T1/cmr/m/it/12 I\T1/cmr/m/n/12 [\T1/cmr/m/it/12 j\T1/cmr/m/n/12 ],\T1/cmr/m/i
+t/12 X\T1/cmr/m/n/12 ,$\OML/cmm/m/it/12 []$\T1/cmr/m/n/12 )$\OMS/cmsy/m/n/12 f
+$\T1/cmr/bx/n/12 goto \T1/cmr/m/it/12 L$[]$$\OMS/cmsy/m/n/12 g$ 
+ []
+
+[21]
+Overfull \hbox (4.07469pt too wide) in paragraph at lines 149--149
+[] \T1/cmr/m/it/12 co-de\T1/cmr/m/n/12 (\T1/cmr/m/it/12 A\T1/cmr/m/n/12 , j) = 
+ \T1/cmr/bx/n/12 if\T1/cmr/m/n/12 (\T1/cmr/m/it/12 test\T1/cmr/m/n/12 (\T1/cmr/
+m/it/12 I\T1/cmr/m/n/12 [\T1/cmr/m/it/12 j\T1/cmr/m/n/12 ],\T1/cmr/m/it/12 X\T1
+/cmr/m/n/12 ,$\OML/cmm/m/it/12 []$\T1/cmr/m/n/12 )$\OMS/cmsy/m/n/12 f$ \T1/cmr
+/m/it/12 add\T1/cmr/m/n/12 (\T1/cmr/m/it/12 L$[]$\T1/cmr/m/n/12 ,\T1/cmr/m/it/1
+2 c$[]$\T1/cmr/m/n/12 ,\T1/cmr/m/it/12 j\T1/cmr/m/n/12 )$\OMS/cmsy/m/n/12 g$ 
+ []
 
 
-] (./main.aux)
+Overfull \hbox (34.16086pt too wide) in paragraph at lines 151--151
+[]  \T1/cmr/bx/n/12 el-se if\T1/cmr/m/n/12 (\T1/cmr/m/it/12 test\T1/cmr/m/n/12 
+(\T1/cmr/m/it/12 I\T1/cmr/m/n/12 [\T1/cmr/m/it/12 j\T1/cmr/m/n/12 ],\T1/cmr/m/i
+t/12 X\T1/cmr/m/n/12 ,$\OML/cmm/m/it/12 []$\T1/cmr/m/n/12 )$\OMS/cmsy/m/n/12 f
+$ \T1/cmr/m/it/12 add\T1/cmr/m/n/12 (\T1/cmr/m/it/12 L$[]$\T1/cmr/m/n/12 ,\T1/c
+mr/m/it/12 c$[]$\T1/cmr/m/n/12 ,\T1/cmr/m/it/12 j\T1/cmr/m/n/12 )$\OMS/cmsy/m/n
+/12 g$ 
+ []
 
-LaTeX Warning: There were undefined references.
+[22] [23]) (./capitoli/capitolo3.tex [24]
+Capitolo 4.
+) [25
 
- )
+] (./inizio/bibliografia.tex) [26
+
+
+] (./main.aux) )
 (\end occurred inside a group at level 2)
 
 ### simple group (level 2) entered at line 247 ({)
 ### simple group (level 1) entered at line 247 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 39022 strings out of 492167
- 838260 string characters out of 6129158
- 1139673 words of memory out of 5000000
- 42919 multiletter control sequences out of 15000+600000
- 547985 words of font info for 52 fonts, out of 8000000 for 9000
+ 39806 strings out of 492167
+ 853423 string characters out of 6129158
+ 1139648 words of memory out of 5000000
+ 43698 multiletter control sequences out of 15000+600000
+ 549358 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 136i,11n,162p,2651b,1580s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 136i,11n,162p,2651b,2248s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
 1.enc}<c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:
 /texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2
@@ -1119,10 +1151,10 @@ r/sfrm1728.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm2074
 .pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb><c:/t
 exlive/2019/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb><c:/texlive/201
 9/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on main.pdf (27 pages, 437695 bytes).
+Output written on main.pdf (32 pages, 454140 bytes).
 PDF statistics:
- 176 PDF objects out of 1000 (max. 8388607)
- 123 compressed objects within 2 object streams
+ 192 PDF objects out of 1000 (max. 8388607)
+ 134 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
