@@ -31,4 +31,18 @@
 \contentsline {chapter}{\numberline {4}Grammatiche Posizionali}{25}% 
 \contentsline {section}{\numberline {4.1}Introduzione}{25}% 
 \contentsline {section}{\numberline {4.2}Definizione formale}{25}% 
-\contentsline {chapter}{\\Bibliografia}{26}% 
+\contentsline {subsection}{\numberline {4.2.1}Relazioni spaziali}{26}% 
+\contentsline {subsection}{\numberline {4.2.2}Regole di valutazioni}{27}% 
+\contentsline {section}{\numberline {4.3}Parser Posizionali}{28}% 
+\contentsline {subsection}{\numberline {4.3.1}Gestione dell'input}{28}% 
+\contentsline {subsection}{\numberline {4.3.2}Gestione degli operatori spaziali}{29}% 
+\contentsline {chapter}{\numberline {5}Implementazione del GLL parsing}{30}% 
+\contentsline {section}{\numberline {5.1}Introduzione}{30}% 
+\contentsline {section}{\numberline {5.2}Le componenti del sistema}{30}% 
+\contentsline {section}{\numberline {5.3}Gli elementi dell'insiemi R, P e U}{30}% 
+\contentsline {section}{\numberline {5.4}La classe GLL Parser}{30}% 
+\contentsline {chapter}{\numberline {6}GLL parsing posizionale}{31}% 
+\contentsline {section}{\numberline {6.1}Introduzione}{31}% 
+\contentsline {section}{\numberline {6.2}Gestione dell'input}{31}% 
+\contentsline {section}{\numberline {6.3}La classe GLLParserBidimensionale}{31}% 
+\contentsline {chapter}{\\Bibliografia}{32}% 

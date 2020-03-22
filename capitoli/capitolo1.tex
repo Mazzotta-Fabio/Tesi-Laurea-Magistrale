@@ -15,10 +15,9 @@ I metodi di parsing più comunemente utilizzate dai compilatori sono:
 In questa tesi tratteremo il parsing top down in quanto il GLL parsing usa questa metodologia
 \section{Grammatiche context-free}
 In questo paragrafo introduciamo una notazione - \textit{la grammatica context-free} - utilizzata per specificare la sintassi dei linguaggi di programmazione. Le grammatiche sono usate per descrivere i costrutti dei linguaggi di programmazione. Ad esempio in C, il while può avere la seguente forma:
-\lstset{language=C}
-\begin{lstlisting}
-	while (espressione) statement 
-\end{lstlisting}
+\begin{align}
+	\textbf{while} (espressione) statement \notag
+\end{align}
 Questa notazione indica che il costrutto è composto dalla parola chiave \textbf{while}, una parentesi tonda aperta, un'espressione, una parentesi tonda chiusa e uno statement. Usando la variabile \textit{expr} che indica una generica espressione e la variabile \textit{stmt} per indicare lo statement, la regola di questo costrutto può essere definita nel seguente modo:
 \begin{align}\label{regolaWhile}
 	stmt \to \textbf{while } ( exp ) stmt 
@@ -279,7 +278,7 @@ Di seguito vengono riportate le mosse del parser predittivo applicate alla gramm
 \end{table}\\
 In questa tabella la cima dello stack è riportata a sinistra nella colonna "Stack". Tali mosse corrispondono alla derivazione sinistra; infatti abbiamo che:
 \begin{align}
-	I \Rightarrow A \Rightarrow S \Rightarrow CC \Rightarrow cCC \Rightarrow cdC \Rightarrow cdC \Rightarrow cdd
+	I \Rightarrow A \Rightarrow S \Rightarrow CC \Rightarrow cCC \Rightarrow cdC \Rightarrow cdd \notag
 \end{align}
 Si noti che le forme sentenziali in tale derivazione corrispondono alla porzione di stringa in input già analizzata (indicata nella colonna riconosciuta).
 \section{Conclusioni}

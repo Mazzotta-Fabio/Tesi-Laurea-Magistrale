@@ -60,19 +60,31 @@ $L_B$:  \textbf{if}(\textit{I}[\textit{i}] = a)$\{$ i = i + 1; \textit{pop}(s, i
 \hspace{0.2cm} \textbf{else}$\{$ \textbf{if}(\textit{I}[\textit{i}] = b)$\{$ i = i + 1; \textit{pop}(s, i, \textbf{R});$\}$ \par
 \hspace{1.5cm}\textbf{goto} $L_0$ $\}$ \par 
 \vspace{0.3cm}
-Ora facciamo un esempio ed eseguiamo l'algoritmo con la stringa d'input \textit{aad}$\$$. Incomiciamo la nostra computazione aggiungendo prima la tripla (L$_{S1}$,[L$_0^{0}$],0), e poi la tripla (L$_{S2}$,[L$_0^{0}$],0) ad \textbf{R} ed andiamo all'etichetta L$_0$. Rimuoviamo (L$_{S1}$,[L$_0^{0}$],0) da \textbf{R} ed andiamo alla linea con etichetta L$_{S1}$. L'operazione di \textit{push} aggiunge allo stack \textit{s} [L$_0^{0}$,L$_1^{0}$] ed andiamo in L$_A$. In L$_A$ abbiamo che il parser ha trovato una coincidenza con il simbolo \textit{a}, incrementa l'indice \textit{i}, usato per leggere i simboli dell'input, e fa un operazione di \textit{pop} ed aggiunge  (L$_{1}$,[L$_0^{0}$],1) ad \textbf{R} e ritorna in L$_0$. Allo stesso modo processiamo  (L$_{S2}$,[L$_0^{0}$],0) da \textbf{R} e alla fine avremo (L$_{3}$,[L$_0^{0}$],1) che viene aggiunto ad \textbf{R}. Quindi \textbf{R} risulterà avere le seguenti triple:\par
-\hspace{1.5cm} \textbf{R} = $\{$ (L$_{1}$,[L$_0^{0}$],1), (L$_{3}$,[L$_0^{0}$],1) $\}$\par
-\vspace{0.3cm}Successivamente estraiamo (L$_{1}$,[L$_0^{0}$],1) e lo processiamo. Alla linea L$_1$ facciamo un \textit{push} sullo stack s [L$_0^{0}$,L$_2^{1}$] ed andiamo alla linea con etichetta L$_S$ e aggiungiamo (L$_{S1}$,[L$_0^{0}$,L$_2^{1}$],1) e (L$_{S2}$,[L$_0^{0}$,L$_2^{1}$],1) ad \textbf{R}. Allo stesso modo processiamo (L$_{3}$,[L$_0^{0}$],1) e in \textbf{R} abbiamo:\par
-\vspace{0.3cm}\textbf{R} = $\{$ (L$_{S1}$,[L$_0^{0}$,L$_2^{1}$],1), (L$_{S2}$,[L$_0^{0}$,L$_2^{1}$],1), (L$_{S1}$,[L$_0^{0}$,L$_4^{1}$],1), (L$_{S2}$,[L$_0^{0}$,L$_4^{1}$],1) $\}$\par
-\vspace{0.3cm} Processando ognuno di questi elementi otteniamo:\par 
-\vspace{0.3cm} \textbf{R} = $\{$  (L$_{1}$,[L$_0^{0}$,L$_2^{1}$],2), (L$_{3}$,[L$_0^{0}$,L$_2^{1}$],2),  (L$_{1}$,[L$_0^{0}$,L$_4^{1}$],2) (L$_{3}$,[L$_0^{0}$,L$_4^{1}$],2) $\}$\par 
-\vspace{0.3cm}Quando l'input risulta essere \textit{I}[\textit{i}] = \textit{d} e processiamo queste triple otteniamo che in \textbf{R} abbiamo:\par 
-\vspace{0.3cm}\textbf{R} = $\{$ (L$_{S3}$,[L$_0^{0}$,L$_2^{1}$,L$_2^{2}$],2), (L$_{S3}$,[L$_0^{0}$,L$_2^{1}$,L$_4^{2}$],2),  (L$_{S3}$,[L$_0^{0}$,L$_4^{1}$,L$_4^{2}$],2) (L$_{S3}$,[L$_0^{0}$,L$_4^{1}$,L$_4^{2}$],2)$\}$\par 
-\vspace{0.3cm} Processando di nuovo questi elementi otteniamo:\par 
-\vspace{0.3cm}\hspace{0.5cm}\textbf{R} = $\{$ (L$_{2}$,[L$_0^{0}$,L$_2^{1}$],2), (L$_{4}$,[L$_0^{0}$,L$_2^{1}$],2),  (L$_{2}$,[L$_0^{0}$,L$_4^{1}$],2) (L$_{4}$,[L$_0^{0}$,L$_4^{1}$],2)$\}$\par 
-\vspace{0.3cm} Da queste triple otteniamo:\par 
-\vspace{0.3cm}\hspace{0.5cm}\textbf{R} = $\{$ (L$_{2}$,[L$_0^{0}$],3), (L$_{2}$,[L$_0^{0}$],2),  (L$_{4}$,[L$_0^{0}$],3) (L$_{4}$,[L$_0^{0}$],2)$\}$\par 
-\vspace{0.3cm} Quando abbiamo \textit{I}[3] = $\$$ processiamo le triple mostrate precedentemente ed otteniamo la tripla (L$_{0}$,[ ],3) e la tripla (L$_{0}$,[ ],2) che vengono aggiunte ad \textbf{R} e di conseguenza l'algoritmo termina con un successo.
+Ora facciamo un esempio ed eseguiamo l'algoritmo con la stringa d'input \textit{aad}$\$$. Incomiciamo la nostra computazione aggiungendo prima la tripla (L$_{S1}$,[L$_0^{0}$],0), e poi la tripla (L$_{S2}$,[L$_0^{0}$],0) ad \textbf{R} ed andiamo all'etichetta L$_0$. Rimuoviamo (L$_{S1}$,[L$_0^{0}$],0) da \textbf{R} ed andiamo alla linea con etichetta L$_{S1}$. L'operazione di \textit{push} aggiunge allo stack \textit{s} [L$_0^{0}$,L$_1^{0}$] ed andiamo in L$_A$. In L$_A$ abbiamo che il parser ha trovato una coincidenza con il simbolo \textit{a}, incrementa l'indice \textit{i}, usato per leggere i simboli dell'input, e fa un operazione di \textit{pop} ed aggiunge  (L$_{1}$,[L$_0^{0}$],1) ad \textbf{R} e ritorna in L$_0$. Allo stesso modo processiamo  (L$_{S2}$,[L$_0^{0}$],0) da \textbf{R} e alla fine avremo (L$_{3}$,[L$_0^{0}$],1) che viene aggiunto ad \textbf{R}. Quindi \textbf{R} risulterà avere le seguenti triple:
+\begin{align}
+	\textbf{R} = \{ (L_1,[L_0^{0}],1), (L_3,[L_0^{0}],1) \} \notag
+\end{align}
+Successivamente estraiamo (L$_{1}$,[L$_0^{0}$],1) e lo processiamo. Alla linea L$_1$ facciamo un \textit{push} sullo stack s [L$_0^{0}$,L$_2^{1}$] ed andiamo alla linea con etichetta L$_S$ e aggiungiamo (L$_{S1}$,[L$_0^{0}$,L$_2^{1}$],1) e (L$_{S2}$,[L$_0^{0}$,L$_2^{1}$],1) ad \textbf{R}. Allo stesso modo processiamo (L$_{3}$,[L$_0^{0}$],1) e in \textbf{R} abbiamo:
+\begin{align}
+	\textbf{R} = \{ (L_{S1},[L_0^{0},L_2^{1}],1), (L_{S2},[L_0^{0},L_2^{1}],1), (L_{S1},[L_0^{0},L_4^{1}],1), (L_{S2},[L_0^{0},L_4^{1}],1) \} \notag
+\end{align}
+Processando ognuno di questi elementi otteniamo:
+\begin{align}
+	\textbf{R} = \{ (L_{1},[L_0^{0},L_2^{1}],2), (L_{3},[L_0^{0},L_2^{1}],2), (L_{1},[L_0^{0},L_4^{1}],2),  (L_{3},[L_0^{0},L_4^{1}],2) \} \notag
+\end{align}
+Quando l'input risulta essere \textit{I}[\textit{i}] = \textit{d} e processiamo queste triple otteniamo che in \textbf{R} abbiamo:
+\begin{align}
+	\textbf{R} = \{ (L_{S3},[L_0^{0},L_2^{1},L_2^{2}],2), (L_{S3},[L_0^{0},L_2^{1},L_4^{2}],2),  (L_{S3},[L_0^{0},L_4^{1},L_4^{2}],2), (L_{S3},[L_0^{0},L_4^{1},L_4^{2}],2) \} \notag
+\end{align}
+Processando di nuovo questi elementi otteniamo:
+\begin{align}
+	\textbf{R} = \{ (L_{2},[L_0^{0},L_2^{1}],2), (L_{4},[L_0^{0},L_2^{1}],2), (L_{2},[L_0^{0},L_4^{1}],2) (L_{4},[L_0^{0},L_4^{1}],2) \} \notag
+\end{align}
+Da queste triple otteniamo:
+\begin{align}
+ 	\textbf{R} = \{ (L_{2},[L_0^{0}],3), (L_{2},[L_0^{0}],2), (L_{4},[L_0^{0}],3) (L_{4},[L_0^{0}],2) \} \notag
+\end{align}
+Quando abbiamo \textit{I}[3] = $\$$ processiamo le triple mostrate precedentemente ed otteniamo la tripla (L$_{0}$,[ ],3) e la tripla (L$_{0}$,[ ],2) che vengono aggiunte ad \textbf{R} e di conseguenza l'algoritmo termina con un successo.
 \section{Graph structured stacks}
 Nel paragrafo precedente abbiamo visto che ogni volta si trovava un non-terminale non LL(1) applicavamo il non-determinismo duplicando lo stack usato dal parser. Per rappresentare tutti questi stack in unica struttura dati utilizzeremo il \textbf{Graph structured stacks}(\textbf{GSS}). Viene definito \cite{tesi: lr} come un grafo diretto aciclico (DAG) i cui nodi hanno etichette L$^{k}$ che corrispondono agli elementi usati dallo stack, dove L indica un etichetta di una linea di codice e \textit{k} la posizione su un simbolo della stringa in input. Questi nodi sono raggruppati in vari insiemi disgunti chiamati \textit{livelli}. Il GSS viene costruito un livello alla volta. Infatti ogni qualvolta il parser trova una coincidenza tra un simbolo in input e la grammatica crea un livello. Il GSS viene disegnato da sinistra verso destra ed il nodo più a sinitra rappresenta la cima di ogni stack. Per costruire il GSS all'interno dell'algoritmo di parsing, dobbiamo usare una nuova tripla, chiamato \textbf{descrittore}. Un descrittore è formata da (\textit{L}, \textit{u}, \textit{i}), dove \textit{L} è un etichetta, \textit{u} è un nodo del GSS e \textit{i} che indica il simbolo della stringa in input \textit{I}[ ]. Queste triple vengono aggiunte ad \textbf{R}.
 \subsection{Insiemi U e P}
@@ -176,11 +188,11 @@ Il parsing GLL restituirà in output un sppf in quanto opera su grammatiche ambi
 	 \hspace{4.4cm}\textbf{if}(\textit{c}$_u$=\textit{c}$_c$)$\{$ \textbf{return} \textit{c}$_c$ $\}$ $\}$ $\}$
 \end{itemize}
 \section{Costruzione del GLL Parser}
-Ora, avendo definito le varie funzioni e le varie operazioni da eseguire, siamo in grado di costruire in GLL Parser. Qui di seguito riportiamo lo pseudocodice del parser e nei capitoli successivi ne vedremo l'implementazione in Java di questo parser.\par 
+Ora, avendo definito le varie funzioni e le varie operazioni da eseguire, siamo in grado di costruire in GLL Parser. Qui di seguito riportiamo lo pseudocodice del parser \footnote{In questo pseudocodice è stata omessa la costruzione del sppf. Verrà discusso nei capitoli successivi.} e nei capitoli successivi ne vedremo l'implementazione.\par 
 \vspace{0.2cm}
-Sia $\Gamma$ una grammatica \cite{pubblicazione: scott} e i suoi non-terminali sono \textit{A}, $\dots$, \textit{X}. L'algoritmo di GLL parsing per la grammatica $\Gamma$ risulta essere il seguente:\par
+\noindent Sia $\Gamma$ una grammatica \cite{pubblicazione: scott} e i suoi non-terminali sono \textit{A}, $\dots$, \textit{X}. L'algoritmo di GLL parsing per la grammatica $\Gamma$ risulta essere il seguente:\par
 \vspace{0.5cm}
-\textit{m} è una costante che indica la lunghezza della stringa in input\\
+\noindent \textit{m} è una costante che indica la lunghezza della stringa in input\\
 \textit{I} è un array che contiene la stringa in input di dimensione \textit{m}+1\\
 \textit{i} è una variabile intera usata per accedere alle locazioni dell'array \textit{I}\\
 GSS è un DAG che contiene i nodi etichettati nella forma \textit{L$^{j}$}\\
@@ -189,8 +201,8 @@ GSS è un DAG che contiene i nodi etichettati nella forma \textit{L$^{j}$}\\
 \textbf{R} è un insieme di descrittori \par
 \vspace{0.5cm}
 
-read the input into \textit{I} and set \textit{I}[\textit{m}]=$\$$, \textit{i}=0;\\
-create GSS nodes \textit{u}$_1$=\textit{L}\textit{L}$_0^{0}$, \textit{u}$_0$=$\$$ and edge (\textit{u}$_0$,\textit{u}$_1$)\\
+\noindent read the input into \textit{I} and set \textit{I}[\textit{m}]=$\$$, \textit{i}=0;\\
+create GSS nodes \textit{u}$_1$=\textit{L}$_0^{0}$, \textit{u}$_0$=$\$$ and edge (\textit{u}$_0$,\textit{u}$_1$)\\
 \textit{c}$_u$=\textit{u}$_1$, \textit{i}=0\\
 \textbf{for} 0 $\le$ \textit{j} $\le$ \textit{m} $\{$ \textbf{U$_j$} = $\emptyset$ $\}$\\
 \textbf{R}=$\emptyset$, \textbf{P}=$\emptyset$\\
