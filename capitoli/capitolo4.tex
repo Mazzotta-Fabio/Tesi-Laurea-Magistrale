@@ -1,9 +1,50 @@
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}%background
+\lstset{language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	columns=flexible,
+	frame=single,%tb
+	keywordstyle=\color{javapurple}\bfseries,
+	stringstyle=\color{blue},
+	commentstyle=\color{javagreen},
+	morecomment=[s][\color{javadocblue}]{/**}{*/},
+	numbers=left,%none
+	numberstyle=\color{black},
+	stepnumber=1,
+	numbersep=20pt,
+	tabsize=3,
+	breaklines=true,
+	showspaces=false,
+	showstringspaces=false,
+	backgroundcolor=\color{backcolour},
+	basicstyle=\ttfamily\footnotesize}
 \chapter{Implementazione del GLL parsing}
 \section{Introduzione}
-In questo capitolo illustreremo come è stato implementato il GLL Parsing. Parleremo le componenti software che lo compongono ed illustremo come il software creato è stato utilizzato per un linguaggio lineare.
+In questo capitolo illustreremo come è stato implementato il GLL Parsing. Parleremo delle componenti software che lo compongono ed illustremo come è stato utilizzato per un linguaggio lineare. Inoltre tratteremo anche della costruzione del sppf.
 \section{Le componenti del sistema}
-Mettere il diagramma delle classi del parser
-\section{Gli elementi dell'insiemi R, P e U}
-mettere classi insiemi U P R
+Per realizzare il GLL parsing si è cercato di creare tutte le componenti che utilizza l'algoritmo durante la sua computazione e risultano essere:
+\begin{itemize}
+	\item \textbf{ElementoU}: è una componente che rappresenta un elemento memorizzato dall'insieme \textbf{U},
+	\item \textbf{ElementoP}: si occupa di gestire gli elementi dell'insieme \textbf{P},
+	\item \textbf{DescrittoreR}: questa componente rappresenta un descrittore che viene memorizzato dall'insieme \textbf{R} 
+	\item \textbf{GLLParsing}: è una componente che gestisce la computazione del GLL parsing.
+\end{itemize}
+Di seguito mostriamo il class diagram del sistema e nei paragrafi successivi tratteremo nei dettagli ogni componente del sistema.
+\begin{figure}[h]
+	\flushleft
+	\includegraphics[width=450pt,height=280pt]{C:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg}
+	\caption{\textit{Class diagram del software del GLL Parsing}}
+\end{figure}
+\section{Le classi degli insiemi R, P e U}
+In questo paragrafo discutiamo delle classi che rappresentano gli elementi memorizzati dagli insiemi \textbf{P}, \textbf{R} e \textbf{U}. Qui di seguito presentiamo la classe \textbf{\textit{ElementoU.java}}
+\lstinputlisting{C:/Users/fabio/Documents/GitHub/GLLParsing/src/gllparsing/ElementoU.java}
+Questa classe definisce gli elementi appartenenti all'insieme \textbf{U}. Infatti questa classe ha come variabili d'istanza \textit{etichetta}, di tipo \textit{String}, ed un nodo \textit{u}, di tipo \textit{Vertex}, che mantiene traccia del nodo del GSS che il parser sta processando. Presenta un costruttore per inizializzare le variabili d'istanza al momento della creazione dell'oggetto (linee 8-10), dei metodi d'accesso alle variabili d'istanza (linee 13-19) ed il metodo \textit{ toString()} per descrivere lo stato dell'oggetto (linee 21-22).\\
+Ora descriviamo la classe \textbf{\textit{ElementoU.java}}
+\lstinputlisting{C:/Users/fabio/Documents/GitHub/GLLParsing/src/gllparsing/ElementoP.java}
+\lstinputlisting{C:/Users/fabio/Documents/GitHub/GLLParsing/src/gllparsing/DescrittoreR.java}
 \section{La classe GLL Parser}
 mettere la classe con il main che indica il gll parsing
+\lstinputlisting{C:/Users/fabio/Documents/GitHub/GLLParsing.java}
