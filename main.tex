@@ -12,6 +12,29 @@
 \usepackage{multirow}
 \usepackage{amsmath}
 \pagestyle{headings}
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}%background
+\lstset{language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	columns=flexible,
+	frame=tb,%single
+	keywordstyle=\color{javapurple}\bfseries,
+	stringstyle=\color{blue},
+	commentstyle=\color{javagreen},
+	morecomment=[s][\color{javadocblue}]{/**}{*/},
+	numbers=left,%none
+	numberstyle=\color{black},
+	stepnumber=1,
+	numbersep=20pt,
+	tabsize=3,
+	breaklines=true,
+	showspaces=false,
+	showstringspaces=false,
+	backgroundcolor=\color{backcolour},
+	basicstyle=\ttfamily\footnotesize}
 \begin{document}
 	\frontmatter
 	\input{inizio/frontespizio}

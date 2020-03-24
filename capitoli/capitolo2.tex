@@ -187,7 +187,7 @@ Il parsing GLL restituirà in output un sppf in quanto opera su grammatiche ambi
 	 \hspace{1.5cm}\textit{getNodeP}(\textit{c}$_u$)$\{$ \textbf{for} each edge E(\textit{c}$_p$,\textit{c}$_c$)in Sppf $\{$  \par 
 	 \hspace{4.4cm}\textbf{if}(\textit{c}$_u$=\textit{c}$_c$)$\{$ \textbf{return} \textit{c}$_c$ $\}$ $\}$ $\}$
 \end{itemize}
-\section{Costruzione del GLL Parser}
+\section{Costruzione del GLL Parser}\label{algoritmoIntero}
 Ora, avendo definito le varie funzioni e le varie operazioni da eseguire, siamo in grado di costruire in GLL Parser. Qui di seguito riportiamo lo pseudocodice del parser \footnote{In questo pseudocodice è stata omessa la costruzione del sppf. Verrà discusso nei capitoli successivi.} e nei capitoli successivi ne vedremo l'implementazione.\par 
 \vspace{0.2cm}
 \noindent Sia $\Gamma$ una grammatica \cite{pubblicazione: scott} e i suoi non-terminali sono \textit{A}, $\dots$, \textit{X}. L'algoritmo di GLL parsing per la grammatica $\Gamma$ risulta essere il seguente:\par

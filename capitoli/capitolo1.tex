@@ -4,7 +4,7 @@ Il parsing, o analisi sintattica, è una fase di compilazione  che viene utilizz
 \par
 \vspace{0.5mm}
 \begin{figure}[hbpb]\label{figParser}
-	{\includegraphics[height=40pt,width=420pt,scale=0.1]{parser.png}}
+	{\includegraphics[height=40pt,width=420pt,scale=0.1]{C:/Users/fabio/Documents/GitHub/parser.png}}
 	\caption{\textit{Posizione del parser all'interno del compilatore.}}
 \end{figure}
 I metodi di parsing più comunemente utilizzate dai compilatori sono:
@@ -16,7 +16,7 @@ In questa tesi tratteremo il parsing top down in quanto il GLL parsing usa quest
 \section{Grammatiche context-free}
 In questo paragrafo introduciamo una notazione - \textit{la grammatica context-free} - utilizzata per specificare la sintassi dei linguaggi di programmazione. Le grammatiche sono usate per descrivere i costrutti dei linguaggi di programmazione. Ad esempio in C, il while può avere la seguente forma:
 \begin{align}
-	\textbf{while} (espressione) statement \notag
+	\textbf{while} \quad (espressione) \quad statement \notag
 \end{align}
 Questa notazione indica che il costrutto è composto dalla parola chiave \textbf{while}, una parentesi tonda aperta, un'espressione, una parentesi tonda chiusa e uno statement. Usando la variabile \textit{expr} che indica una generica espressione e la variabile \textit{stmt} per indicare lo statement, la regola di questo costrutto può essere definita nel seguente modo:
 \begin{align}\label{regolaWhile}

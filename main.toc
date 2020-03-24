@@ -41,8 +41,8 @@
 \contentsline {section}{\numberline {5.2}Le componenti del sistema}{30}% 
 \contentsline {section}{\numberline {5.3}Le classi degli insiemi R, P e U}{31}% 
 \contentsline {section}{\numberline {5.4}La classe GLL Parser}{34}% 
-\contentsline {chapter}{\numberline {6}GLL parsing posizionale}{43}% 
-\contentsline {section}{\numberline {6.1}Introduzione}{43}% 
-\contentsline {section}{\numberline {6.2}Gestione dell'input}{43}% 
-\contentsline {section}{\numberline {6.3}La classe GLLParserBidimensionale}{43}% 
-\contentsline {chapter}{\\Bibliografia}{44}% 
+\contentsline {chapter}{\numberline {6}GLL parsing posizionale}{45}% 
+\contentsline {section}{\numberline {6.1}Introduzione}{45}% 
+\contentsline {section}{\numberline {6.2}Gestione dell'input}{45}% 
+\contentsline {section}{\numberline {6.3}La classe GLLParserBidimensionale}{47}% 
+\contentsline {chapter}{\\Bibliografia}{48}% 
