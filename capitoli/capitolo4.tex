@@ -12,18 +12,18 @@ Per realizzare il GLL parsing si è cercato di creare tutte le componenti che ut
 Di seguito mostriamo il class diagram del sistema e nei paragrafi successivi tratteremo nei dettagli ogni componente del sistema.
 \begin{figure}[h]
 	\flushleft
-	\includegraphics[width=450pt,height=280pt]{C:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg}
+	\includegraphics[width=470pt,height=290pt]{C:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg}
 	\caption{\textit{Class diagram del software del GLL Parsing}}
 \end{figure}
 \section{Le classi degli insiemi R, P e U}
 In questo paragrafo discutiamo delle classi che rappresentano gli elementi memorizzati dagli insiemi \textbf{P}, \textbf{R} e \textbf{U}. Qui di seguito presentiamo la classe \textbf{\textit{ElementoU.java}}
-\lstinputlisting{C:/Users/fabio/Documents/GitHub/GLLParsing/src/gllparsing/ElementoU.java}
+\lstinputlisting{C:/Users/fabio/Documents/GitHub/gll-parsing/src/gllparsinglineare/ElementoU.java}
 Questa classe definisce gli elementi appartenenti all'insieme \textbf{U}. Infatti questa classe ha come variabili d'istanza \textit{etichetta}, di tipo \textit{String}, ed un nodo \textit{u}, di tipo \textit{Vertex}, che mantiene traccia del nodo del GSS che il parser sta processando. Presenta un costruttore per inizializzare le variabili d'istanza al momento della creazione dell'oggetto (linee 8-10), dei metodi d'accesso alle variabili d'istanza (linee 13-19) ed il metodo \textit{ toString()} per descrivere lo stato dell'oggetto (linee 21-22).\\
 Ora descriviamo la classe \textbf{\textit{ElementoP.java}}
-\lstinputlisting{C:/Users/fabio/Documents/GitHub/GLLParsing/src/gllparsing/ElementoP.java}
+\lstinputlisting{C:/Users/fabio/Documents/GitHub/gll-parsing/src/gllparsinglineare/ElementoP.java}
 Questa classe rappresenta un elemento dell'insieme \textbf{P}. Ha come variabili d'istanza \textit{u} di tipo \textit{Vertex}, che rappresenta un nodo del GSS, un intero \textit{k} e un nodo del sppf (linee 7-9). Possiede un costruttore  per inizializzare le varibili d'istanza al momento della creazione dell'oggetto (linee 11-15), dei metodi d'accesso alle variabili d'istanza (linee 17-27) ed il metodo \textit{toString()} che serve per descrivere lo stato dell'oggetto (linee 35-37). Notiamo da questa classe che è presente un nodo del sppf. Questo perchè ogni volta che viene fatto un \textit{pop()} il parser deve riprendere la costruzione dal nodo padre, che rappresenta il corpo di una produzione, a cui è stato aggiunto un nodo figlio, che sono i terminali che sono utilizzati per sostituire i non-terminali di un corpo di una produzione.\\
 Ora presentiamo la classe \textbf{\textit{DescrittoreR.java}}.
-\lstinputlisting{C:/Users/fabio/Documents/GitHub/GLLParsing/src/gllparsing/DescrittoreR.java}
+\lstinputlisting{C:/Users/fabio/Documents/GitHub/gll-parsing/src/gllparsinglineare/DescrittoreR.java}
 Questa classe rappresenta un descrittore che viene memorizzato nell'insieme \textbf{R}. Ha come varibili d'istanza un'\textit{etichetta}, di tipo \textit{String}, che inidica l'item che deve essere computato, un nodo \textit{u}, che indica il nodo del GSS sul quale sta avvenendo la computazione, un intero \textit{i}, che indica un simbolo della stringa in ingresso che si vuole trovare ed un nodo \textit{w}, che indica un nodo del sppf su cui il parser deve effettuare la sostituzione con un corpo di una produzione (linee 7-10). Possiede un costruttore per inizializzare le variabili al momento della creazioe dell'oggetto (linee 12-17), dei metodi d'accesso alle variabili e il metodo \textit{toString()} per descrivere lo stato di un oggetto
 \section{La classe GLL Parser}
 Inn questo paragrafo descriviamo la classe \textbf{\textit{GLLParsing.java}} che definisce l'implementazione del GLL Parsing. Illustremo in più parti le varie operazioni che svolge. Il parsing viene eseguito sulla grammatica \ref{gram3} 
@@ -88,17 +88,8 @@ Iniziamo a commentare le parti sostanziali. Alle linee 19-26 vengono dichiarate 
 Ora analizziamo le funzioni fondamentali.
 \begin{lstlisting}
 	private static void add(String etichetta, Vertex<String> nu,int j,Vertex<IdNodoSppf>cn){
-		if((u.size()==0)&&(r.size()==0)){
-			u.add(new ElementoU(etichetta,nu));
-			r.add(new DescrittoreR(etichetta,nu,j,cn));
-		}
-		else{
-			ElementoU el=u.get(j);
-			if(!((el.getEtichetta().equals(etichetta))&&(el.getU().element().equals(nu.element())))){
-				u.add(j,new ElementoU(etichetta,nu));
-				r.add(new DescrittoreR(etichetta,nu,j,cn));
-			}
-		}
+		u.add(new ElementoU(etichetta,nu));
+		r.add(new DescrittoreR(etichetta,nu,j,cn));
 	}
 \end{lstlisting}
 Il metodo \textit{add}() ha come parametri un etichetta, che inidca un item che deve essere computato, un intero \textit{j}, che indica la posizione del simbolo della stringa che si vuole trovare, un nodo \textit{nu} che inidca un nodo del GSS, ed un nodo cn, che inidica un nodo dell'sppf. Il metodo aggiunge gli elementi agli insiemi \textbf{R} ed \textbf{U} se questi elementi non appartengono ad \textbf{U}[\textit{j}].
@@ -128,7 +119,7 @@ Il metodo \textit{add}() ha come parametri un etichetta, che inidca un item che 
 				flag=false;
 			}
 		}
-		if(flag){
+		if((flag)&&(!(v.element().equals(u.element()))))){
 			gss.insertDirectedEdge(v, u, "");
 			for(ElementoP elp:p){
 				if(elp.getU().element().equals(v.element())){
@@ -171,25 +162,40 @@ Il metodo \textit{pop}() ha come parametri un nodo del GSS \textit{u}, un intero
 		}
 	}
 	
-	private static Vertex<IdNodoSppf> getNodeT(String nomeNodo,Vertex<IdNodoSppf>cn){
-		Vertex<IdNodoSppf> v=sppf.insertVertex(new IdNodoSppf(nomeNodo));
-		v.element().setId(v.hashCode());
-		sppf.insertDirectedEdge(cn, v, null);
-		return v;
+	private static Vertex<IdNodoSppf> getNodeT(String simbolo,String item,Vertex<IdNodoSppf>cn){
+		Iterator<Edge<IdNodoSppf>>it=sppf.edges();
+		String nonTerm=item.substring(0,1);
+		boolean flag=true;
+		while(it.hasNext()) {
+			Edge<IdNodoSppf>e=it.next();
+			Vertex<IdNodoSppf> v1=e.getStartVertex();
+			Vertex<IdNodoSppf> v2=e.getEndVertex();
+			if((cn.element().getId()==v1.element().getId())&&(item.equals(v2.element().getItem()))) {
+				flag=false;
+			}
+		}
+		if((flag)&&(cn.element().getNomeNodo().equals(nonTerm))) {
+			Vertex<IdNodoSppf> v=sppf.insertVertex(new IdNodoSppf(simbolo,item));
+			v.element().setId(v.hashCode());
+			sppf.insertDirectedEdge(cn, v, null);
+			return v;
+		}
+		return cn;
 	}
-
-	private static Vertex<IdNodoSppf> getNodeP(int i){
+	
+	private static Vertex<IdNodoSppf> getNodeP(Vertex<IdNodoSppf>cn){
 		Iterator<Edge<IdNodoSppf>>it=sppf.edges();
 		while(it.hasNext()) {
 			Edge<IdNodoSppf>e=it.next();
 			Vertex<IdNodoSppf> v1=e.getStartVertex();
 			Vertex<IdNodoSppf> v2=e.getEndVertex();
-			if(v2.element().getId()==i) {
+			if(v2.element().getId()==cn.element().getId()) {
 				return v1;
 			}
 		}
-		return null;
+		return cn;
 	}
+	
 \end{lstlisting}
 Infine abbiamo i metodi \textit{test}(), \textit{getNodeT}(), \textit{getNodeP}(). Il metodo \textit{test}() prende come parametri \textit{x}, un simbolo della stringa in input, \textit{A}, un non-terminale di tipo \textit{String} ed \textit{item}, di tipo \textit{String}. Fa le stesse operazioni accennate al paragrafo \ref{par}. Il metodo \textit{getNodeT}() prende come parametro \textit{nomeNodo} che inidica il nome del nodo che deve avere il nuovo nodo del sppf e un nodo \textit{cn}. Questo metodo inserisce l'arco tra il nodo \textit{cn} e il nodo \textit{v} di nome \textit{nomeNodo}. Per identificare univocamente i nodi dell'sppf settiamo un id con l'\textit{hashcode} dell'oggetto. Il metodo \textit{getNodeP}() prende come parametro un intero \textit{i}, un identificativo del nodo dell'sppf. Questo metodo restituisce il nodo padre \textit{v1} che ha per figlio il nodo con l'identificativo \textit{i}.\\
 Ora analizziamo il metodo \textit{parse}();

@@ -1,11 +1,11 @@
-\chapter{Grammatiche Posizionali}
+\chapter{GLL Parsing Posizionale}
 \section{Introduzione}
-In questo capitolo introduciamo un estensione delle grammatiche context-free, le \textit{grammatiche posizionali} che producono i cosidetti \textbf{linguaggi non lineari}. Queste grammatiche presentano produzioni contenenti \textit{relazioni spaziali}, ossia relazioni che indicano come deve essere letto l'input, se in senso verticale, orizzontale, obliquo ecc... Illustreremo la definizione base di questa grammatica e il funzionamento degli operatori spaziali.
+In questo capitolo introduciamo un estensione del GLL parsing, il \textbf{GLL Parsing Posizionale}. Il GLL Parsing Posizionale permette di trattare le \textit{grammatiche posizionali} che producono i cosidetti \textbf{linguaggi non lineari}. Queste grammatiche presentano produzioni contenenti \textit{relazioni spaziali}, ossia relazioni che indicano come deve essere letto l'input. Illustreremo la definizione base di questa nuova grammatica e il funzionamento base delle relazioni spaziali.
 \section{Definizione formale}
 Una \textbf{grammatica posizionale context-free} è sestupla \cite{pubblicazione: tomita} i cui elementi sono:
 \begin{enumerate}
 	\item \textbf{Non-Terminali (N)}: variabili sintattiche che denotano un insieme di stringhe.
-	\item \textbf{Terminali (T)}: simboli di base con la grammatica definisce il linguaggio.
+	\item \textbf{Terminali (T)}: simboli di base che definiscono il linguaggio.
 	\item \textbf{Simbolo iniziale (S)}: è un non-terminale e l'insieme di stringhe che esso denota coincide con l'intero linguaggio generato dalla grammatica.
 	\item \textbf{Produzioni (P)}: regole che definiscono come possono essere combinati i terminali e i non-terminali.
 	\item \textbf{Relazioni Spaziali (POS)}: relazioni che danno informazioni sulle posizioni di spostamento da effettuare per la lettura dell'input.
@@ -81,13 +81,13 @@ Da questa immagine possiamo ottenere una delle possibili immagini:
 	 \textit{id} + $\frac{(\textit{id} + \textit{id})}{\textit{id}}$ +\textit{id}
 \end{center}
 \section{Parser Posizionali}
-In questo paragrafo descriveremo una modalità usata per gestire le stringhe in ingresso e come fanno i parser a gestire gli operatori spaziali delle grammatiche posizionali.
+In questo paragrafo descriveremo il funzionamento dei parser posizionali e il modo che usano per gestire l'input.
 \subsection{Gestione dell'input}
-L'input che viene dato in pasto al parser è un immagine simbolica dove ogni simbolo che contiene è un token. Questo input viene rappresentato da un array \textit{X} dove vengono memorizzati i token e da una matrice M dove i token sono inseriti in base alla loro posizione spaziale e sono memorizzati con le posizioni \textit{i-esime} dell'array \textit{X}. Ciò permette di individuare ogni volta un token in \textit{X} data la loro posizione spaziale. In questo modo abbiamo che l'input non risulta essere una concatenazione di simboli. Per segnalare la fine della stringa si aggiunge il simbolo $\$$ sia alla fine dell'array \textit{X} e sia nella matrice M.
+L'input che viene dato in pasto al parser è un immagine simbolica e ogni simbolo contenuto in esso è un token. L'input viene rappresentato da un array \textit{X} dove vengono memorizzati i token e da una matrice M che rappresenta l'input in base alla loro posizione spaziale e sono memorizzati con le posizioni \textit{i-esime} dell'array \textit{X}. Per segnalare la fine della stringa si aggiunge il simbolo $\$$ sia alla fine dell'array \textit{X} e sia nella matrice M.
 \subsection{Gestione degli operatori spaziali}
-Per ogni relazione spaziale definiamo un operatore spaziale con lo stesso nome. Ogni qualvolta il parser lo trova viene chiamata una funzione \textit{getNextToken()} che prende in input l'indice dell'array \textit{X} dell'ultimo token visto e l'operatore spaziale. Restituisce il token successivo, dopo aver consultato la matrice \textit{M}. La ricerca sulla matrice avviene in questo modo:
+Per ogni relazione spaziale definiamo un operatore spaziale con lo stesso nome. Ogni qualvolta il parser lo trova viene chiamata la funzione \textit{getNextToken()} che prende in input l'indice dell'array \textit{X} dell'ultimo token visto, l'operatore spaziale e un array \textit{Y} che contiene i token già visti. Restituisce il token successivo, dopo aver consultato la matrice \textit{M}. La ricerca sulla matrice avviene in questo modo:
 \begin{itemize}
-	\item Se l'operatore spaziale è \textit{HOR} il calcolo del token successivo avviene in questo modo: si cerca un token non visto nelle prime colonne a destra della matrice M del token già visto.
-	\item Se invece l'operatore spaziale è \textit{VER} il calcolo del token successivo avviene cercando un token non ancora visto nella righe successive della matrice M ad un token già visto.
+	\item Se l'operatore spaziale è \textit{HOR} (>) il calcolo del token successivo avviene in questo modo: si cerca un token non visto nelle colonne a destra della matrice M dell'ultimo token visto.
+	\item Se invece l'operatore spaziale è \textit{VER} (<) il calcolo del token successivo avviene cercando un token non ancora visto nella righe successive dell'ultimo token visto all'interno della matrice \textit{M}.
 \end{itemize}
-La funzione \textit{getNextToken()} prende in input anche una lista di token già visti. Ciò comporta che la ricerca del token successivo avviene consultando anche questa lista, ovviemente seguendo i principi definiti dagli operatori spaziali.
+La ricerca avviene usando l'array dei token visti e si restituisce il primo token che non è stato ancora visto.

@@ -28,21 +28,25 @@
 \contentsline {subsection}{\numberline {3.4.3}Gestione delle produzioni}{21}% 
 \contentsline {subsection}{\numberline {3.4.4}Shared packed parse forests}{22}% 
 \contentsline {section}{\numberline {3.5}Costruzione del GLL Parser}{23}% 
-\contentsline {chapter}{\numberline {4}Grammatiche Posizionali}{25}% 
+\contentsline {chapter}{\numberline {4}GLL Parsing Posizionale}{25}% 
 \contentsline {section}{\numberline {4.1}Introduzione}{25}% 
 \contentsline {section}{\numberline {4.2}Definizione formale}{25}% 
 \contentsline {subsection}{\numberline {4.2.1}Relazioni spaziali}{26}% 
 \contentsline {subsection}{\numberline {4.2.2}Regole di valutazioni}{27}% 
 \contentsline {section}{\numberline {4.3}Parser Posizionali}{28}% 
 \contentsline {subsection}{\numberline {4.3.1}Gestione dell'input}{28}% 
-\contentsline {subsection}{\numberline {4.3.2}Gestione degli operatori spaziali}{29}% 
+\contentsline {subsection}{\numberline {4.3.2}Gestione degli operatori spaziali}{28}% 
 \contentsline {chapter}{\numberline {5}Implementazione del GLL parsing}{30}% 
 \contentsline {section}{\numberline {5.1}Introduzione}{30}% 
 \contentsline {section}{\numberline {5.2}Le componenti del sistema}{30}% 
 \contentsline {section}{\numberline {5.3}Le classi degli insiemi R, P e U}{31}% 
 \contentsline {section}{\numberline {5.4}La classe GLL Parser}{34}% 
-\contentsline {chapter}{\numberline {6}GLL parsing posizionale}{45}% 
+\contentsline {chapter}{\numberline {6}Implementazione del GLL Posizionale}{45}% 
 \contentsline {section}{\numberline {6.1}Introduzione}{45}% 
-\contentsline {section}{\numberline {6.2}Gestione dell'input}{45}% 
-\contentsline {section}{\numberline {6.3}La classe GLLParserBidimensionale}{47}% 
-\contentsline {chapter}{\\Bibliografia}{48}% 
+\contentsline {section}{\numberline {6.2}GLL Parsing su espressioni aritmetiche}{45}% 
+\contentsline {subsection}{\numberline {6.2.1}Gestione dell'input}{45}% 
+\contentsline {subsection}{\numberline {6.2.2}La classe GLLParsingPosizionale}{48}% 
+\contentsline {section}{\numberline {6.3}GLL Parsing sui diagrammi di flusso}{50}% 
+\contentsline {subsection}{\numberline {6.3.1}Lettura e gestione dell'input}{50}% 
+\contentsline {subsection}{\numberline {6.3.2}La GLLParsingFlowChart}{55}% 
+\contentsline {chapter}{\\Bibliografia}{56}% 
