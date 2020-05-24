@@ -17,32 +17,35 @@ La classe \textbf{InputDataset} ha come variabili d'istanza (linee 8-11) un Arra
 Per implementare il GLL Parsing sulle espressioni aritmetiche è stata creata la classe GLLParsingPosizionale. Gli insiemi che il parsing utilizza sono sempre gli stessi ma presentano piccole differenze rispetto a quello lineare. Gli elementi dell'insieme \textbf{P} e i descrittori dell'insieme \textbf{R} presentano un ulteriore elemento ed è l'array dei token visti. Infatti l'esecuzione di ogni descrittore deve avere i propri token visti e di conseguenza ogni elemento \textbf{P} che viene richiamato dal nodo padre \textit{u} del GSS che va ad aggiungersi all'insieme \textbf{R} devono avere il proprio array di token visti.  Alle funzioni \textit{add()} e \textit{pop()} è stato aggiunto un parametro in input per richiedere l'inserimento dell'array dei token visti. Nel metodo \textit{main} viene istanziato l'oggetto \textit{inputDataset}, di tipo InputDataset, e viene chiamato il metodo \textit{loadDataset()} per caricare l'input nella matrice, poi viene chiamato il metodo \textit{parse()} per iniziare il parsing ed a questo metodo viene passato come parametro \textit{inputdataset}. Il metodo \textit{parse()} è stato implementato seguendo le stesse regole usate per quello lineare ma con delle differenze che sono mostrate qui di seguito.
 \begin{lstlisting}
 public static String parse(InputDataset ds) {
+	ArrayList<String> tokenViews=new ArrayList<String>();
 	//...
-	
-	// (.>E>)
-	case "L90":
-		i = ds.getNextToken(i, ">", tokenViews);
-		etichetta = "L10";
-		break;
-	// F.<hbar<T
-	case "L6":
-		i = ds.getNextToken(i, "<", tokenViews);
-		etichetta = "L50";
-		break;
-	// F<.hbar<T
-	case "L50":
-		if (ds.getToken(i).equals("hbar")) {
-			ds.setTokenFound(i, tokenViews);
+	while(true){
+		switch(etichetta){
+		// (.>E>)
+		case "L90":
+			i = ds.getNextToken(i, ">", tokenViews);
+			etichetta = "L10";
+			break;
+		// F.<hbar<T
+		case "L6":
+			i = ds.getNextToken(i, "<", tokenViews);
+			etichetta = "L50";
+			break;
+		// F<.hbar<T
+		case "L50":
+			if (ds.getToken(i).equals("hbar")) {
+				ds.setTokenFound(i, tokenViews);
 			
-			//...
+				//...
 			
-			etichetta = "L7";
-		} 
-		else {
-			etichetta = "L0";
+				etichetta = "L7";
+			} 
+			else {
+				etichetta = "L0";
+			}
+			break;
 		}
-		break;
-	
+	}
 	//...
 }
 \end{lstlisting}
@@ -58,9 +61,138 @@ Ora illustreremo un altro esempio di implementazione del GLL Parsing su un'altra
 	\textit{Statement $\to$ PREDICATE  link(2,1) $\wedge$ link(1,2) Statements $\{$$\$\$$.1=$\$$1.1; $\$\$$.2=$\$$1.3;$\}$}\par
 	\textit{Statement $\to$ PREDICATE  link(2,1) $\wedge$ nolink(1,2) Statements link(3,1)(-1) $\wedge$ link(2,2) Statements $\{$$\$\$$.1=$\$$1.1; $\$\$$.2=$\$$2.2;$\}$}\par
 \end{center}
-In questa grammatica gli operatori spaziali sono rappresentati 
-\subsection{Lettura e gestione dell'input}
+In questa grammatica gli operatori spaziali sono rappresentati dai \textit{link(i,j)} dove \textit{i}, \textit{j} $\geq$ 0. Essi indicano come leggere il token successivo e va interpretato in questo modo: 
+\begin{itemize}
+	\item Se \textit{link(i,j)} si trova dopo un terminale il token successivo sarà il primo token non letto che ha in comune uno \textit{j-esimo} collegamento con uno \textit{i-esimo} collegamento con il token che è stato appena letto; il modo di leggere questo token è detto \textbf{Driver}.
+	\item Se \textit{link(i,j)} è preceduto dopo un non-terminale il token successivo sarà il primo token che ha in comune lo \textit{i-esimo} collegamento di uno statement con il \textit{j-esimo} collegamento di un token; il modo di leggere questo token è detto \textbf{Tester}.
+	\item La seguente condizione \textit{link(i,j) $\wedge$ link(x,y)} va interpretato in questo modo: prima verifichiamo che esistano questi collegamenti e ciò lo facciamo attraverso l'operatore \textit{and} ed usando il modo \textit{Driver}, se è vera calcoliamo il token successivo usando solo \textit{link(i,j)} secondo il modo \textit{Driver}; poi, dopo aver calcolato un non-terminale all'interno di un item della produzione, usiamo \textit{link(x,y)}, in modo \textit{Tester}, per verificare se l'item appena calcolato restituisce il terminale presente all'interno della produzione. Ciò viene fatto per valutare la correttezza del parsing nel riconoscere le produzioni.
+	\item L'operatore \textit{nolink(i,j)} indica che non deve esistere nessun collegamento tra un token che ha il collegamento \textit{i-esimo} e il token che ha il collegamento \textit{j-esimo}.
+	\item Il simbolo (-1) che si trova dopo \textit{link(i,j)} vuol dire che il token successivo deve essere calcolato usando il token all'interno della produzione.
+\end{itemize} 
+Le espressioni \textit{$\{$$\$\$$.1=$\$$1.1; $\$\$$.2=$\$$y.z;$\}$} indicano come costruire gli \textbf{Statement} su cui andremo a calcolare i \textit{link} in modo \textit{Tester}. La dicitura \textit{$\$\$$.1=$\$$1.1} indica che il primo collegamento di statement corrisponde al primo collegamento del terminale appartenente alla produzione che si sta processando, mentre \textit{$\$\$$.2=$\$$y.z} può avere diverse interpretazioni:
+\begin{itemize}
+	\item \textit{$\$\$$.2=$\$$2.2}, dove \textit{y=z}; indica che il secondo collegamento dello statement corrisponde al secondo collegamento dell'ultimo statement creato;
+	\item \textit{$\$\$$.2=$\$$1.z}, dove y=1; indica che il secondo collegamento dello statement corrisponde al collegamento z del terminale appartenente alla produzione che si sta processando.
+\end{itemize}
+\subsection{Struttura e gestione dell'input}
+In questa sezione discuteremo la struttura degli statement, dei token e di come è stato implementata la gestione dell'input. Qui di seguito viene mostrata la classe \textbf{\textit{Token.java}}.
 \lstinputlisting{C:/Users/fabio/Documents/GitHub/gll-parsing/src/dataset/Token.java}
-\lstinputlisting{C:/Users/fabio/Documents/GitHub/gll-parsing/src/dataset/Statement.java}
+La classe \textbf{Token} mostra la struttura di un token. Ha come variabili d'istanza (linee 6-8) una variabile booleana \textit{start}, che serve ad indicare se è il primo token da processare; un ArrayList<String> \textit{attachPoints} che contiene i collegamenti che un token ha con altri token, ed infine una variabile \textit{type} di tipo String che indica il nome del token. Dalle linee 10-43 vengono dichiarati i costruttori delle classi, i metodi per accesso alle variabili e il metodo \textit{toString()}.\par
+Ora presentiamo la classe \textbf{Statement} descritta nel file \textbf{\textit{Statement.java}}
+\lstinputlisting{C:/Users/fabio/Documents/GitHub/St.java}
+Questa classe viene utilizzata per definire la struttura degli statement. Ha come variabili d'istanza (linee 5-8): \textit{type1} e \textit{type2}, di tipo \textit{String}, che serve ad indentificare rispettivamente a chi appartiene a quale token appartiene il primo e il secondo collegamento; poi abbiamo \textit{firstLink} e \textit{secondLink}, di tipo \textit{String} che indica il primo e il secondo collegamento di uno statement. Dalle linee 11-42 abbiamo i costruttori della classe, i metodi di accesso alle variabili, il metodo per impostare il secondo collegamento allo statement, e il metodo \textit{toString()}.\par
+Ora presentiamo la classe \textbf{InputHandler} descritta all'interno del file \textbf{\textit{InputHandler.java}}.
 \lstinputlisting{C:/Users/fabio/Documents/GitHub/InH.java}
-\subsection{La GLLParsingFlowChart}
+La classe InputHandler si occupa di gestire l'input e di calcolare i token successivi. Ha come variabile d'istanza un'array \textit{buf}, che rappresenta l'input da processare. Alle linee 17-29 vi sono i metodi \textit{getFirstToken} e \textit{getToken} che vengono utilizzati rispettivamente per ottenere il primo token da far processare al parser e per ottenere il token corrente che il parser deve calcolare. Il metodo \textit{loadInput()} (linee 31-63) viene utilizzato per caricare l'input, contenuto all'interno di file di tipo json, all'interno dell'array buf. Infine (linee 65-129) sono stati implementati i metodi che permettono di  calcolare i token successivi da processare. Il metodo \textit{getTokenDriver()} viene utilizzato per leggere il token successivo secondo il modo \textit{Driver}. Infatti ottiene i collegamenti del token appena letto e poi vengono iterati tutti i token dell'input e alla fine viene restituito l'indice del primo token non visto che ha in comune un collegamento con il token appena letto. Per verificare se il token è stato visto o meno viene utilizzato il metodo \textit{isViewed()}. Il metodo \textit{getTokenTester()} viene utilizzato per calcolare il token successivo secondo il modo \textit{Tester}. Infatti abbiamo che viene selezionato il collegamento dello statement che ci occorre per calcolare il token successivo, poi vengono iterati tutti i token dell'input e viene restituito il primo token non visto che il collegamento in comune con lo statement. Anche qui usiamo il metodo \textit{isViewed()} per verificare se un token è stato visto o no. In alcuni casi abbiamo la necessità di non restituire il primo token non visto e per questo il metodo restituirà sempre \textit{true} se l'array dei token visti è \textit{null}. Infine il metodo \textit{setTokenFound()} viene usato per aggiungere un token visto nel'array dei token visti.
+\subsection{La classe GLLParsingFlowChart}
+La classe GLLParsingFlowChart implementa il funzionamento del GLL parsing posizionale sulla grammatica dei diagrammi di flusso. Questo parser usa le stesse strutture dati del parsing posizionale descritto precedentemente ma con delle differenze: gli elementi dell'insieme \textbf{R} e \textbf{P} hanno un ulteriore elemento che è rappresentato dallo stack in cui sono memorizzati gli statement calcolati. Infatti ogni descrittore ed ogni elemento p che viene calcolato deve avere il proprio stack. Di conseguenza ai metodi \textit{add()} e \textit{pop()} è stato aggiunto un parametro che permette di passare lo stack degli statement. Di seguito descriveremo il metodo \textit{parse()} di questa classe tralasciando i dettagli inerenti alla gestione dei non-terminali, terminali e item e sarà trattata soltanto la gestione del calcolo dei token successivi e degli statement.
+\begin{lstlisting}
+	public static String parse(InputHandler buf){
+		//token visti
+		ArrayList<Integer> tokenViews=new ArrayList<Integer>();
+		//dichirazione indici
+		int i=buf.getFirstToken();
+		//inizializzo link calcolati
+		Stack<Statement> s=new ArrayStack<Statement>();
+		while(true){
+			switch(etichetta){
+			//...
+			//Statement -> INSTRUCTION *{ $$.1 = $1.1; $$.2 = $1.2; }
+			case "L11":
+				s.push(new Statement(buf.getToken(i).getType(),buf.getToken(i).getAttachPoints().get(0),buf.getToken(i).getType(),buf.getToken(i).getAttachPoints().get(1)));
+				etichetta="L12";
+				break;
+			//...
+			
+			//Statements *link(2,1) Statements { $$.1 = $1.1; $$.2 = $2.2; }
+			case "L5":
+				i=buf.getTokenTester(s.top(),2,1,tokenViews);
+				if(i>0) {
+					etichetta="L6";
+				}
+				else {
+					etichetta="L0";
+				}
+				break;
+			//..
+			//Statements link(2,1) Statements { $$.1 = $1.1; $$.2 = $2.2; }*
+			case "L8":
+				if(s.size()>1) {
+					Statement cv=s.pop();
+					s.top().setSecondoAttacco(cv.getType2(), cv.getSecondoAttacco());
+				}
+				etichetta="L0";
+				break;
+			//...
+			//*PREDICATE link(2, 1) ^ nolink(1,2) Statements link(3,1)(-1) ^ link(2,2) Statements   { $$.1 = $1.1; $$.2 = $2.2; }
+			case "LSTAT3":
+				if(buf.getToken(i).getType().equals("PREDICATE")) {
+					buf.setTokenFound(i, tokenViews);
+					//...
+					etichetta="L17";
+				}
+				else {
+					etichetta="L0";
+				}
+				break;
+			//PREDICATE *link(2, 1) ^ nolink(1,2) Statements link(3,1)(-1) ^ link(2,2) Statements   { $$.1 = $1.1; $$.2 = $2.2; }
+			case "L17":
+			if((buf.getTokenDriver(i,2,1,tokenViews)>0)&&(!(buf.getTokenDriver(i, 1, 2,tokenViews)>0))) {
+				i=buf.getTokenDriver(i,2,1,null);
+				etichetta="L18";
+			}
+			else {
+				etichetta="L0";
+			}
+			break;
+			//...
+			case "L19":
+			i=buf.getTokenTester(s.top(),1,2,null);
+			if(i>0) {
+				if((buf.getToken(i).getType().equals("PREDICATE"))&&(!(buf.getToken(i).getAttachPoints().get(0).equals(s.top().getSecondoAttacco())))) {
+					i=buf.getTokenDriver(i,3,1,null);
+					etichetta="L55";
+				}
+				else {
+					s.pop();
+					etichetta="L0";
+				}
+			}
+			else {
+				s.pop();
+				etichetta="L0";
+			}
+			break;
+			case "L55":
+				if(i>0) {
+					add("L20",cu,i,cn,s.duplica(),duplicaTokenViews(tokenViews));
+					add("L5",cu,i,cn,s.duplica(),duplicaTokenViews(tokenViews));
+				}
+				etichetta="L0";
+				break;
+			//...
+			//PREDICATE link(2, 1) ^ nolink(1,2) Statements link(3,1)(-1) ^ link(2,2) Statements   *{ $$.1 = $1.1; $$.2 = $2.2; }
+			case "L21":
+				Statement s1=s.pop();
+				Statement s2=s.pop();
+				i=buf.getTokenTester(s1, 1, 3,null);
+				if(i>0) {
+					if((s1.getSecondoAttacco().equals(s2.getSecondoAttacco()))&&(buf.getToken(i).getType().equals("PREDICATE"))) {
+						s.push(new Statement(buf.getToken(i).getType(),buf.getToken(i).getAttachPoints().get(0),s1.getType2(),s1.getSecondoAttacco()));
+						etichetta="L22";
+					}
+					else {
+						etichetta="L0";
+					}
+				}
+				else {
+					etichetta="L0";
+				}
+				break;
+				//...
+			}
+		}
+	//...
+	}
+\end{lstlisting}
+Alle linee 2-6 vengono dichiarati l'array dei token visti, viene inizializzato il primo token da calcolare e lo stack dove memorizzare gli statement. Alle linee 12-15 notiamo la costruzione di uno statement. Ciò avviene usando il primo e il secondo collegamento del token letto e viene inserito nello stack tramite un operazione di \textit{push}. Nelle linee 18-36 abbiamo che la lettura del token successivo attraverso il modo \textit{Driver}. In queste linee la costruzione dello statement avviene in maniera diversa: abbiamo che viene fatto un \textit{pop()} sullo stack se ce ne sono più di uno, e viene impostato al secondo collegamento dello statement in cima allo stack il secondo collegamento dello statement appena estratto. In questo modo vengono rimossi tutti gli statement calcolati precedentemente in maniera tale che alla fine ne rimanga uno soltanto che indica l'inizio e la fine del diagramma di flusso. Alle linee 39-107 discutiamo la gestione degli item delle produzioni. Ne prendiamo di riferimento una soltanto in quanto le altre si gestiscono allo stesso modo. Viene letto il token corrente, se risulta trovato viene inserito nell'array dei token visti. Poi viene letto il token successivo facendo un \textit{and} tra due link usando il modo Driver. Da notare in questo caso l'uso di \textit{null} per segnalare che non è necessario trovare il primo token non visto. Se è vero calcoliamo il token successivo usando il primo \textit{link} e il modo driver. Poi calcoliamo l'item successivo (parte omessa poichè si tratta di gestire un non-terminale e si fa usando le stesse regole di un non terminale). Successivamente verifichiamo se lo statement calcolato sia corretto e lo facciamo tramite il secondo \textit{link} usato nell'and precedente e usando il modo Tester. Poi verifichiamo se la lettura del token successivo ha trovato un token, se ha successo, verifichiamo che il token letto dal link Tester sia quello all'interno della produzione e che siano diversi i collegamenti tra l'ultimo statement calcolato, che si trova in cima allo stack, e il primo collegamento del token della produzione. Se ciò è vero calcoliamo il \textit{link(3,1)(-1)} tramite il modo Driver. Fondamentale risulta essere (-1) poichè ci indica di rileggere il token successivo dal token della produzione. Nel caso tutto ciò non fosse vero rimuoviamo lo statement calcolato dallo stack in quanto non risulta essere corretto a rappresentare la produzione che si sta calcolando. Poi notiamo (linee 78-83)che il parser si sdoppia nuovamente dove un parser va in avanti a calcolare lo statement successivo della produzione, mentre l'altro va a calcolare se esistono nuovi statement allo statement calcolato precedentemente. Dopo aver calcolato tutti gli statement calcolati dalla produzione gli estraiamo dallo stack e tramite un \textit{link()} in modo Tester otteniamo il token della produzione. Verifichiamo prima se abbiamo trovato un un token, poi verifichiamo se il secondo collegamento del primo statement calcolato sia uguale al secondo collegamento del secondo statement calcolato ed infine verifichiamo che il token calcolato appartenga al token della produzione. Se è vero tramite un operazione di push inseriamo lo statement finale della produzione e si va all'item successivo. Se tutto ciò non risulta vero si va al caso base L0. In maniera simile vengono gestite le altre produzioni ma avendo un solo statement da calcolare non effettuiamo nessun nuovo sdoppiamento ma semplicemente usiamo il secondo \textit{link()} dell'and in modo Tester e poi si verifica che il token sia token della produzione. Ciò serve per verificare che lo statement calcolato si collega con il token della produzione. Se ciò è vero lo estraiamo dallo stack, tramite operazione di \textit{pop()}, e inseriamo lo statement finale della produzione nello stack

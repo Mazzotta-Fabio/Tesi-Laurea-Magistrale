@@ -1,7 +1,7 @@
 \babel@toc {italian}{}
 \babel@toc {italian}{}
 \contentsline {chapter}{\numberline {1}Introduzione}{1}% 
-\contentsline {section}{\numberline {1.1}Obiettivi}{1}% 
+\contentsline {section}{\numberline {1.1}Introduzione alla tesi}{1}% 
 \contentsline {chapter}{\numberline {2}Parsing top down}{2}% 
 \contentsline {section}{\numberline {2.1}Introduzione}{2}% 
 \contentsline {section}{\numberline {2.2}Grammatiche context-free}{3}% 
@@ -47,6 +47,8 @@
 \contentsline {subsection}{\numberline {6.2.1}Gestione dell'input}{45}% 
 \contentsline {subsection}{\numberline {6.2.2}La classe GLLParsingPosizionale}{48}% 
 \contentsline {section}{\numberline {6.3}GLL Parsing sui diagrammi di flusso}{50}% 
-\contentsline {subsection}{\numberline {6.3.1}Lettura e gestione dell'input}{50}% 
-\contentsline {subsection}{\numberline {6.3.2}La GLLParsingFlowChart}{55}% 
-\contentsline {chapter}{\\Bibliografia}{56}% 
+\contentsline {subsection}{\numberline {6.3.1}Struttura e gestione dell'input}{51}% 
+\contentsline {subsection}{\numberline {6.3.2}La classe GLLParsingFlowChart}{57}% 
+\contentsline {chapter}{\numberline {7}Conclusioni}{62}% 
+\contentsline {section}{\numberline {7.1}Obiettivi raggiunti}{62}% 
+\contentsline {chapter}{\\Bibliografia}{63}% 
