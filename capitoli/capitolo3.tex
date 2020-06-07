@@ -2,13 +2,13 @@
 \section{Introduzione}
 In questo capitolo introduciamo un estensione del GLL parsing, il \textbf{GLL Parsing Posizionale}. Il GLL Parsing Posizionale permette di trattare le \textit{grammatiche posizionali} che producono i cosidetti \textbf{linguaggi non lineari}. Queste grammatiche presentano produzioni contenenti \textit{relazioni spaziali}, ossia relazioni che indicano come deve essere letto l'input. Illustreremo la definizione base di questa nuova grammatica e il funzionamento base delle relazioni spaziali.
 \section{Definizione formale}
-Una \textbf{grammatica posizionale context-free} è sestupla \cite{pubblicazione: tomita} i cui elementi sono:
+Una \textbf{grammatica posizionale context-free} è una sestupla \cite{pubblicazione: tomita} i cui elementi sono:
 \begin{enumerate}
 	\item \textbf{Non-Terminali (N)}: variabili sintattiche che denotano un insieme di stringhe.
 	\item \textbf{Terminali (T)}: simboli di base che definiscono il linguaggio.
 	\item \textbf{Simbolo iniziale (S)}: è un non-terminale e l'insieme di stringhe che esso denota coincide con l'intero linguaggio generato dalla grammatica.
 	\item \textbf{Produzioni (P)}: regole che definiscono come possono essere combinati i terminali e i non-terminali.
-	\item \textbf{Relazioni Spaziali (POS)}: relazioni che danno informazioni sulle posizioni di spostamento da effettuare per la lettura dell'input.
+	\item \textbf{Relazioni Spaziali (POS)}: relazioni che danno informazioni sulle posizioni di spostamento da effettuare per la lettura del simbolo successivo.
 	\item \textbf{Regole di valutazione (PE)}: regole usate per determinare come deve essere effettuato lo spostamento sull'input.
 \end{enumerate}
 Ogni produzione presenta la seguente forma:
@@ -17,9 +17,9 @@ Ogni produzione presenta la seguente forma:
 \end{align}
 dove \textit{A} $\in$ N, ogni $\alpha_i$ $\in$ P ed ogni \textit{REL}$_1$ $\in$ POS.\par
 \vspace{0.3cm}
-\noindent Ogni relazione spaziale \textit{REL}$_1$ dà informazioni sulla posizione relativa ad $\alpha_{i+1}$ rispetto ad $\alpha_{i+1}$. Nelle grammatiche tradizionali abbiamo una sola relazione spaziale che è data dalla concatenazione della stringa, nelle grammatiche posizionali possiamo definire altre relazioni spaziali ed in questo modo possiamo usarli per descrivere i linguaggi bidimensionali. In questi linguaggi, le informazioni posizionali vengono usate dal lexer per leggere il prossimo token.
+\noindent Ogni relazione spaziale \textit{REL}$_1$ dà informazioni sulla posizione relativa ad $\alpha_{i+1}$ rispetto ad $\alpha_{i}$. Nelle grammatiche tradizionali abbiamo una sola relazione spaziale che è data dalla concatenazione della stringa, nelle grammatiche posizionali possiamo definire altre relazioni spaziali ed in questo modo possiamo usarli per descrivere i linguaggi bidimensionali. In questi linguaggi, le informazioni posizionali vengono usate dal lexer per leggere il prossimo simbolo.
 \subsection{Relazioni spaziali}
-L'insieme di relazioni spaziali \cite{pubblicazione: tomita} possono essere suddivisi in 3 sottoinsiemi: \textit{type}-2, \textit{type}-1, \textit{type}-0. Ogni sottoinsieme include quattro relazioni spaziali direzionali che sono: sopra, sotto, destra e sinistra. Ogni direzione può essere descritta da una funzione che prende in input una coordinata nel piano cartesiano e restituisce in output un insieme di posizioni. Infatti, se diamo in input una posizione \textit{p} nel piano, la relazione spaziale $\to$ in type-2 applicata a \textit{p} restituisce le prime posizioni a destra di \textit{p}; la relazione spaziale $\to$ in type-1 restituisce un insieme di posizioni a destra di \textit{p} e nella stessa linea di \textit{p}; la relazione spaziale $\to$ in type-0 restituisce un insieme di posizioni a destra di \textit{p} anche se non sono nella stessa posizione di \textit{p}. Qui di seguito mostriamo le definizioni dei tre tipi di relazioni spaziali ed illustreremo solo le funzioni descritte; le altre possono essere ricavate in maniera molto simile
+L'insieme di relazioni spaziali \cite{pubblicazione: tomita} possono essere suddivisi in 3 sottoinsiemi: \textit{type}-2, \textit{type}-1, \textit{type}-0. Ogni sottoinsieme include quattro relazioni spaziali direzionali che sono: sopra, sotto, destra e sinistra. Ogni direzione può essere descritta da una funzione che prende in input una coordinata nel piano cartesiano e restituisce in output un insieme di posizioni. Qui di seguito mostriamo le definizioni dei tre tipi di relazioni spaziali ed illustreremo solo le funzioni descritte; le altre possono essere ricavate in maniera molto simile.
 \begin{flushleft}
 	\textbf{Type-2}  \\
 	$\to$   spostamento  di un movimento a destra: (\textit{x}, \textit{y}) $\to$ (\textit{x}+1, \textit{y})\\
@@ -39,6 +39,7 @@ L'insieme di relazioni spaziali \cite{pubblicazione: tomita} possono essere sudd
 	$\uparrow_0$ spostamento in alto \\
 	$\downarrow_0$ spostamento in basso 
 \end{flushleft}
+C'è da precisare, quindi, che ogni simbolo presente in uno spazio bidimensionale viene identificato conoscendo sempre la sua posizone. Infatti, se diamo in input una posizione \textit{p} nel piano, la relazione spaziale $\to$ in type-2 applicata a \textit{p} restituisce le prime posizioni a destra di \textit{p}; la relazione spaziale $\to_1$ in type-1 restituisce un insieme di posizioni a destra di \textit{p} e nella stessa linea di \textit{p}; la relazione spaziale $\to_0$ in type-0 restituisce un insieme di posizioni a destra di \textit{p} anche se non sono nella stessa posizione di \textit{p}.
 Nei nostri esempi utilizzeremo le relazioni spaziali HOR e VER che corrispondono alle relazioni spaziali $\to_0$ e $\downarrow_0$ - $\to_0$, rispettivamente, dove $\downarrow_0$ - $\to_0$ è un insieme che risulta essere la differenza tra l'insieme di posizioni generate da $\downarrow_0$ e $\to_0$ quando sono applicate alla stessa posizione. 
 \subsection{Regole di valutazioni}
 Una regola di valutazione PE \cite{pubblicazione: tomita} è una funzione che prende in input una stringa del tipo 
@@ -50,14 +51,14 @@ dove ogni \textit{p}$_i$ è una posizione ogni \textit{REL}$_i$ è una relazione
 	\textit{p}_i+1 \in REL_i (\textit{p}_i)  \quad    1\le \textit{i} \le \textit{m}-1 \notag
 \end{align}
 Le regole di valutazione delle relazioni spaziali sono state pensate per essere una sequenza da sinistra a destra. Diciamo che una regola di valutazione è \textbf{semplice} se non presenta effetti collaterali. \\
-Un esempio di applicazione di semplici regole di valutazione sono i seguenti:
+Un esempio di applicazione di semplici regole di valutazione sono i seguenti esempi:
 \begin{align}
 	PE(a \to b \to c \to d) \quad \quad = a b c d \notag \\ 
 		PE(a \quad VER \quad b \quad HOR \quad c) \quad  = \quad a \notag \\ 
 		                                                              b \quad  c \notag 
 \end{align}
 \textbf{Derivazioni}\\
-Denotiano $\alpha$ $\overset{*}{\Rightarrow}$ $\beta$ (si legge  $\alpha$ deriva inb zero o più passi $\beta$) se esiste una stringa $\alpha_0$$\alpha_1$$\dots$$\alpha_m$ (m$\ge$0) tale che
+Denotiano $\alpha$ $\overset{*}{\Rightarrow}$ $\beta$ (si legge  $\alpha$ deriva in zero o più passi $\beta$) se esiste una stringa $\alpha_0$$\alpha_1$$\dots$$\alpha_m$ (m$\ge$0) tale che
 \begin{align}
 	\alpha \Rightarrow \alpha_0 \Rightarrow \alpha_1 \Rightarrow \dots \Rightarrow  \alpha_m \quad = \quad \beta  \notag
 \end{align}
@@ -76,12 +77,12 @@ Una frase posizionale di questa grammatica è:
 \begin{center}
 	\textit{id} \textit{HOR} \textit{+} \textit{HOR} ( \textit{HOR} \textit{id} \textit{HOR} + \textit{HOR} \textit{id} \textit{HOR}) \textit{VER} \textit{hbar} \textit{VER} \textit{id} \textit{HOR} + \textit{HOR} + \textit{id}
 \end{center}
-Da questa immagine possiamo ottenere una delle possibili immagini:
+Rimpiazzando \textit{hbar} con una linea orizzontale, e seguendo le definizioni di \textit{HOR} e \textit{VER}, da questa frase possiamo ottenere una delle possibili immagini:
 \begin{center}
 	 \textit{id} + $\frac{(\textit{id} + \textit{id})}{\textit{id}}$ +\textit{id}
 \end{center}
-\section{Parser Posizionali}
-In questo paragrafo descriveremo il funzionamento dei parser posizionali e il modo che usano per gestire l'input.
+\section{GLL Posizionale}
+In questo paragrafo descriveremo la gestione dell'input da parte del GLL parsing posizionale. Il funzionamento dell'algoritmo viene omesso in quanto la gestione dei terminali, non terminali e item della produzione avviene allo stesso modo delle grammatiche context-free
 \subsection{Gestione dell'input}
 L'input che viene dato in pasto al parser è un immagine simbolica e ogni simbolo contenuto in esso è un token. L'input viene rappresentato da un array \textit{X} dove vengono memorizzati i token e da una matrice M che rappresenta l'input in base alla loro posizione spaziale e sono memorizzati con le posizioni \textit{i-esime} dell'array \textit{X}. Per segnalare la fine della stringa si aggiunge il simbolo $\$$ sia alla fine dell'array \textit{X} e sia nella matrice M.
 \subsection{Gestione degli operatori spaziali}

@@ -33,9 +33,9 @@
 \contentsline {section}{\numberline {4.2}Definizione formale}{25}% 
 \contentsline {subsection}{\numberline {4.2.1}Relazioni spaziali}{26}% 
 \contentsline {subsection}{\numberline {4.2.2}Regole di valutazioni}{27}% 
-\contentsline {section}{\numberline {4.3}Parser Posizionali}{28}% 
+\contentsline {section}{\numberline {4.3}GLL Posizionale}{28}% 
 \contentsline {subsection}{\numberline {4.3.1}Gestione dell'input}{28}% 
-\contentsline {subsection}{\numberline {4.3.2}Gestione degli operatori spaziali}{28}% 
+\contentsline {subsection}{\numberline {4.3.2}Gestione degli operatori spaziali}{29}% 
 \contentsline {chapter}{\numberline {5}Implementazione del GLL parsing}{30}% 
 \contentsline {section}{\numberline {5.1}Introduzione}{30}% 
 \contentsline {section}{\numberline {5.2}Le componenti del sistema}{30}% 
