@@ -1,6 +1,6 @@
 \chapter{GLL Parsing Posizionale}
 \section{Introduzione}
-In questo capitolo introduciamo un estensione del GLL parsing, il \textbf{GLL Parsing Posizionale}. Il GLL Parsing Posizionale permette di trattare le \textit{grammatiche posizionali} che producono i cosidetti \textbf{linguaggi non lineari}. Queste grammatiche presentano produzioni contenenti \textit{relazioni spaziali}, ossia relazioni che indicano come deve essere letto l'input. Illustreremo la definizione base di questa nuova grammatica e il funzionamento base delle relazioni spaziali.
+In questo capitolo introduciamo un estensione del GLL parsing, il \textbf{GLL Parsing Posizionale}. Il GLL Parsing Posizionale permette di trattare le \textit{grammatiche posizionali} che producono i cosidetti \textbf{linguaggi non lineari}. Queste grammatiche presentano produzioni contenenti \textit{relazioni spaziali}, ossia relazioni che indicano la direzione di come deve essere il simbolo successivo dal testo in input. Illustreremo la definizione base di questa nuova grammatica e il funzionamento base delle relazioni spaziali.
 \section{Definizione formale}
 Una \textbf{grammatica posizionale context-free} è una sestupla \cite{pubblicazione: tomita} i cui elementi sono:
 \begin{enumerate}
@@ -81,7 +81,7 @@ Rimpiazzando \textit{hbar} con una linea orizzontale, e seguendo le definizioni 
 \begin{center}
 	 \textit{id} + $\frac{(\textit{id} + \textit{id})}{\textit{id}}$ +\textit{id}
 \end{center}
-\section{GLL Posizionale}
+\section{Definizione GLL Posizionale}
 In questo paragrafo descriveremo la gestione dell'input da parte del GLL parsing posizionale. Il funzionamento dell'algoritmo viene omesso in quanto la gestione dei terminali, non terminali e item della produzione avviene allo stesso modo delle grammatiche context-free
 \subsection{Gestione dell'input}
 L'input che viene dato in pasto al parser è un immagine simbolica e ogni simbolo contenuto in esso è un token. L'input viene rappresentato da un array \textit{X} dove vengono memorizzati i token e da una matrice M che rappresenta l'input in base alla loro posizione spaziale e sono memorizzati con le posizioni \textit{i-esime} dell'array \textit{X}. Per segnalare la fine della stringa si aggiunge il simbolo $\$$ sia alla fine dell'array \textit{X} e sia nella matrice M.

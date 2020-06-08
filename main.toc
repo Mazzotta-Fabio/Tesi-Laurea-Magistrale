@@ -10,7 +10,7 @@
 \contentsline {subsection}{\numberline {2.2.3}Derivazioni}{4}% 
 \contentsline {subsection}{\numberline {2.2.4}Alberi di parsing}{6}% 
 \contentsline {subsection}{\numberline {2.2.5}Ambiguità}{7}% 
-\contentsline {subsection}{\numberline {2.2.6}Ricorsione a sinistra}{7}% 
+\contentsline {subsection}{\numberline {2.2.6}Ricorsione}{7}% 
 \contentsline {section}{\numberline {2.3}Parsing top down}{8}% 
 \contentsline {subsection}{\numberline {2.3.1}Parsing a discesa ricorsiva}{8}% 
 \contentsline {subsection}{\numberline {2.3.2}Funzioni FIRST e FOLLOW}{9}% 
@@ -20,20 +20,20 @@
 \contentsline {chapter}{\numberline {3}GLL Parsing}{15}% 
 \contentsline {section}{\numberline {3.1}Introduzione}{15}% 
 \contentsline {section}{\numberline {3.2}Stack e descrittori elementari}{15}% 
-\contentsline {section}{\numberline {3.3}Graph structured stacks}{18}% 
-\contentsline {subsection}{\numberline {3.3.1}Insiemi U e P}{19}% 
-\contentsline {section}{\numberline {3.4}Definizione GLL Parsing}{19}% 
-\contentsline {subsection}{\numberline {3.4.1}Funzioni Fondamentali}{19}% 
-\contentsline {subsection}{\numberline {3.4.2}Gestione degli item}{20}% 
-\contentsline {subsection}{\numberline {3.4.3}Gestione delle produzioni}{21}% 
-\contentsline {subsection}{\numberline {3.4.4}Shared packed parse forests}{22}% 
-\contentsline {section}{\numberline {3.5}Costruzione del GLL Parser}{23}% 
+\contentsline {section}{\numberline {3.3}Definizione GLL Parsing}{18}% 
+\contentsline {subsection}{\numberline {3.3.1}Graph structured stacks}{19}% 
+\contentsline {subsection}{\numberline {3.3.2}Insiemi U e P}{19}% 
+\contentsline {subsection}{\numberline {3.3.3}Funzioni Fondamentali}{19}% 
+\contentsline {subsection}{\numberline {3.3.4}Gestione degli item}{20}% 
+\contentsline {subsection}{\numberline {3.3.5}Gestione delle produzioni}{21}% 
+\contentsline {subsection}{\numberline {3.3.6}Shared packed parse forests}{22}% 
+\contentsline {section}{\numberline {3.4}Costruzione del GLL Parser}{23}% 
 \contentsline {chapter}{\numberline {4}GLL Parsing Posizionale}{25}% 
 \contentsline {section}{\numberline {4.1}Introduzione}{25}% 
 \contentsline {section}{\numberline {4.2}Definizione formale}{25}% 
 \contentsline {subsection}{\numberline {4.2.1}Relazioni spaziali}{26}% 
 \contentsline {subsection}{\numberline {4.2.2}Regole di valutazioni}{27}% 
-\contentsline {section}{\numberline {4.3}GLL Posizionale}{28}% 
+\contentsline {section}{\numberline {4.3}Definizione GLL Posizionale}{28}% 
 \contentsline {subsection}{\numberline {4.3.1}Gestione dell'input}{28}% 
 \contentsline {subsection}{\numberline {4.3.2}Gestione degli operatori spaziali}{29}% 
 \contentsline {chapter}{\numberline {5}Implementazione del GLL parsing}{30}% 
