@@ -26,7 +26,7 @@
 \contentsline {subsection}{\numberline {3.3.3}Funzioni Fondamentali}{19}% 
 \contentsline {subsection}{\numberline {3.3.4}Gestione degli item}{20}% 
 \contentsline {subsection}{\numberline {3.3.5}Gestione delle produzioni}{21}% 
-\contentsline {subsection}{\numberline {3.3.6}Shared packed parse forests}{22}% 
+\contentsline {subsection}{\numberline {3.3.6}Shared packed parse forest}{22}% 
 \contentsline {section}{\numberline {3.4}Costruzione del GLL Parser}{23}% 
 \contentsline {chapter}{\numberline {4}GLL Parsing Posizionale}{25}% 
 \contentsline {section}{\numberline {4.1}Introduzione}{25}% 
@@ -47,7 +47,7 @@
 \contentsline {subsection}{\numberline {6.2.1}Gestione dell'input}{45}% 
 \contentsline {subsection}{\numberline {6.2.2}La classe GLLParsingPosizionale}{48}% 
 \contentsline {section}{\numberline {6.3}GLL Parsing sui diagrammi di flusso}{50}% 
-\contentsline {subsection}{\numberline {6.3.1}Struttura e gestione dell'input}{51}% 
+\contentsline {subsection}{\numberline {6.3.1}Struttura dei simboli e gestione dell'input}{51}% 
 \contentsline {subsection}{\numberline {6.3.2}La classe GLLParsingFlowChart}{57}% 
 \contentsline {chapter}{\numberline {7}Conclusioni}{62}% 
 \contentsline {section}{\numberline {7.1}Obiettivi raggiunti}{62}% 

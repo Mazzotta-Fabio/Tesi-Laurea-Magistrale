@@ -17,7 +17,7 @@ Ogni produzione presenta la seguente forma:
 \end{align}
 dove \textit{A} $\in$ N, ogni $\alpha_i$ $\in$ P ed ogni \textit{REL}$_1$ $\in$ POS.\par
 \vspace{0.3cm}
-\noindent Ogni relazione spaziale \textit{REL}$_1$ dà informazioni sulla posizione relativa ad $\alpha_{i+1}$ rispetto ad $\alpha_{i}$. Nelle grammatiche tradizionali abbiamo una sola relazione spaziale che è data dalla concatenazione della stringa, nelle grammatiche posizionali possiamo definire altre relazioni spaziali ed in questo modo possiamo usarli per descrivere i linguaggi bidimensionali. In questi linguaggi, le informazioni posizionali vengono usate dal lexer per leggere il prossimo simbolo.
+\noindent Ogni relazione spaziale \textit{REL}$_1$ dà informazioni sulla posizione relativa ad $\alpha_{i+1}$ rispetto ad $\alpha_{i}$. Nelle grammatiche tradizionali abbiamo una sola relazione spaziale che è data dalla concatenazione della stringa, nelle grammatiche posizionali possiamo definire altre relazioni spaziali ed in questo modo possiamo usarli per descrivere i linguaggi non lineari. In questi linguaggi, le informazioni posizionali vengono usate dal lexer per leggere il prossimo simbolo.
 \subsection{Relazioni spaziali}
 L'insieme di relazioni spaziali \cite{pubblicazione: tomita} possono essere suddivisi in 3 sottoinsiemi: \textit{type}-2, \textit{type}-1, \textit{type}-0. Ogni sottoinsieme include quattro relazioni spaziali direzionali che sono: sopra, sotto, destra e sinistra. Ogni direzione può essere descritta da una funzione che prende in input una coordinata nel piano cartesiano e restituisce in output un insieme di posizioni. Qui di seguito mostriamo le definizioni dei tre tipi di relazioni spaziali ed illustreremo solo le funzioni descritte; le altre possono essere ricavate in maniera molto simile.
 \begin{flushleft}
@@ -46,19 +46,19 @@ Una regola di valutazione PE \cite{pubblicazione: tomita} è una funzione che pr
 \begin{align}
 	\textit{p}_1 REL_1 \textit{p}_2 REL_2 \dots REL_{m-1} \quad    m \ge 1 \notag
 \end{align}
-dove ogni \textit{p}$_i$ è una posizione ogni \textit{REL}$_i$ è una relazione spaziale, il suo output è una \textbf{immagine} dove gli elementi \textit{p}$_1$, \textit{p}$_2$,$\dots$, \textit{p}$_n$, sono disposti nello spazio in questo modo:
+dove ogni \textit{p}$_i$ è una posizione ed ogni \textit{REL}$_i$ è una relazione spaziale, il suo output è una \textbf{immagine} dove gli elementi \textit{p}$_1$, \textit{p}$_2$,$\dots$, \textit{p}$_n$, sono disposti nello spazio in questo modo:
 \begin{align}
 	\textit{p}_i+1 \in REL_i (\textit{p}_i)  \quad    1\le \textit{i} \le \textit{m}-1 \notag
 \end{align}
 Le regole di valutazione delle relazioni spaziali sono state pensate per essere una sequenza da sinistra a destra. Diciamo che una regola di valutazione è \textbf{semplice} se non presenta effetti collaterali. \\
-Un esempio di applicazione di semplici regole di valutazione sono i seguenti esempi:
+Un esempio di applicazione di semplici regole di valutazione sono:
 \begin{align}
 	PE(a \to b \to c \to d) \quad \quad = a b c d \notag \\ 
 		PE(a \quad VER \quad b \quad HOR \quad c) \quad  = \quad a \notag \\ 
 		                                                              b \quad  c \notag 
 \end{align}
 \textbf{Derivazioni}\\
-Denotiano $\alpha$ $\overset{*}{\Rightarrow}$ $\beta$ (si legge  $\alpha$ deriva in zero o più passi $\beta$) se esiste una stringa $\alpha_0$$\alpha_1$$\dots$$\alpha_m$ (m$\ge$0) tale che
+Denotiamo $\alpha$ $\overset{*}{\Rightarrow}$ $\beta$ (si legge  $\alpha$ deriva in zero o più passi $\beta$) se esiste una stringa $\alpha_0$$\alpha_1$$\dots$$\alpha_m$ (m$\ge$0) tale che
 \begin{align}
 	\alpha \Rightarrow \alpha_0 \Rightarrow \alpha_1 \Rightarrow \dots \Rightarrow  \alpha_m \quad = \quad \beta  \notag
 \end{align}
@@ -73,6 +73,7 @@ La sequenza $\alpha_0$$\alpha_1$$\dots$$\alpha_m$ è chiamata \textbf{derivazion
 	         \hspace{1.1cm}T $\to$ \textit{VER} \textit{hbar} \textit{VER} F $\mid$ F \par 
 	         \hspace{1.1cm} F $\to$ (\textit{HOR} E \textit{HOR}) $\mid$ \textit{id}  \}   
 \end{center}
+La definizione delle regole di valutazione viene trascurata in quanto non è importante agli scopi di questa tesi.\\
 Una frase posizionale di questa grammatica è:
 \begin{center}
 	\textit{id} \textit{HOR} \textit{+} \textit{HOR} ( \textit{HOR} \textit{id} \textit{HOR} + \textit{HOR} \textit{id} \textit{HOR}) \textit{VER} \textit{hbar} \textit{VER} \textit{id} \textit{HOR} + \textit{HOR} + \textit{id}
@@ -82,13 +83,13 @@ Rimpiazzando \textit{hbar} con una linea orizzontale, e seguendo le definizioni 
 	 \textit{id} + $\frac{(\textit{id} + \textit{id})}{\textit{id}}$ +\textit{id}
 \end{center}
 \section{Definizione GLL Posizionale}
-In questo paragrafo descriveremo la gestione dell'input da parte del GLL parsing posizionale. Il funzionamento dell'algoritmo viene omesso in quanto la gestione dei terminali, non terminali e item della produzione avviene allo stesso modo delle grammatiche context-free
+In questo paragrafo descriveremo la gestione dell'input da parte del GLL parsing posizionale. Il funzionamento dell'algoritmo viene omesso in quanto la gestione dei terminali, non terminali e item della produzione avviene allo stesso modo delle grammatiche context-free tradizionali, così come descritto al capitolo \ref{cap2}.
 \subsection{Gestione dell'input}
-L'input che viene dato in pasto al parser è un immagine simbolica e ogni simbolo contenuto in esso è un token. L'input viene rappresentato da un array \textit{X} dove vengono memorizzati i token e da una matrice M che rappresenta l'input in base alla loro posizione spaziale e sono memorizzati con le posizioni \textit{i-esime} dell'array \textit{X}. Per segnalare la fine della stringa si aggiunge il simbolo $\$$ sia alla fine dell'array \textit{X} e sia nella matrice M.
+L'input che viene dato in pasto al parser è un immagine simbolica e ogni simbolo contenuto in esso è un simbolo terminale. L'input viene rappresentato da un array \textit{X} dove vengono memorizzati i token e da una matrice M che rappresenta l'input in base alla loro posizione spaziale e sono memorizzati con le posizioni \textit{i-esime} dell'array \textit{X}. Per segnalare la fine della stringa si aggiunge il simbolo $\$$ sia alla fine dell'array \textit{X} e sia nella matrice M.
 \subsection{Gestione degli operatori spaziali}
 Per ogni relazione spaziale definiamo un operatore spaziale con lo stesso nome. Ogni qualvolta il parser lo trova viene chiamata la funzione \textit{getNextToken()} che prende in input l'indice dell'array \textit{X} dell'ultimo token visto, l'operatore spaziale e un array \textit{Y} che contiene i token già visti. Restituisce il token successivo, dopo aver consultato la matrice \textit{M}. La ricerca sulla matrice avviene in questo modo:
 \begin{itemize}
-	\item Se l'operatore spaziale è \textit{HOR} (>) il calcolo del token successivo avviene in questo modo: si cerca un token non visto nelle colonne a destra della matrice M dell'ultimo token visto.
-	\item Se invece l'operatore spaziale è \textit{VER} (<) il calcolo del token successivo avviene cercando un token non ancora visto nella righe successive dell'ultimo token visto all'interno della matrice \textit{M}.
+	\item Se l'operatore spaziale è \textit{HOR} (>) il calcolo del simbolo successivo avviene effettuando una ricerca nelle colonne a destra dell'ultimo token visto della matrice M.
+	\item Se invece l'operatore spaziale è \textit{VER} (<) il calcolo del simbolo successivo avviene cercando nella righe successive dell'ultimo token visto all'interno della matrice \textit{M}.
 \end{itemize}
-La ricerca avviene usando l'array dei token visti e si restituisce il primo token che non è stato ancora visto.
+La ricerca avviene consultando l'array dei token visti e restituisce il primo token che non è stato ancora visto.
