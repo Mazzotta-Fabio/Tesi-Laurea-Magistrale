@@ -1,0 +1,57 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {chapter}{\numberline {1}Introduzione}{1}% 
+\contentsline {chapter}{\numberline {2}Parsing top down}{2}% 
+\contentsline {section}{\numberline {2.1}Introduzione}{2}% 
+\contentsline {section}{\numberline {2.2}Grammatiche context-free}{3}% 
+\contentsline {subsection}{\numberline {2.2.1}Definizione di grammatica}{3}% 
+\contentsline {subsection}{\numberline {2.2.2}Convenzioni notazionali}{4}% 
+\contentsline {subsection}{\numberline {2.2.3}Derivazioni}{4}% 
+\contentsline {subsection}{\numberline {2.2.4}Alberi di parsing}{6}% 
+\contentsline {subsection}{\numberline {2.2.5}Ambiguità}{7}% 
+\contentsline {subsection}{\numberline {2.2.6}Grammatiche ricorsive}{7}% 
+\contentsline {section}{\numberline {2.3}Parsing top down}{8}% 
+\contentsline {subsection}{\numberline {2.3.1}Parsing a discesa ricorsiva}{8}% 
+\contentsline {subsection}{\numberline {2.3.2}Funzioni FIRST e FOLLOW}{9}% 
+\contentsline {subsection}{\numberline {2.3.3}Grammatiche LL(1)}{10}% 
+\contentsline {subsection}{\numberline {2.3.4}Parsing predittivo non ricorsivo}{11}% 
+\contentsline {section}{\numberline {2.4}Conclusioni}{12}% 
+\contentsline {chapter}{\numberline {3}GLL Parsing}{13}% 
+\contentsline {section}{\numberline {3.1}Introduzione}{13}% 
+\contentsline {section}{\numberline {3.2}Stack e descrittori elementari}{13}% 
+\contentsline {section}{\numberline {3.3}Definizione GLL Parsing}{16}% 
+\contentsline {subsection}{\numberline {3.3.1}Graph structured stacks}{17}% 
+\contentsline {subsection}{\numberline {3.3.2}Insiemi U e P}{17}% 
+\contentsline {subsection}{\numberline {3.3.3}Funzioni fondamentali}{17}% 
+\contentsline {subsection}{\numberline {3.3.4}Gestione degli item}{18}% 
+\contentsline {subsection}{\numberline {3.3.5}Gestione delle sostituzioni}{19}% 
+\contentsline {subsection}{\numberline {3.3.6}Shared packed parse forest}{20}% 
+\contentsline {section}{\numberline {3.4}Costruzione del GLL Parser}{21}% 
+\contentsline {chapter}{\numberline {4}GLL Parsing Posizionale}{23}% 
+\contentsline {section}{\numberline {4.1}Introduzione}{23}% 
+\contentsline {section}{\numberline {4.2}Definizione formale}{23}% 
+\contentsline {subsection}{\numberline {4.2.1}Relazioni spaziali}{24}% 
+\contentsline {subsection}{\numberline {4.2.2}Regole di valutazioni}{25}% 
+\contentsline {section}{\numberline {4.3}Definizione GLL Posizionale}{26}% 
+\contentsline {subsection}{\numberline {4.3.1}Gestione dell'input}{26}% 
+\contentsline {subsection}{\numberline {4.3.2}Gestione degli operatori spaziali}{26}% 
+\contentsline {chapter}{\numberline {5}Implementazione del GLL parsing}{28}% 
+\contentsline {section}{\numberline {5.1}Introduzione}{28}% 
+\contentsline {section}{\numberline {5.2}Le componenti del sistema}{28}% 
+\contentsline {section}{\numberline {5.3}Le classi degli insiemi R, P e U}{29}% 
+\contentsline {section}{\numberline {5.4}La classe GLL Parser}{32}% 
+\contentsline {chapter}{\numberline {6}Implementazione del GLL Posizionale}{43}% 
+\contentsline {section}{\numberline {6.1}Introduzione}{43}% 
+\contentsline {section}{\numberline {6.2}GLL Parsing su espressioni aritmetiche}{43}% 
+\contentsline {subsection}{\numberline {6.2.1}Gestione dell'input}{43}% 
+\contentsline {subsection}{\numberline {6.2.2}La classe GLLParsingPosizionale}{46}% 
+\contentsline {section}{\numberline {6.3}GLL Parsing sui diagrammi di flusso}{48}% 
+\contentsline {subsection}{\numberline {6.3.1}Struttura dei simboli e gestione dell'input}{49}% 
+\contentsline {subsection}{\numberline {6.3.2}La classe GLLParsingFlowChart}{55}% 
+\contentsline {chapter}{\numberline {7}ParVis}{60}% 
+\contentsline {section}{\numberline {7.1}Introduzione}{60}% 
+\contentsline {section}{\numberline {7.2}Il prompt dei comandi}{60}% 
+\contentsline {section}{\numberline {7.3}Le componenti grafiche del GLL Parsing}{61}% 
+\contentsline {chapter}{\numberline {8}Conclusioni}{67}% 
+\contentsline {section}{\numberline {8.1}Obiettivi raggiunti}{67}% 
+\contentsline {chapter}{\\Bibliografia}{68}% 

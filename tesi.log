@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.16)  11 JUN 2020 14:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.16)  20 JUN 2020 20:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**tesi.tex
+(./tesi.tex
 LaTeX2e <2019-10-01> patch level 1
 (c:/texlive/2019/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2019/08/27 v1.4j Standard LaTeX document class
@@ -850,8 +850,8 @@ Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 )
 (c:/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
-) (./main.aux)
-\openout1 = `main.aux'.
+) (./tesi.aux)
+\openout1 = `tesi.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
@@ -938,35 +938,35 @@ ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  (./inizio/frontespizio.tex
-<C:/Users/fabio/Documents/GitHub/logounisa.png, id=4, 351.3125pt x 351.3125pt>
-File: C:/Users/fabio/Documents/GitHub/logounisa.png Graphic file (type png)
-<use C:/Users/fabio/Documents/GitHub/logounisa.png>
-Package pdftex.def Info: C:/Users/fabio/Documents/GitHub/logounisa.png  used on
- input line 7.
+<files/logounisa.png, id=4, 351.3125pt x 351.3125pt>
+File: files/logounisa.png Graphic file (type png)
+<use files/logounisa.png>
+Package pdftex.def Info: files/logounisa.png  used on input line 7.
 (pdftex.def)             Requested size: 160.00288pt x 160.0pt.
  [1
 
 
 
-{c:/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <c:/Users/fabio/
-Documents/GitHub/logounisa.png>]) (./inizio/dedica.tex) [1] (./main.toc [2
+{c:/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./files/logouni
+sa.png>])
+(./inizio/dedica.tex) [1] (./tesi.toc [2
 
 ])
 \tf@toc=\write5
-\openout5 = `main.toc'.
+\openout5 = `tesi.toc'.
 
- [3]
-(./main.lof)
+ [3] (./tesi.lof)
 \tf@lof=\write6
-\openout6 = `main.lof'.
+\openout6 = `tesi.lof'.
 
  [4
 
-] (./main.lot)
+] (./tesi.lot)
 \tf@lot=\write7
-\openout7 = `main.lot'.
+\openout7 = `tesi.lot'.
 
- [5
+
+[5
 
 ] (./capitoli/introduzione.tex
 Capitolo 1.
@@ -975,11 +975,10 @@ Capitolo 1.
 
 ]
 Capitolo 2.
-<C:/Users/fabio/Documents/GitHub/parser.png, id=43, 477.58424pt x 37.94176pt>
-File: C:/Users/fabio/Documents/GitHub/parser.png Graphic file (type png)
-<use C:/Users/fabio/Documents/GitHub/parser.png>
-Package pdftex.def Info: C:/Users/fabio/Documents/GitHub/parser.png  used on in
-put line 7.
+<files/parser.png, id=42, 477.58424pt x 37.94176pt>
+File: files/parser.png Graphic file (type png)
+<use files/parser.png>
+Package pdftex.def Info: files/parser.png  used on input line 7.
 (pdftex.def)             Requested size: 47.76122pt x 3.79439pt.
 
 Overfull \hbox (30.09842pt too wide) in paragraph at lines 7--8
@@ -995,24 +994,25 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
  [2
 
- <c:/Users/fabio/Documents/GitHub/parser.png>] [3] [4] [5] [6] [7] [8] [9]
-Overfull \hbox (5.16533pt too wide) in paragraph at lines 207--208
+ <./files/parser.png>]
+[3] [4] [5] [6] [7] [8]
+Overfull \hbox (5.16533pt too wide) in paragraph at lines 192--193
 []\T1/cmr/m/n/12 FIRST(\T1/cmr/m/it/12 I\T1/cmr/m/n/12 )=FIRST(\T1/cmr/m/it/12 
 A\T1/cmr/m/n/12 )=FIRST(\T1/cmr/m/it/12 S\T1/cmr/m/n/12 )=FIRST(\T1/cmr/m/it/12
  C\T1/cmr/m/n/12 )=$\OMS/cmsy/m/n/12 f$\T1/cmr/m/n/12 c,d$\OMS/cmsy/m/n/12 g$\T
 1/cmr/m/n/12 . Per ca-pi-re il mo-
  []
 
-[10] [11] [12] [13]) (./capitoli/capitolo2.tex [14]
+[9] [10] [11]) (./capitoli/capitolo2.tex [12]
 Capitolo 3.
-[15
+[13
 
-] [16] [17]
+] [14] [15]
 Overfull \hbox (60.42862pt too wide) detected at line 78
 []
  []
 
-[18] [19]
+[16] [17]
 Overfull \hbox (10.11052pt too wide) in paragraph at lines 109--109
 []\T1/cmr/m/it/12 test\T1/cmr/m/n/12 (\T1/cmr/m/it/12 x\T1/cmr/m/n/12 ,\T1/cmr/
 m/it/12 A\T1/cmr/m/n/12 ,$\OML/cmm/m/it/12 $\T1/cmr/m/n/12 )$\OMS/cmsy/m/n/12 
@@ -1023,7 +1023,7 @@ f$ \T1/cmr/bx/n/12 if\T1/cmr/m/n/12 (\T1/cmr/m/it/12 x $\OMS/cmsy/m/n/12 2$ \T1
 /it/12 A\T1/cmr/m/n/12 ))$\OMS/cmsy/m/n/12 f$ 
  []
 
-[20]
+[18]
 Overfull \hbox (7.9244pt too wide) in paragraph at lines 156--156
 []  \T1/cmr/bx/n/12 el-se if\T1/cmr/m/n/12 (\T1/cmr/m/it/12 test\T1/cmr/m/n/12 
 (\T1/cmr/m/it/12 I\T1/cmr/m/n/12 [\T1/cmr/m/it/12 j\T1/cmr/m/n/12 ],\T1/cmr/m/i
@@ -1031,7 +1031,7 @@ t/12 X\T1/cmr/m/n/12 ,$\OML/cmm/m/it/12 []$\T1/cmr/m/n/12 )$\OMS/cmsy/m/n/12 f
 $\T1/cmr/bx/n/12 goto \T1/cmr/m/it/12 L$[]$$\OMS/cmsy/m/n/12 g$ 
  []
 
-[21]
+[19]
 Overfull \hbox (4.07469pt too wide) in paragraph at lines 161--161
 [] \T1/cmr/m/it/12 co-de\T1/cmr/m/n/12 (\T1/cmr/m/it/12 A\T1/cmr/m/n/12 , j) = 
  \T1/cmr/bx/n/12 if\T1/cmr/m/n/12 (\T1/cmr/m/it/12 test\T1/cmr/m/n/12 (\T1/cmr/
@@ -1051,13 +1051,13 @@ mr/m/it/12 c$[]$\T1/cmr/m/n/12 ,\T1/cmr/m/it/12 j\T1/cmr/m/n/12 )$\OMS/cmsy/m/n
 /12 g$ 
  []
 
-[22] [23]) (./capitoli/capitolo3.tex [24]
+[20] [21]) (./capitoli/capitolo3.tex [22]
 Capitolo 4.
-[25
+[23
 
-] [26] [27] [28]) (./capitoli/capitolo4.tex [29]
+] [24] [25] [26]) (./capitoli/capitolo4.tex [27]
 Capitolo 5.
-<C:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg, id=143, 954.56625pt x 
+<C:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg, id=136, 954.56625pt x 
 525.965pt>
 File: C:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg Graphic file (type
  jpg)
@@ -1073,7 +1073,7 @@ Overfull \hbox (79.99922pt too wide) in paragraph at lines 15--16
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[30
+[28
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
@@ -1085,41 +1085,105 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 va
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1.
- [31 <c:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg>])
+ [29 <c:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg>])
 (c:/Users/fabio/Documents/GitHub/gll-parsing/src/gllparsinglineare/ElementoP.ja
-va [32])
+va [30])
 (c:/Users/fabio/Documents/GitHub/gll-parsing/src/gllparsinglineare/DescrittoreR
-.java [33]) [34] [35] [36] [37] [38]
-(c:/Users/fabio/Documents/GitHub/Prova.java [39] [40] [41] [42]))
-(./capitoli/capitolo5.tex [43] [44]
+.java [31]) [32] [33] [34] [35] [36] (./files/Prova.java [37] [38] [39]
+[40])) (./capitoli/capitolo5.tex [41] [42]
 Capitolo 6.
-(c:/Users/fabio/Documents/GitHub/In.java [45
+(./files/In.java [43
 
-] [46] [47]) [48] [49] [50]
-(c:/Users/fabio/Documents/GitHub/gll-parsing/src/dataset/Token.java [51])
-(c:/Users/fabio/Documents/GitHub/St.java [52])
-(c:/Users/fabio/Documents/GitHub/InH.java [53] [54] [55]) [56] [57] [58]
-[59]) (./capitoli/conclusioni.tex [60] [61]
+] [44] [45]) [46] [47] [48]
+(c:/Users/fabio/Documents/GitHub/gll-parsing/src/dataset/Token.java [49])
+(./files/St.java [50]) (./files/InH.java [51] [52] [53]) [54] [55] [56]
+[57]) (./capitoli/capitolo6.tex [58] [59]
 Capitolo 7.
-) [62
+[60
 
-] (./inizio/bibliografia.tex) [63
+]
+<files/ParVisCommand.png, id=243, 970.62625pt x 632.3625pt>
+File: files/ParVisCommand.png Graphic file (type png)
+<use files/ParVisCommand.png>
+Package pdftex.def Info: files/ParVisCommand.png  used on input line 7.
+(pdftex.def)             Requested size: 97.0683pt x 63.23994pt.
+
+Overfull \hbox (30.02449pt too wide) in paragraph at lines 7--8
+[][] 
+ []
+
+<files/InsiemeU.png, id=244, 647.41875pt x 399.4925pt>
+File: files/InsiemeU.png Graphic file (type png)
+<use files/InsiemeU.png>
+Package pdftex.def Info: files/InsiemeU.png  used on input line 14.
+(pdftex.def)             Requested size: 64.74567pt x 39.95158pt.
+[61 <./files/ParVisCommand.png (PNG copy)>]
+<files/Input.png, id=249, 309.155pt x 465.74pt>
+File: files/Input.png Graphic file (type png)
+<use files/Input.png>
+Package pdftex.def Info: files/Input.png  used on input line 20.
+(pdftex.def)             Requested size: 30.9173pt x 46.57672pt.
+<files/InsiemeP.png, id=250, 587.19376pt x 375.4025pt>
+File: files/InsiemeP.png Graphic file (type png)
+<use files/InsiemeP.png>
+Package pdftex.def Info: files/InsiemeP.png  used on input line 26.
+(pdftex.def)             Requested size: 58.72281pt x 37.54243pt.
+ [62 <./files/InsiemeU.png (PNG copy)> <./files/Input.png (PNG copy)>]
+<files/GSS.png, id=254, 587.19376pt x 462.72874pt>
+File: files/GSS.png Graphic file (type png)
+<use files/GSS.png>
+Package pdftex.def Info: files/GSS.png  used on input line 32.
+(pdftex.def)             Requested size: 58.72281pt x 46.27557pt.
+ [63 <./files/InsiemeP.png (PNG copy)> <./files/GSS.png (PNG copy)>]
+<files/SPPF.png, id=258, 1339.0025pt x 671.50874pt>
+File: files/SPPF.png Graphic file (type png)
+<use files/SPPF.png>
+Package pdftex.def Info: files/SPPF.png  used on input line 37.
+(pdftex.def)             Requested size: 133.9081pt x 67.1548pt.
+
+Overfull \hbox (30.00546pt too wide) in paragraph at lines 37--38
+[][] 
+ []
+
+<files/CurrentState.png, id=259, 272.01625pt x 270.00874pt>
+File: files/CurrentState.png Graphic file (type png)
+<use files/CurrentState.png>
+Package pdftex.def Info: files/CurrentState.png  used on input line 43.
+(pdftex.def)             Requested size: 27.20322pt x 27.00244pt.
+[64 <./files/SPPF.png (PNG copy)> <./files/CurrentState.png (PNG copy)>]
+<files/DumpFile.png, id=263, 906.38625pt x 614.295pt>
+File: files/DumpFile.png Graphic file (type png)
+<use files/DumpFile.png>
+Package pdftex.def Info: files/DumpFile.png  used on input line 49.
+(pdftex.def)             Requested size: 90.64392pt x 61.43309pt.
+<files/InsiemeR.png, id=264, 518.93875pt x 284.06125pt>
+File: files/InsiemeR.png Graphic file (type png)
+<use files/InsiemeR.png>
+Package pdftex.def Info: files/InsiemeR.png  used on input line 55.
+(pdftex.def)             Requested size: 51.89691pt x 28.40778pt.
+)
+(./capitoli/conclusioni.tex [65 <./files/DumpFile.png (PNG copy)> <./files/Insi
+emeR.png (PNG copy)>] [66]
+Capitolo 8.
+) [67
+
+] (./inizio/bibliografia.tex) [68
 
 
-] (./main.aux) )
+] (./tesi.aux) )
 (\end occurred inside a group at level 2)
 
-### simple group (level 2) entered at line 246 ({)
-### simple group (level 1) entered at line 246 ({)
+### simple group (level 2) entered at line 222 ({)
+### simple group (level 1) entered at line 222 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 39660 strings out of 492167
- 851463 string characters out of 6129158
- 1140184 words of memory out of 5000000
- 43523 multiletter control sequences out of 15000+600000
+ 39741 strings out of 492167
+ 853065 string characters out of 6129158
+ 1142184 words of memory out of 5000000
+ 43593 multiletter control sequences out of 15000+600000
  551969 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 136i,11n,162p,4429b,2261s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 136i,11n,162p,4352b,2259s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
 1.enc}<c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:
 /texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2
@@ -1140,13 +1204,12 @@ exlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:/texlive/201
 9/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2019/texmf-di
 st/fonts/type1/public/cm-super/sfrm2488.pfb><c:/texlive/2019/texmf-dist/fonts/t
 ype1/public/cm-super/sfsl1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/publi
-c/cm-super/sfti0800.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super
-/sfti1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sftt1000.
-pfb>
-Output written on main.pdf (69 pages, 719966 bytes).
+c/cm-super/sfti1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super
+/sftt1000.pfb>
+Output written on tesi.pdf (74 pages, 1259133 bytes).
 PDF statistics:
- 333 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
+ 355 PDF objects out of 1000 (max. 8388607)
+ 240 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

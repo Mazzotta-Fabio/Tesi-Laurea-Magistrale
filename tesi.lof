@@ -1,0 +1,26 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \textit {Posizione del parser all'interno del compilatore.}\relax }}{2}% 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces \textit {Albero di parsing relativo alla stringa dcdcd} \relax }}{6}% 
+\contentsline {figure}{\numberline {2.3}{\ignorespaces \textit {Sequenza di alberi di parsing relativi alla derivazione }\ref {derivazione1}\relax }}{6}% 
+\contentsline {figure}{\numberline {2.4}{\ignorespaces \textit {Alberi di parsing relativi alla stringa dcdcd}\relax }}{7}% 
+\contentsline {figure}{\numberline {2.5}{\ignorespaces \textit {Procedura di un non-terminale per un parser top down \cite {libro: compilatori}}\relax }}{8}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \textit {SPPF relativo alla stringa dcdcd}\relax }}{20}% 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \textit {Class diagram del software del GLL Parsing}\relax }}{29}% 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces \textit {Prompt dei comandi}\relax }}{61}% 
+\contentsline {figure}{\numberline {7.2}{\ignorespaces \textit {Insieme U}\relax }}{62}% 
+\contentsline {figure}{\numberline {7.3}{\ignorespaces \textit {Testo in Input}\relax }}{62}% 
+\contentsline {figure}{\numberline {7.4}{\ignorespaces \textit {Insieme P}\relax }}{63}% 
+\contentsline {figure}{\numberline {7.5}{\ignorespaces \textit {GSS}\relax }}{63}% 
+\contentsline {figure}{\numberline {7.6}{\ignorespaces \textit {SPPF}\relax }}{64}% 
+\contentsline {figure}{\numberline {7.7}{\ignorespaces \textit {Stato Corrente}\relax }}{64}% 
+\contentsline {figure}{\numberline {7.8}{\ignorespaces \textit {Informazioni sulla grammatica e sugli stati del parser}\relax }}{65}% 
+\contentsline {figure}{\numberline {7.9}{\ignorespaces \textit {Insieme R}\relax }}{65}% 
+\addvspace {10\p@ }
