@@ -178,7 +178,7 @@ Gli alberi sintattici prodotti dai vari flussi di computazione, creati dall'appl
 	\end{forest}
 	\caption{\textit{SPPF relativo alla stringa dcdcd}}\label{sppf}
 \end{figure}
-\noindent Il parsing GLL restituirà in output un sppf in quanto combinerà tutti gli alberi sintattici calcolati dai vari flussi di computazione creati dall'applicazione del non-determinismo. Per poter costruire questo albero sono state definite due funzioni:
+\noindent Il GLL Parsing restituirà in output un sppf in quanto combinerà tutti gli alberi sintattici calcolati dai vari flussi di computazione creati dall'applicazione del non-determinismo. Per poter costruire questo albero sono state definite due funzioni:
 \begin{itemize}
 	\item \textbf{\textit{getNodeT()}}: la funzione \textit{getNodeT}($\alpha$,\textit{c}$_n$,a$x_1\dots x_n$) viene usata per inserire all'interno del sppf un nodo etichettato $\alpha$, che corrisponde ad un simbolo terminale e non, e a$x_1\dots x_n$a$x_1\dots x_n$, che equivale all'item a cui appartiene. Questo nodo creato viene collegato come nodo figlio al nodo \textit{c}$_n$. Viene definita nel seguente modo:\par
 	\hspace{0.5cm}\textit{getNodeT}($\alpha$,\textit{c}$_n$,a$x_1\dots x_n$)$\{$ \textbf{for} each edge E($c_p$,$c_c$) in SPPF\par \hspace{5.5cm}\textbf{if}(($c_n$=$c_p$)and(a$x_1\dots x_n$=\textit{item of}$c_c$))$\{$ \par \hspace{5.5cm}create a new node c$_v$=(\textit{c}$_a$, a$x_1\dots x_n$);  \par 
