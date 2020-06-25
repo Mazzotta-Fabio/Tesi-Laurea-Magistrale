@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.16)  23 JUN 2020 10:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.16)  25 JUN 2020 19:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -996,7 +996,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 
  <./files/parser.png>]
 [3] [4] [5] [6] [7] [8]
-Overfull \hbox (5.16533pt too wide) in paragraph at lines 192--193
+Overfull \hbox (5.16533pt too wide) in paragraph at lines 187--188
 []\T1/cmr/m/n/12 FIRST(\T1/cmr/m/it/12 I\T1/cmr/m/n/12 )=FIRST(\T1/cmr/m/it/12 
 A\T1/cmr/m/n/12 )=FIRST(\T1/cmr/m/it/12 S\T1/cmr/m/n/12 )=FIRST(\T1/cmr/m/it/12
  C\T1/cmr/m/n/12 )=$\OMS/cmsy/m/n/12 f$\T1/cmr/m/n/12 c,d$\OMS/cmsy/m/n/12 g$\T
@@ -1055,9 +1055,9 @@ mr/m/it/12 c$[]$\T1/cmr/m/n/12 ,\T1/cmr/m/it/12 j\T1/cmr/m/n/12 )$\OMS/cmsy/m/n
 Capitolo 4.
 [23
 
-] [24] [25] [26]) (./capitoli/capitolo4.tex [27]
+] [24] [25]) (./capitoli/capitolo4.tex [26]
 Capitolo 5.
-<C:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg, id=136, 954.56625pt x 
+<C:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg, id=133, 954.56625pt x 
 525.965pt>
 File: C:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg Graphic file (type
  jpg)
@@ -1073,7 +1073,7 @@ Overfull \hbox (79.99922pt too wide) in paragraph at lines 15--16
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[28
+[27
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
@@ -1085,102 +1085,99 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 va
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1.
- [29 <c:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg>])
+ [28 <c:/Users/fabio/Documents/GitHub/GLLParsing/grafico.jpg>])
 (c:/Users/fabio/Documents/GitHub/gll-parsing/src/gllparsinglineare/ElementoP.ja
-va [30])
+va [29])
 (c:/Users/fabio/Documents/GitHub/gll-parsing/src/gllparsinglineare/DescrittoreR
-.java [31]) [32] [33] [34] [35] [36] (./files/Prova.java [37] [38] [39]
-[40])) (./capitoli/capitolo5.tex [41] [42]
+.java [30]) [31] [32] [33] [34] [35] (./files/Prova.java [36] [37] [38]
+[39])) (./capitoli/capitolo5.tex [40] [41]
 Capitolo 6.
-(./files/In.java [43
+(./files/In.java [42
 
-] [44] [45]) [46] [47] [48]
-(c:/Users/fabio/Documents/GitHub/gll-parsing/src/dataset/Token.java [49])
-(./files/St.java [50]) (./files/InH.java [51] [52] [53]) [54] [55] [56]
-[57]) (./capitoli/capitolo6.tex [58] [59]
+] [43] [44]) [45]) (./capitoli/capitolo6.tex [46]
 Capitolo 7.
-[60
+[47
 
 ]
-<files/ParVisCommand.png, id=243, 970.62625pt x 632.3625pt>
+<files/ParVisCommand.png, id=202, 772.8875pt x 597.23125pt>
 File: files/ParVisCommand.png Graphic file (type png)
 <use files/ParVisCommand.png>
-Package pdftex.def Info: files/ParVisCommand.png  used on input line 7.
-(pdftex.def)             Requested size: 97.0683pt x 63.23994pt.
+Package pdftex.def Info: files/ParVisCommand.png  used on input line 8.
+(pdftex.def)             Requested size: 77.29327pt x 59.72661pt.
 
-Overfull \hbox (30.02449pt too wide) in paragraph at lines 7--8
+Overfull \hbox (30.06516pt too wide) in paragraph at lines 8--9
 [][] 
  []
 
-<files/InsiemeU.png, id=244, 647.41875pt x 399.4925pt>
+[48 <./files/ParVisCommand.png (PNG copy)>]
+<files/InsiemeU.png, id=206, 486.81876pt x 399.4925pt>
 File: files/InsiemeU.png Graphic file (type png)
 <use files/InsiemeU.png>
-Package pdftex.def Info: files/InsiemeU.png  used on input line 14.
-(pdftex.def)             Requested size: 64.74567pt x 39.95158pt.
-[61 <./files/ParVisCommand.png (PNG copy)>]
-<files/Input.png, id=249, 309.155pt x 465.74pt>
+Package pdftex.def Info: files/InsiemeU.png  used on input line 15.
+(pdftex.def)             Requested size: 48.68472pt x 39.95158pt.
+<files/Input.png, id=207, 295.1025pt x 345.29pt>
 File: files/Input.png Graphic file (type png)
 <use files/Input.png>
-Package pdftex.def Info: files/Input.png  used on input line 20.
-(pdftex.def)             Requested size: 30.9173pt x 46.57672pt.
-<files/InsiemeP.png, id=250, 587.19376pt x 375.4025pt>
+Package pdftex.def Info: files/Input.png  used on input line 21.
+(pdftex.def)             Requested size: 29.51196pt x 34.53102pt.
+ [49 <./files/InsiemeU.png (PNG copy)> <./files/Input.png (PNG copy)>]
+<files/InsiemeP.png, id=212, 582.175pt x 374.39874pt>
 File: files/InsiemeP.png Graphic file (type png)
 <use files/InsiemeP.png>
-Package pdftex.def Info: files/InsiemeP.png  used on input line 26.
-(pdftex.def)             Requested size: 58.72281pt x 37.54243pt.
- [62 <./files/InsiemeU.png (PNG copy)> <./files/Input.png (PNG copy)>]
-<files/GSS.png, id=254, 587.19376pt x 462.72874pt>
+Package pdftex.def Info: files/InsiemeP.png  used on input line 27.
+(pdftex.def)             Requested size: 58.2209pt x 37.44206pt.
+<files/GSS.png, id=213, 541.02126pt x 460.72125pt>
 File: files/GSS.png Graphic file (type png)
 <use files/GSS.png>
-Package pdftex.def Info: files/GSS.png  used on input line 32.
-(pdftex.def)             Requested size: 58.72281pt x 46.27557pt.
- [63 <./files/InsiemeP.png (PNG copy)> <./files/GSS.png (PNG copy)>]
-<files/SPPF.png, id=258, 1339.0025pt x 671.50874pt>
+Package pdftex.def Info: files/GSS.png  used on input line 33.
+(pdftex.def)             Requested size: 54.10529pt x 46.07481pt.
+ [50 <./files/InsiemeP.png (PNG copy)> <./files/GSS.png (PNG copy)>]
+<files/SPPF.png, id=217, 1140.26pt x 673.51625pt>
 File: files/SPPF.png Graphic file (type png)
 <use files/SPPF.png>
-Package pdftex.def Info: files/SPPF.png  used on input line 37.
-(pdftex.def)             Requested size: 133.9081pt x 67.1548pt.
+Package pdftex.def Info: files/SPPF.png  used on input line 38.
+(pdftex.def)             Requested size: 114.03267pt x 67.35556pt.
 
-Overfull \hbox (30.00546pt too wide) in paragraph at lines 37--38
+Overfull \hbox (20.00499pt too wide) in paragraph at lines 38--39
 [][] 
  []
 
-<files/CurrentState.png, id=259, 272.01625pt x 270.00874pt>
+<files/CurrentState.png, id=218, 323.2075pt x 272.01625pt>
 File: files/CurrentState.png Graphic file (type png)
 <use files/CurrentState.png>
-Package pdftex.def Info: files/CurrentState.png  used on input line 43.
-(pdftex.def)             Requested size: 27.20322pt x 27.00244pt.
-[64 <./files/SPPF.png (PNG copy)> <./files/CurrentState.png (PNG copy)>]
-<files/DumpFile.png, id=263, 906.38625pt x 614.295pt>
+Package pdftex.def Info: files/CurrentState.png  used on input line 44.
+(pdftex.def)             Requested size: 32.32263pt x 27.20322pt.
+[51 <./files/SPPF.png (PNG copy)> <./files/CurrentState.png (PNG copy)>]
+<files/DumpFile.png, id=222, 578.16pt x 614.295pt>
 File: files/DumpFile.png Graphic file (type png)
 <use files/DumpFile.png>
-Package pdftex.def Info: files/DumpFile.png  used on input line 49.
-(pdftex.def)             Requested size: 90.64392pt x 61.43309pt.
-<files/InsiemeR.png, id=264, 518.93875pt x 284.06125pt>
+Package pdftex.def Info: files/DumpFile.png  used on input line 50.
+(pdftex.def)             Requested size: 57.81938pt x 61.43309pt.
+<files/InsiemeR.png, id=223, 551.05875pt x 314.17375pt>
 File: files/InsiemeR.png Graphic file (type png)
 <use files/InsiemeR.png>
-Package pdftex.def Info: files/InsiemeR.png  used on input line 55.
-(pdftex.def)             Requested size: 51.89691pt x 28.40778pt.
-)
-(./capitoli/conclusioni.tex [65 <./files/DumpFile.png (PNG copy)> <./files/Insi
-emeR.png (PNG copy)>] [66]
-Capitolo 8.
-) [67
+Package pdftex.def Info: files/InsiemeR.png  used on input line 56.
+(pdftex.def)             Requested size: 55.1091pt x 31.4192pt.
 
-] (./inizio/bibliografia.tex) [68
+[52 <./files/DumpFile.png (PNG copy)> <./files/InsiemeR.png (PNG copy)>])
+(./capitoli/conclusioni.tex [53]
+Capitolo 8.
+) [54
+
+] (./inizio/bibliografia.tex) [55
 
 
 ] (./tesi.aux) )
 (\end occurred inside a group at level 2)
 
-### simple group (level 2) entered at line 222 ({)
-### simple group (level 1) entered at line 222 ({)
+### simple group (level 2) entered at line 217 ({)
+### simple group (level 1) entered at line 217 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 39741 strings out of 492167
- 853065 string characters out of 6129158
+ 39660 strings out of 492167
+ 851788 string characters out of 6129158
  1142184 words of memory out of 5000000
- 43593 multiletter control sequences out of 15000+600000
+ 43523 multiletter control sequences out of 15000+600000
  551969 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  136i,11n,162p,4352b,2259s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1206,10 +1203,10 @@ st/fonts/type1/public/cm-super/sfrm2488.pfb><c:/texlive/2019/texmf-dist/fonts/t
 ype1/public/cm-super/sfsl1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/publi
 c/cm-super/sfti1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super
 /sftt1000.pfb>
-Output written on tesi.pdf (74 pages, 1259370 bytes).
+Output written on tesi.pdf (61 pages, 1126335 bytes).
 PDF statistics:
- 355 PDF objects out of 1000 (max. 8388607)
- 240 compressed objects within 3 object streams
+ 313 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -19,19 +19,8 @@ dove \textit{A} $\in$ N, ogni $\alpha_i$ $\in$ P ed ogni \textit{REL}$_1$ $\in$ 
 \vspace{0.3cm}
 \noindent Nelle grammatiche tradizionali abbiamo una sola relazione spaziale che è data dalla concatenazione della stringa, nelle grammatiche posizionali vengono usate più relazioni spaziali che danno le informazioni posizionali al lexer per leggere il prossimo simbolo.
 \subsection{Relazioni spaziali}
-L'insieme di relazioni spaziali \cite{pubblicazione: tomita} possono essere suddivisi in 3 sottoinsiemi: \textit{type}-2, \textit{type}-1, \textit{type}-0. Ogni sottoinsieme include quattro relazioni spaziali direzionali che sono: sopra, sotto, destra e sinistra. Ogni direzione può essere descritta da una funzione che prende in input una coordinata nel piano cartesiano e restituisce in output un insieme di posizioni. Qui di seguito mostriamo le definizioni dei tre tipi di relazioni spaziali ed illustreremo solo le funzioni descritte; le altre possono essere ricavate in maniera molto simile.
+L'insieme di relazioni spaziali \cite{pubblicazione: tomita} possono essere suddivisi in 3 sottoinsiemi: \textit{type}-2, \textit{type}-1, \textit{type}-0. Ogni sottoinsieme include quattro relazioni spaziali direzionali che sono: sopra, sotto, destra e sinistra. Ogni direzione può essere descritta da una funzione che prende in input una coordinata nel piano cartesiano e restituisce in output un insieme di posizioni. Qui di seguito mostriamo la definizione di relazione spaziale \textit{type}-0, poichè verrà utilizzata in questa tesi.
 \begin{flushleft}
-	\textbf{Type-2}  \\
-	$\to$   spostamento  di un movimento a destra: (\textit{x}, \textit{y}) $\to$ (\textit{x}+1, \textit{y})\\
-	$\gets$   spostamento  di un movimento a sinistra \\
-	$\uparrow$   spostamento  di un movimento in alto \\
-	$\downarrow$   spostamento  di un movimento in basso \par
-	\vspace{0.2cm}\noindent \textbf{Type-1}  \\
-	$\to_1$   spostamento a destra sulla stessa linea:\par 
-	\hspace{0.5cm}(\textit{x}, \textit{y}) $\to$ $\{$$\to^{(n)}$  (\textit{x},\textit{y}) $\mid$ n=1,2,$\dots$$\}$ \\
-	$\gets_1$ spostamento a sinistra sulla stessa linea\\
-	$\uparrow_1$ spostamento in alto sulla stessa linea\\
-	$\downarrow_1$ spostamento in basso sulla stessa linea \par
 	\vspace{0.2cm}\noindent \textbf{Type-0}  \\
 	$\to_0$  spostamento a destra: \par 
 	(\textit{x},\textit{y}) $\to$   $\to_0$(\textit{x},\textit{y})  $\cup$ $\downarrow_1$(\textit{x}$^{'}$,\textit{y}$^{'}$) $\cup$ $\to_1$ (\textit{x}$^{'}$, \textit{y}$^{'}$) dove (\textit{x}$^{'}$, \textit{y}$^{'}$) cambia in$\to_0$(\textit{x},\textit{y})\\
@@ -39,7 +28,7 @@ L'insieme di relazioni spaziali \cite{pubblicazione: tomita} possono essere sudd
 	$\uparrow_0$ spostamento in alto \\
 	$\downarrow_0$ spostamento in basso 
 \end{flushleft}
-C'è da precisare, quindi, che ogni simbolo presente in uno spazio bidimensionale viene identificato conoscendo sempre la sua posizione attuale. Ad esempio, se diamo in input una posizione \textit{p} nel piano, la relazione spaziale $\to$ in type-2 applicata a \textit{p} restituisce le prime posizioni a destra di \textit{p}.
+C'è da precisare, quindi, che ogni simbolo presente in uno spazio bidimensionale viene identificato conoscendo sempre la sua posizione attuale. Ad esempio, se diamo in input una posizione \textit{p} nel piano, la relazione spaziale $\to_0$ in type-0 applicata a \textit{p} restituisce un insieme di posizioni a destra di \textit{p} che non sono nella stessa linea di \textit{p}.
 Nei nostri esempi utilizzeremo le relazioni spaziali HOR e VER che corrispondono alle relazioni spaziali $\to_0$ e $\downarrow_0$ - $\to_0$, rispettivamente, dove $\downarrow_0$ - $\to_0$ è un insieme che risulta essere la differenza tra l'insieme di posizioni generate da $\downarrow_0$ e $\to_0$ quando sono applicate alla stessa posizione. 
 \subsection{Regole di valutazioni}
 Una regola di valutazione PE \cite{pubblicazione: tomita} è una funzione che prende in input una stringa del tipo 
